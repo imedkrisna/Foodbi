@@ -17,7 +17,7 @@ My thanks to Pak Sagap & BPS team for running this code. Some explanation:
 
 3. Everything will be zipped in a file named "For_Krisna.zip" and that's the only file we need!
 
-4. Please put this do file in a folder contains the data. You only need to change 2 lines: the cd command (line 30) and use command (line 32)
+4. Please put this do file in a folder contains the data. You only need to change 2 lines: the cd command (line 40) and use command (line 42)
 
 5. Thanks again!
 

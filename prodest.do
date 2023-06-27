@@ -51,6 +51,7 @@ gen ln=log(zpdvcu+zndvcu)
 gen lk=log(v1115)
 gen lo=log(output)
 gen lm=log(rdnvcu+rimvcu)
+gen ll=log(ltlnou)
 
 save pakai,replace 
 

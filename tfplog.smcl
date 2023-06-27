@@ -1,0 +1,146 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}C:\github\Foodbi\tfplog.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}27 Jun 2023, 18:43:39
+{txt}
+{com}. /*
+> ╔╗─────────╔═══╗╔╗────╔═══╗╔╗─────╔╗
+> ║║─────────║╔══╝║║────║╔═╗╠╝╚╗───╔╝╚╗
+> ║║──╔══╦══╗║╚══╦╣║╔══╗║╚══╬╗╔╬══╦╩╗╔╝
+> ║║─╔╣╔╗║╔╗║║╔══╬╣║║║═╣╚══╗║║║║╔╗║╔╣║
+> ║╚═╝║╚╝║╚╝║║║──║║╚╣║═╣║╚═╝║║╚╣╔╗║║║╚╗
+> ╚═══╩══╩═╗║╚╝──╚╩═╩══╝╚═══╝╚═╩╝╚╩╝╚═╝
+> ───────╔═╝║
+> ───────╚══╝
+> */
+. cd "C:\github\foodbi" // Please change this to the proper working directory
+{res}C:\github\foodbi
+{txt}
+{com}. 
+. use "new_data/panel/data0015_5long.dta" // Pleace change this with the data in
+{txt}
+{com}. 
+. xtset psid year
+{res}
+{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
+{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
+{txt}{col 10}Delta: {res}1 unit
+{txt}
+{com}. keep if disic2==15
+{txt}(288,569 observations deleted)
+
+{com}. duplicates tag psid, generate(tagg)
+
+{p 0 4}{txt}Duplicates in terms of {res} psid{p_end}
+{txt}
+{com}. 
+. gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
+{txt}(1 missing value generated)
+
+{com}. gen labshare=(zpdvcu+zndvcu)/cost
+{txt}(1 missing value generated)
+
+{com}. gen ln=log(zpdvcu+zndvcu)
+{txt}(1 missing value generated)
+
+{com}. gen lk=log(v1115)
+{txt}(33,011 missing values generated)
+
+{com}. gen lo=log(output)
+{txt}
+{com}. gen lm=log(rdnvcu+rimvcu)
+{txt}(924 missing values generated)
+
+{com}. gen ll=log(ltlnou)
+{txt}
+{com}. 
+. save pakai,replace 
+{txt}{p 0 4 2}
+(file {bf}
+pakai.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+pakai.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. prodest lo, free(ln) state(lk) proxy(lm) method(lp) acf translog fsresidual(om) control(ll)
+{err}Using ACF correction with GO output does not ensure a correct parameter identification. See ACF (2015).
+.{res}....
+
+
+{txt}lp productivity estimator {col 49}translog PF
+ACF corrected
+Dependent variable: revenue{col 49}Number of obs      = {res}    55063
+{txt}Group variable (id): psid{col 49}Number of groups   = {res}     8993
+{txt}Time variable (t): year
+{col 49}Obs per group: min = {res}        1
+{col 49}{txt}               avg = {res}      6.1
+{col 49}{txt}               max = {res}       15
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}ln {c |}{col 14}{res}{space 2} .3055522{col 26}{space 2} .0100557{col 37}{space 1}   30.39{col 46}{space 3}0.000{col 54}{space 4} .2858434{col 67}{space 3}  .325261
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1796046{col 26}{space 2} .0188958{col 37}{space 1}    9.51{col 46}{space 3}0.000{col 54}{space 4} .1425696{col 67}{space 3} .2166397
+{txt}{space 10}ll {c |}{col 14}{res}{space 2} .1107241{col 26}{space 2} .0098412{col 37}{space 1}   11.25{col 46}{space 3}0.000{col 54}{space 4} .0914356{col 67}{space 3} .1300125
+{txt}{space 10}lm {c |}{col 14}{res}{space 2} .5180545{col 26}{space 2} .0279611{col 37}{space 1}   18.53{col 46}{space 3}0.000{col 54}{space 4} .4632518{col 67}{space 3} .5728571
+{txt}{space 5}var_1_1 {c |}{col 14}{res}{space 2}  .029344{col 26}{space 2}  .011301{col 37}{space 1}    2.60{col 46}{space 3}0.009{col 54}{space 4} .0071945{col 67}{space 3} .0514936
+{txt}{space 5}var_1_2 {c |}{col 14}{res}{space 2} .0260745{col 26}{space 2} .0060827{col 37}{space 1}    4.29{col 46}{space 3}0.000{col 54}{space 4} .0141526{col 67}{space 3} .0379965
+{txt}{space 5}var_1_3 {c |}{col 14}{res}{space 2}-.0936459{col 26}{space 2} .0272574{col 37}{space 1}   -3.44{col 46}{space 3}0.001{col 54}{space 4}-.1470694{col 67}{space 3}-.0402225
+{txt}{space 5}var_2_2 {c |}{col 14}{res}{space 2}-.0219368{col 26}{space 2} .0145879{col 37}{space 1}   -1.50{col 46}{space 3}0.133{col 54}{space 4}-.0505285{col 67}{space 3}  .006655
+{txt}{space 5}var_2_3 {c |}{col 14}{res}{space 2} .0063445{col 26}{space 2} .0273369{col 37}{space 1}    0.23{col 46}{space 3}0.816{col 54}{space 4}-.0472349{col 67}{space 3} .0599238
+{txt}{space 5}var_3_3 {c |}{col 14}{res}{space 2} .1038344{col 26}{space 2}  .001624{col 37}{space 1}   63.94{col 46}{space 3}0.000{col 54}{space 4} .1006514{col 67}{space 3} .1070174
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Wald test on Constant returns to scale: Chi2 = 240.67
+                                          p = (0.00)
+Estimated parameters displayed. To see estimated input elasticities, type{stata predict, parameters: predict, parameters}
+
+{com}. outreg2 using "tfp1.xls",excel replace
+{txt}{browse `"tfp1.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfp1.txt""':seeout}
+
+{com}. 
+{txt}end of do-file
+
+{com}. prodest lo, free(ln) state(lk) proxy(lm) method(lp) acf translog fsresidual(om)
+{err}om already exists
+{txt}{search r(198), local:r(198);}
+
+{com}. prodest lo, free(ln) state(lk) proxy(lm) method(lp) acf translog fsresidual(om2)
+{err}Using ACF correction with GO output does not ensure a correct parameter identification. See ACF (2015).
+.{res}....
+
+
+{txt}lp productivity estimator {col 49}translog PF
+ACF corrected
+Dependent variable: revenue{col 49}Number of obs      = {res}    55063
+{txt}Group variable (id): psid{col 49}Number of groups   = {res}     8993
+{txt}Time variable (t): year
+{col 49}Obs per group: min = {res}        1
+{col 49}{txt}               avg = {res}      6.1
+{col 49}{txt}               max = {res}       15
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}ln {c |}{col 14}{res}{space 2} .1591734{col 26}{space 2} .0005347{col 37}{space 1}  297.70{col 46}{space 3}0.000{col 54}{space 4} .1581255{col 67}{space 3} .1602213
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1759451{col 26}{space 2} .0013886{col 37}{space 1}  126.71{col 46}{space 3}0.000{col 54}{space 4} .1732235{col 67}{space 3} .1786666
+{txt}{space 10}lm {c |}{col 14}{res}{space 2} .4551501{col 26}{space 2} .0007061{col 37}{space 1}  644.56{col 46}{space 3}0.000{col 54}{space 4} .4537661{col 67}{space 3} .4565341
+{txt}{space 5}var_1_1 {c |}{col 14}{res}{space 2} .0430802{col 26}{space 2}  .000688{col 37}{space 1}   62.62{col 46}{space 3}0.000{col 54}{space 4} .0417317{col 67}{space 3} .0444287
+{txt}{space 5}var_1_2 {c |}{col 14}{res}{space 2} .0268445{col 26}{space 2} .0012751{col 37}{space 1}   21.05{col 46}{space 3}0.000{col 54}{space 4} .0243453{col 67}{space 3} .0293437
+{txt}{space 5}var_1_3 {c |}{col 14}{res}{space 2}-.0970498{col 26}{space 2} .0007526{col 37}{space 1} -128.96{col 46}{space 3}0.000{col 54}{space 4}-.0985248{col 67}{space 3}-.0955748
+{txt}{space 5}var_2_2 {c |}{col 14}{res}{space 2} .0066453{col 26}{space 2}  .000903{col 37}{space 1}    7.36{col 46}{space 3}0.000{col 54}{space 4} .0048753{col 67}{space 3} .0084152
+{txt}{space 5}var_2_3 {c |}{col 14}{res}{space 2}-.0435432{col 26}{space 2} .0005942{col 37}{space 1}  -73.28{col 46}{space 3}0.000{col 54}{space 4}-.0447078{col 67}{space 3}-.0423786
+{txt}{space 5}var_3_3 {c |}{col 14}{res}{space 2} .0725424{col 26}{space 2} .0011784{col 37}{space 1}   61.56{col 46}{space 3}0.000{col 54}{space 4} .0702329{col 67}{space 3}  .074852
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Wald test on Constant returns to scale: Chi2 =  2.4e+05
+                                          p = (0.00)
+Estimated parameters displayed. To see estimated input elasticities, type{stata predict, parameters: predict, parameters}
+
+{com}. exit, clear

@@ -17,7 +17,7 @@ My thanks to Pak Sagap & BPS team for running this code. Some explanation:
 
 3. Everything will be zipped in a file named "For_Krisna.zip" and that's the only file we need!
 
-4. Please put this do file in a folder contains the data. You only need to change 2 lines: the cd command (line 40) and use command (line 42)
+4. Please put this do file in a folder contains the data. You only need to change 2 lines: the cd command (line 40) and use command (line 42) (3 apparently. The ISIC. Food & Beverage please!)
 
 5. Thanks again!
 
@@ -42,7 +42,7 @@ cd "C:\github\foodbi" // Please change this to the proper working directory
 use "new_data/panel/data0015_5long.dta" // Pleace change this with the data in
 
 xtset psid year
-keep if disic2==15
+keep if disic2==10 | disic2==11 // ISIC Rev. 4. For ISIC rev.3, 15
 duplicates tag psid, generate(tagg)
 
 gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
@@ -52,7 +52,7 @@ gen lk=log(v1115)
 gen lo=log(output)
 gen lm=log(rdnvcu+rimvcu)
 
-save pakai,replace 
+save pakai,replace
 
 prodest lo, free(ln) state(lk) proxy(lm) method(lp) acf translog fsresidual(om)
 outreg2 using "tfp1.xls",excel replace

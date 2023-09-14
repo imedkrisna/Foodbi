@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\foodbi\tfplog.smcl
+       {txt}log:  {res}C:\github\Foodbi\tfplog.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}13 Sep 2023, 21:48:02
+ {txt}opened on:  {res}14 Sep 2023, 09:50:38
 {txt}
 {com}. /*
 > ╔╗─────────╔═══╗╔╗────╔═══╗╔╗─────╔╗
@@ -31,31 +31,34 @@
 {com}. keep if disic2_4==10 // ISIC Rev. 4. For ISIC rev.3, 15
 {txt}(4,985 observations deleted)
 
-{com}. keep if v1115!=.
-{txt}(9,422 observations deleted)
-
-{com}. keep if v1115>5
-{txt}(21,451 observations deleted)
-
 {com}. 
 . gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
-{txt}
+{txt}(1 missing value generated)
+
 {com}. gen labshare=(zpdvcu+zndvcu)/cost
-{txt}
+{txt}(1 missing value generated)
+
 {com}. gen ln=log(zpdvcu+zndvcu)
-{txt}
+{txt}(1 missing value generated)
+
 {com}. gen lk=log(v1115)
-{txt}
+{txt}(30,867 missing values generated)
+
 {com}. gen lo=log(output)
 {txt}
 {com}. gen lm=log(rdnvcu+rimvcu)
-{txt}(284 missing values generated)
+{txt}(710 missing values generated)
 
 {com}. gen ll=log(ltlnou)
 {txt}
 {com}. 
 . save pakai,replace
 {txt}{p 0 4 2}
+(file {bf}
+pakai.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
 file {bf}
 pakai.dta{rm}
 saved
@@ -68,7 +71,7 @@ saved
 
 {txt}lp productivity estimator {col 49}Cobb-Douglas PF
 
-Dependent variable: revenue{col 49}Number of obs      = {res}    52351
+Dependent variable: revenue{col 49}Number of obs      = {res}    52357
 {txt}Group variable (id): psid{col 49}Number of groups   = {res}     8564
 {txt}Time variable (t): year
 {col 49}Obs per group: min = {res}        1
@@ -78,11 +81,11 @@ Dependent variable: revenue{col 49}Number of obs      = {res}    52351
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1887008{col 26}{space 2} .0017507{col 37}{space 1}  107.79{col 46}{space 3}0.000{col 54}{space 4} .1852696{col 67}{space 3} .1921321
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0573421{col 26}{space 2}  .005138{col 37}{space 1}   11.16{col 46}{space 3}0.000{col 54}{space 4} .0472718{col 67}{space 3} .0674124
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6674565{col 26}{space 2} .0062807{col 37}{space 1}  106.27{col 46}{space 3}0.000{col 54}{space 4} .6551465{col 67}{space 3} .6797665
+{space 10}ln {c |}{col 14}{res}{space 2} .1907906{col 26}{space 2} .0051467{col 37}{space 1}   37.07{col 46}{space 3}0.000{col 54}{space 4} .1807033{col 67}{space 3}  .200878
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0543225{col 26}{space 2} .0026333{col 37}{space 1}   20.63{col 46}{space 3}0.000{col 54}{space 4} .0491613{col 67}{space 3} .0594836
+{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6647346{col 26}{space 2} .0065941{col 37}{space 1}  100.81{col 46}{space 3}0.000{col 54}{space 4} .6518103{col 67}{space 3} .6776589
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 161.20
+Wald test on Constant returns to scale: Chi2 = 308.93
                                           p = (0.00)
 
 {com}. outreg2 using "tfp1.xls",excel replace
@@ -91,19 +94,21 @@ Wald test on Constant returns to scale: Chi2 = 161.20
 
 {com}. 
 . predict mu1,markups inputvar(ln)
-{txt}
+{txt}(1 missing value generated)
+
 {com}. predict mu2,markups inputvar(lm)
-{txt}(284 missing values generated)
+{txt}(710 missing values generated)
 
 {com}. gen mu3=0.1887008/labshare
-{txt}
+{txt}(2 missing values generated)
+
 {com}. predict ,parameters
 {res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1887008{col 26}{space 2} .0017507{col 37}{space 1}  107.79{col 46}{space 3}0.000{col 54}{space 4} .1852696{col 67}{space 3} .1921321
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0573421{col 26}{space 2}  .005138{col 37}{space 1}   11.16{col 46}{space 3}0.000{col 54}{space 4} .0472718{col 67}{space 3} .0674124
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6674565{col 26}{space 2} .0062807{col 37}{space 1}  106.27{col 46}{space 3}0.000{col 54}{space 4} .6551465{col 67}{space 3} .6797665
+{space 10}ln {c |}{col 14}{res}{space 2} .1907906{col 26}{space 2} .0051467{col 37}{space 1}   37.07{col 46}{space 3}0.000{col 54}{space 4} .1807033{col 67}{space 3}  .200878
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0543225{col 26}{space 2} .0026333{col 37}{space 1}   20.63{col 46}{space 3}0.000{col 54}{space 4} .0491613{col 67}{space 3} .0594836
+{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6647346{col 26}{space 2} .0065941{col 37}{space 1}  100.81{col 46}{space 3}0.000{col 54}{space 4} .6518103{col 67}{space 3} .6776589
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 
 {com}. predict tfp,omega
@@ -111,365 +116,137 @@ Wald test on Constant returns to scale: Chi2 = 161.20
 {com}. 
 . save tfp1, replace
 {txt}{p 0 4 2}
+(file {bf}
+tfp1.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
 file {bf}
 tfp1.dta{rm}
 saved
 {p_end}
 
 {com}. 
-. clear all
-{res}{txt}
-{com}. use pakai
+. clear
 {txt}
-{com}. levelsof disic3_4,local(ids)
-{res}{txt}101 102 103 104 105 106 107 108
-
-{com}. foreach i in `ids' {c -(}
-{txt}  2{com}.         clear all
-{txt}  3{com}.         use pakai
-{txt}  4{com}.         xtset psid year
-{txt}  5{com}.         keep if disic3_4==`i'
-{txt}  6{com}.         prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
-{txt}  7{com}.         predict tfp,omega
-{txt}  8{com}.         predict,parameters
-{txt}  9{com}.         predict mu1,markups inputvar(ln)
-{txt} 10{com}.         predict mu2,markups inputvar(lm)
-{txt} 11{com}.         save tfpb`i',replace
-{txt} 12{com}.         outreg2 using tfpb`i'.xls,replace se bdec(3) tdec(3) excel
-{txt} 13{com}. 
-. {c )-}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(52,130 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}      456
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}      131
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      3.5
-{col 49}{txt}               max = {res}       14
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .2579848{col 26}{space 2}  .014462{col 37}{space 1}   17.84{col 46}{space 3}0.000{col 54}{space 4} .2296398{col 67}{space 3} .2863298
-{txt}{space 10}lk {c |}{col 14}{res}{space 2}-.0003686{col 26}{space 2} .0105239{col 37}{space 1}   -0.04{col 46}{space 3}0.972{col 54}{space 4}-.0209952{col 67}{space 3}  .020258
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7937046{col 26}{space 2} .0271017{col 37}{space 1}   29.29{col 46}{space 3}0.000{col 54}{space 4} .7405863{col 67}{space 3} .8468228
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 11.57
-                                          p = (0.00)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .2579848{col 26}{space 2}  .014462{col 37}{space 1}   17.84{col 46}{space 3}0.000{col 54}{space 4} .2296398{col 67}{space 3} .2863298
-{txt}{space 10}lk {c |}{col 14}{res}{space 2}-.0003686{col 26}{space 2} .0105239{col 37}{space 1}   -0.04{col 46}{space 3}0.972{col 54}{space 4}-.0209952{col 67}{space 3}  .020258
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7937046{col 26}{space 2} .0271017{col 37}{space 1}   29.29{col 46}{space 3}0.000{col 54}{space 4} .7405863{col 67}{space 3} .8468228
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(49 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb101.dta{rm}
-saved
-{p_end}
-{browse `"tfpb101.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb101.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(44,977 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}     7631
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}     1474
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      5.2
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1565333{col 26}{space 2} .0069096{col 37}{space 1}   22.65{col 46}{space 3}0.000{col 54}{space 4} .1429908{col 67}{space 3} .1700758
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0823112{col 26}{space 2} .0082741{col 37}{space 1}    9.95{col 46}{space 3}0.000{col 54}{space 4} .0660941{col 67}{space 3} .0985282
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7036957{col 26}{space 2} .0199008{col 37}{space 1}   35.36{col 46}{space 3}0.000{col 54}{space 4} .6646908{col 67}{space 3} .7427005
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 10.31
-                                          p = (0.00)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1565333{col 26}{space 2} .0069096{col 37}{space 1}   22.65{col 46}{space 3}0.000{col 54}{space 4} .1429908{col 67}{space 3} .1700758
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0823112{col 26}{space 2} .0082741{col 37}{space 1}    9.95{col 46}{space 3}0.000{col 54}{space 4} .0660941{col 67}{space 3} .0985282
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7036957{col 26}{space 2} .0199008{col 37}{space 1}   35.36{col 46}{space 3}0.000{col 54}{space 4} .6646908{col 67}{space 3} .7427005
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(27 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb102.dta{rm}
-saved
-{p_end}
-{browse `"tfpb102.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb102.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(51,953 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}      676
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}      190
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      3.6
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .2356168{col 26}{space 2} .0159029{col 37}{space 1}   14.82{col 46}{space 3}0.000{col 54}{space 4} .2044478{col 67}{space 3} .2667859
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0367692{col 26}{space 2} .0367953{col 37}{space 1}    1.00{col 46}{space 3}0.318{col 54}{space 4}-.0353483{col 67}{space 3} .1088868
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6526489{col 26}{space 2} .0283957{col 37}{space 1}   22.98{col 46}{space 3}0.000{col 54}{space 4} .5969943{col 67}{space 3} .7083035
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 2.01
-                                          p = (0.16)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .2356168{col 26}{space 2} .0159029{col 37}{space 1}   14.82{col 46}{space 3}0.000{col 54}{space 4} .2044478{col 67}{space 3} .2667859
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0367692{col 26}{space 2} .0367953{col 37}{space 1}    1.00{col 46}{space 3}0.318{col 54}{space 4}-.0353483{col 67}{space 3} .1088868
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6526489{col 26}{space 2} .0283957{col 37}{space 1}   22.98{col 46}{space 3}0.000{col 54}{space 4} .5969943{col 67}{space 3} .7083035
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(6 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb103.dta{rm}
-saved
-{p_end}
-{browse `"tfpb103.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb103.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(49,001 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}     3622
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}      721
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      5.0
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1764517{col 26}{space 2} .0192559{col 37}{space 1}    9.16{col 46}{space 3}0.000{col 54}{space 4} .1387109{col 67}{space 3} .2141925
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0538677{col 26}{space 2} .0298789{col 37}{space 1}    1.80{col 46}{space 3}0.071{col 54}{space 4}-.0046938{col 67}{space 3} .1124293
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .5808259{col 26}{space 2} .0103676{col 37}{space 1}   56.02{col 46}{space 3}0.000{col 54}{space 4} .5605058{col 67}{space 3} .6011461
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 25.48
-                                          p = (0.00)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1764517{col 26}{space 2} .0192559{col 37}{space 1}    9.16{col 46}{space 3}0.000{col 54}{space 4} .1387109{col 67}{space 3} .2141925
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0538677{col 26}{space 2} .0298789{col 37}{space 1}    1.80{col 46}{space 3}0.071{col 54}{space 4}-.0046938{col 67}{space 3} .1124293
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .5808259{col 26}{space 2} .0103676{col 37}{space 1}   56.02{col 46}{space 3}0.000{col 54}{space 4} .5605058{col 67}{space 3} .6011461
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(12 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb104.dta{rm}
-saved
-{p_end}
-{browse `"tfpb104.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb104.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(52,199 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}      430
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}       67
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      6.4
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1560847{col 26}{space 2} .0221069{col 37}{space 1}    7.06{col 46}{space 3}0.000{col 54}{space 4}  .112756{col 67}{space 3} .1994135
-{txt}{space 10}lk {c |}{col 14}{res}{space 2}  .065572{col 26}{space 2} .0466131{col 37}{space 1}    1.41{col 46}{space 3}0.160{col 54}{space 4}-.0257881{col 67}{space 3}  .156932
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7835782{col 26}{space 2} .0025474{col 37}{space 1}  307.60{col 46}{space 3}0.000{col 54}{space 4} .7785854{col 67}{space 3}  .788571
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 0.01
-                                          p = (0.92)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1560847{col 26}{space 2} .0221069{col 37}{space 1}    7.06{col 46}{space 3}0.000{col 54}{space 4}  .112756{col 67}{space 3} .1994135
-{txt}{space 10}lk {c |}{col 14}{res}{space 2}  .065572{col 26}{space 2} .0466131{col 37}{space 1}    1.41{col 46}{space 3}0.160{col 54}{space 4}-.0257881{col 67}{space 3}  .156932
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7835782{col 26}{space 2} .0025474{col 37}{space 1}  307.60{col 46}{space 3}0.000{col 54}{space 4} .7785854{col 67}{space 3}  .788571
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(6 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb105.dta{rm}
-saved
-{p_end}
-{browse `"tfpb105.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb105.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(43,985 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}     8536
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}     1471
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      5.8
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1524618{col 26}{space 2}  .011051{col 37}{space 1}   13.80{col 46}{space 3}0.000{col 54}{space 4} .1308023{col 67}{space 3} .1741213
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0379606{col 26}{space 2} .0168561{col 37}{space 1}    2.25{col 46}{space 3}0.024{col 54}{space 4} .0049231{col 67}{space 3}  .070998
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7143274{col 26}{space 2} .0367705{col 37}{space 1}   19.43{col 46}{space 3}0.000{col 54}{space 4} .6422586{col 67}{space 3} .7863963
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 51.69
-                                          p = (0.00)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1524618{col 26}{space 2}  .011051{col 37}{space 1}   13.80{col 46}{space 3}0.000{col 54}{space 4} .1308023{col 67}{space 3} .1741213
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0379606{col 26}{space 2} .0168561{col 37}{space 1}    2.25{col 46}{space 3}0.024{col 54}{space 4} .0049231{col 67}{space 3}  .070998
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7143274{col 26}{space 2} .0367705{col 37}{space 1}   19.43{col 46}{space 3}0.000{col 54}{space 4} .6422586{col 67}{space 3} .7863963
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(114 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb106.dta{rm}
-saved
-{p_end}
-{browse `"tfpb106.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb106.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(22,439 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}    30128
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}     4835
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      6.2
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1918485{col 26}{space 2} .0050999{col 37}{space 1}   37.62{col 46}{space 3}0.000{col 54}{space 4} .1818528{col 67}{space 3} .2018442
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0665897{col 26}{space 2} .0041864{col 37}{space 1}   15.91{col 46}{space 3}0.000{col 54}{space 4} .0583844{col 67}{space 3} .0747949
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6711366{col 26}{space 2} .0035257{col 37}{space 1}  190.35{col 46}{space 3}0.000{col 54}{space 4} .6642263{col 67}{space 3} .6780469
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 153.14
-                                          p = (0.00)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1918485{col 26}{space 2} .0050999{col 37}{space 1}   37.62{col 46}{space 3}0.000{col 54}{space 4} .1818528{col 67}{space 3} .2018442
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0665897{col 26}{space 2} .0041864{col 37}{space 1}   15.91{col 46}{space 3}0.000{col 54}{space 4} .0583844{col 67}{space 3} .0747949
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .6711366{col 26}{space 2} .0035257{col 37}{space 1}  190.35{col 46}{space 3}0.000{col 54}{space 4} .6642263{col 67}{space 3} .6780469
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(68 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb107.dta{rm}
-saved
-{p_end}
-{browse `"tfpb107.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb107.txt""':seeout}
-{res}
-{col 1}{txt:Panel variable: }{res:psid}{txt: (unbalanced)}
-{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
-{txt}{col 10}Delta: {res}1 unit
-{txt}(51,761 observations deleted)
-.{res}....
-
-
-{txt}lp productivity estimator {col 49}Cobb-Douglas PF
-
-Dependent variable: revenue{col 49}Number of obs      = {res}      872
-{txt}Group variable (id): psid{col 49}Number of groups   = {res}      161
-{txt}Time variable (t): year
-{col 49}Obs per group: min = {res}        1
-{col 49}{txt}               avg = {res}      5.4
-{col 49}{txt}               max = {res}       15
-
-{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1633027{col 26}{space 2} .0234667{col 37}{space 1}    6.96{col 46}{space 3}0.000{col 54}{space 4} .1173088{col 67}{space 3} .2092966
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0522257{col 26}{space 2} .0072748{col 37}{space 1}    7.18{col 46}{space 3}0.000{col 54}{space 4} .0379675{col 67}{space 3}  .066484
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7848293{col 26}{space 2} .0255001{col 37}{space 1}   30.78{col 46}{space 3}0.000{col 54}{space 4}   .73485{col 67}{space 3} .8348086
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 0.00
-                                          p = (1.00)
-{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
-{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .1633027{col 26}{space 2} .0234667{col 37}{space 1}    6.96{col 46}{space 3}0.000{col 54}{space 4} .1173088{col 67}{space 3} .2092966
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0522257{col 26}{space 2} .0072748{col 37}{space 1}    7.18{col 46}{space 3}0.000{col 54}{space 4} .0379675{col 67}{space 3}  .066484
-{txt}{space 10}lm {c |}{col 14}{res}{space 2} .7848293{col 26}{space 2} .0255001{col 37}{space 1}   30.78{col 46}{space 3}0.000{col 54}{space 4}   .73485{col 67}{space 3} .8348086
-{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-(2 missing values generated)
-{p 0 4 2}
-file {bf}
-tfpb108.dta{rm}
-saved
-{p_end}
-{browse `"tfpb108.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfpb108.txt""':seeout}
-
 {com}. 
 . 
+. import excel "C:\github\Foodbi\new_data\use\mf11krm.xlsx", sheet("Data") firstrow case(lower)
+{res}{text}(53 vars, 38,332 obs)
+
+{com}. destring year, replace
+{txt}year: all characters numeric; {res}replaced {txt}as {res}int
+{txt}
+{com}. xtset nobs year
+{res}
+{col 1}{txt:Panel variable: }{res:nobs}{txt: (unbalanced)}
+{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2017}}{txt: to }{res:{bind:2021}}{txt:, but with gaps}{p_end}
+{txt}{col 10}Delta: {res}1 unit
+{txt}
+{com}. keep if disic2=="10"
+{txt}(3,052 observations deleted)
+
+{com}. gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
+{txt}
+{com}. gen labshare=(zpdvcu+zndvcu)/cost
+{txt}
+{com}. gen ln=log(zpdvcu+zndvcu)
+{txt}(2 missing values generated)
+
+{com}. gen lk=log(v1115)
+{txt}(14,584 missing values generated)
+
+{com}. gen lo=log(output)
+{txt}
+{com}. gen lm=log(rdnvcu+rimvcu)
+{txt}(401 missing values generated)
+
+{com}. gen ll=log(ltlnou)
+{txt}
+{com}. 
+. prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
+.{res}....
+
+
+{txt}lp productivity estimator {col 49}Cobb-Douglas PF
+
+Dependent variable: revenue{col 49}Number of obs      = {res}    20413
+{txt}Group variable (id): nobs{col 49}Number of groups   = {res}     6288
+{txt}Time variable (t): year
+{col 49}Obs per group: min = {res}        1
+{col 49}{txt}               avg = {res}      3.2
+{col 49}{txt}               max = {res}        5
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}ln {c |}{col 14}{res}{space 2} .3410782{col 26}{space 2} .0019383{col 37}{space 1}  175.97{col 46}{space 3}0.000{col 54}{space 4} .3372792{col 67}{space 3} .3448771
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0466191{col 26}{space 2} .0120687{col 37}{space 1}    3.86{col 46}{space 3}0.000{col 54}{space 4} .0229648{col 67}{space 3} .0702734
+{txt}{space 10}lm {c |}{col 14}{res}{space 2} .5778495{col 26}{space 2} .0150051{col 37}{space 1}   38.51{col 46}{space 3}0.000{col 54}{space 4} .5484401{col 67}{space 3} .6072589
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Wald test on Constant returns to scale: Chi2 = 1.58
+                                          p = (0.21)
+
+{com}. outreg2 using "tfp2.xls",excel replace
+{txt}{browse `"tfp2.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "tfp2.txt""':seeout}
+
+{com}. 
+. predict mu1,markups inputvar(ln)
+{txt}(2 missing values generated)
+
+{com}. predict mu2,markups inputvar(lm)
+{txt}(401 missing values generated)
+
+{com}. gen mu3=.3410782 /labshare
+{txt}(2 missing values generated)
+
+{com}. predict ,parameters
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}          lo{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}ln {c |}{col 14}{res}{space 2} .3410782{col 26}{space 2} .0019383{col 37}{space 1}  175.97{col 46}{space 3}0.000{col 54}{space 4} .3372792{col 67}{space 3} .3448771
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0466191{col 26}{space 2} .0120687{col 37}{space 1}    3.86{col 46}{space 3}0.000{col 54}{space 4} .0229648{col 67}{space 3} .0702734
+{txt}{space 10}lm {c |}{col 14}{res}{space 2} .5778495{col 26}{space 2} .0150051{col 37}{space 1}   38.51{col 46}{space 3}0.000{col 54}{space 4} .5484401{col 67}{space 3} .6072589
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. predict tfp,omega
+{txt}
+{com}. 
+. save tfp2, replace
+{txt}{p 0 4 2}
+(file {bf}
+tfp2.dta{rm}
+not found)
+{p_end}
+{p 0 4 2}
+file {bf}
+tfp2.dta{rm}
+saved
+{p_end}
+
+{com}. 
 . /*
+> clear all
+> use pakai
+> levelsof disic3_4,local(ids)
+> foreach i in `ids' {c -(}
+>         clear all
+>         use pakai
+>         xtset psid year
+>         keep if disic3_4==`i'
+>         prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
+>         predict tfp,omega
+>         predict,parameters
+>         predict mu1,markups inputvar(ln)
+>         predict mu2,markups inputvar(lm)
+>         save tfpb`i',replace
+>         outreg2 using tfpb`i'.xls,replace se bdec(3) tdec(3) excel
+> 
+> {c )-}
+> 
+> 
+> 
 > ╔═══╗────╔╗────╔═╗╔╗─────────╔═══╗╔╗
 > ║╔══╝────║║────║╔╝║║─────────║╔══╝║║
 > ║╚══╦═╗╔═╝║╔══╦╝╚╗║║──╔══╦══╗║╚══╦╣║╔══╗
@@ -490,9 +267,9 @@ saved
 . 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\foodbi\tfplog.smcl
+       {txt}log:  {res}C:\github\Foodbi\tfplog.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}13 Sep 2023, 21:48:24
+ {txt}closed on:  {res}14 Sep 2023, 09:51:03
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

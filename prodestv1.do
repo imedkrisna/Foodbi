@@ -39,11 +39,10 @@ log using tfplog,replace
 */
 cd "C:\github\foodbi" // Please change this to the proper working directory
 
-use "new_data/panel/data0015_5long.dta" // Pleace change this with the data in
+use "new_data/use/data0015.dta" // Pleace change this with the data in
 
 xtset psid year
-keep if disic2==10 | disic2==11 // ISIC Rev. 4. For ISIC rev.3, 15
-
+keep if disic2_4==10 // ISIC Rev. 4. For ISIC rev.3, 15
 
 gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
 gen labshare=(zpdvcu+zndvcu)/cost
@@ -60,51 +59,59 @@ outreg2 using "tfp1.xls",excel replace
 
 predict mu1,markups inputvar(ln)
 predict mu2,markups inputvar(lm)
+gen mu3=0.1887008/labshare
 predict ,parameters
 predict tfp,omega
 
 save tfp1, replace
 
+clear
+
+
+import excel "C:\github\Foodbi\new_data\use\mf11krm.xlsx", sheet("Data") firstrow case(lower)
+destring year, replace
+xtset nobs year
+keep if disic2=="10"
+gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
+gen labshare=(zpdvcu+zndvcu)/cost
+gen ln=log(zpdvcu+zndvcu)
+gen lk=log(v1115)
+gen lo=log(output)
+gen lm=log(rdnvcu+rimvcu)
+gen ll=log(ltlnou)
+
+prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
+outreg2 using "tfp2.xls",excel replace
+
+predict mu1,markups inputvar(ln)
+predict mu2,markups inputvar(lm)
+gen mu3=.3410782 /labshare
+predict ,parameters
+predict tfp,omega
+
+save tfp2, replace
+
+/*
 clear all
 use pakai
-levelsof disic3,local(ids)
+levelsof disic3_4,local(ids)
 foreach i in `ids' {
 	clear all
 	use pakai
 	xtset psid year
-	keep if disic3==`i'
+	keep if disic3_4==`i'
 	prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
 	predict tfp,omega
 	predict,parameters
 	predict mu1,markups inputvar(ln)
 	predict mu2,markups inputvar(lm)
-	keep tagg year mu1 mu2 tfp cost labshare
 	save tfpb`i',replace
 	outreg2 using tfpb`i'.xls,replace se bdec(3) tdec(3) excel
 
 }
 
-clear all
-use pakai
-levelsof disic3,local(ids)
-foreach i in `ids' {
-	clear all
-	use pakai
-	xtset psid year
-	keep if disic3==`i'
-	prodest lo, free(ln) state(lk) proxy(lm) method(lp) acf translog fsresidual(om)
-	predict tfp,omega
-	predict,parameters
-	predict mu1,markups inputvar(ln)
-	predict mu2,markups inputvar(lm)
-	keep tagg year mu1 mu2 tfp cost labshare
-	save tfpa`i',replace
-	outreg2 using tfpa`i'.xls,replace se bdec(3) tdec(3) excel
 
-}
 
-rm pakai.dta
-/*
 ╔═══╗────╔╗────╔═╗╔╗─────────╔═══╗╔╗
 ║╔══╝────║║────║╔╝║║─────────║╔══╝║║
 ║╚══╦═╗╔═╝║╔══╦╝╚╗║║──╔══╦══╗║╚══╦╣║╔══╗
@@ -113,11 +120,14 @@ rm pakai.dta
 ╚═══╩╝╚╩══╝╚══╝╚╝─╚═══╩══╩═╗║╚╝──╚╩═╩══╝
 ─────────────────────────╔═╝║
 ─────────────────────────╚══╝
-*/
-log close
-zipfile tfp*,saving(For_Krisna, replace)
+
+
+zipfile tfp*,saving(For_Krisnav1, replace)
 
 local list: dir . files "tfp*"
 foreach f of local list {
 	erase "`f'"
 }
+*/
+
+log close

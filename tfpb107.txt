@@ -1,0 +1,14 @@
+	(1)
+VARIABLES	lo
+	
+ln	0.192***
+	(0.005)
+lk	0.067***
+	(0.004)
+lm	0.671***
+	(0.004)
+	
+Observations	30,128
+Number of groups	4,835
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

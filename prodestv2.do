@@ -45,7 +45,9 @@ xtset psid year
 keep if disic2_4==10 // ISIC Rev. 4. For ISIC rev.3, 15
 
 gen cost=it1vcu+rdnvcu+rimvcu+efuvcu+eplvcu+enpvcu+zpdvcu+zndvcu
+gen c2=rdnvcu+rimvcu+zpdvcu+zndvcu+it1vcu
 gen labshare=(zpdvcu+zndvcu)/cost
+gen lab2=(zpdvcu+zndvcu)/c2
 gen ln=log(zpdvcu+zndvcu)
 gen lk=log(v1115)
 gen lo=log(output)
@@ -61,6 +63,7 @@ predict mu1,markups inputvar(ln)
 predict mu2,markups inputvar(lm)
 // Getting mu3 from the previous regression.
 gen mu3=0.1887008/labshare
+gen mu4=0.1887008/lab2
 predict ,parameters
 predict tfp,omega
 

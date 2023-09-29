@@ -59,6 +59,7 @@ outreg2 using "tfp1.xls",excel replace
 
 predict mu1,markups inputvar(ln)
 predict mu2,markups inputvar(lm)
+// Getting mu3 from the previous regression.
 gen mu3=0.1887008/labshare
 predict ,parameters
 predict tfp,omega
@@ -85,6 +86,7 @@ outreg2 using "tfp2.xls",excel replace
 
 predict mu1,markups inputvar(ln)
 predict mu2,markups inputvar(lm)
+// Getting mu3 from the previous regression.
 gen mu3=.3410782 /labshare
 predict ,parameters
 predict tfp,omega

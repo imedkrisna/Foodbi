@@ -53,19 +53,20 @@ gen lk=log(v1115)
 gen lo=log(output)
 gen lm=log(rdnvcu+rimvcu)
 gen ll=log(ltlnou)
+gen lva=log(vtlvcu)
 
 save pakai,replace
 
-prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
-outreg2 using "tfp1.xls",excel replace
+prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om2) va
+outreg2 using "tfp2.xls",excel replace
 
-predict mu1,markups inputvar(ln)
-predict mu2,markups inputvar(lm)
-// Getting mu3 from the previous regression.
-gen mu3=0.1887008/labshare
-gen mu4=0.1887008/lab2
-predict ,parameters
+predict mu,markups inputvar(ln)
+
 predict tfp,omega
+// REMOVE OUTLIERS DUE TO FUNNY INPUT
+// outliers = 5% bot and 5% top
+sum mu,det
+drop if mu < r(p5) | mu > r(p95)
 
 save tfp1, replace
 
@@ -83,18 +84,69 @@ gen lk=log(v1115)
 gen lo=log(output)
 gen lm=log(rdnvcu+rimvcu)
 gen ll=log(ltlnou)
+gen lva=log(vtlvcu)
+gen disic3=substr(disic4, 1, 3)
 
-prodest lo, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om)
+save pakau,replace
+
+prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
 outreg2 using "tfp2.xls",excel replace
 
-predict mu1,markups inputvar(ln)
-predict mu2,markups inputvar(lm)
-// Getting mu3 from the previous regression.
-gen mu3=.3410782 /labshare
+predict mu,markups inputvar(ln)
+
+// REMOVE OUTLIERS DUE TO FUNNY INPUT
+// outliers = 5% bot and 5% top
+sum mu,det
+drop if mu < r(p5) | mu > r(p95)
+
 predict ,parameters
 predict tfp,omega
 
 save tfp2, replace
+
+clear all
+use pakai
+levelsof disic3_4,local(ids)
+foreach i in `ids' {
+	clear all
+	use pakai
+	xtset psid year
+	keep if disic3_4==`i'
+	prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
+	predict tfp,omega
+	predict mu1,markups inputvar(ln)
+	
+	save tfpa`i',replace
+	outreg2 using tfpa`i'.xls,replace se bdec(3) tdec(3) excel
+
+}
+
+clear all
+use pakau
+destring disic3,replace
+levelsof disic3,local(ids)
+foreach i in `ids' {
+	clear all
+	use pakau
+	xtset nobs year
+	destring disic3,replace
+	keep if disic3==`i'
+	prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
+	predict tfp,omega
+	predict mu1,markups inputvar(ln)
+	save tfpb`i',replace
+	outreg2 using tfpb`i'.xls,replace se bdec(3) tdec(3) excel
+
+}
+
+clear all
+use pakau
+destring disic3,replace
+levelsof disic3,local(ids)
+foreach i in `ids' {
+	use tfpb`i',clear
+	sum mu1,det
+}
 
 /*
 

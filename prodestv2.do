@@ -57,7 +57,7 @@ gen lva=log(vtlvcu)
 
 save pakai,replace
 
-prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om2) va
+prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
 outreg2 using "tfp2.xls",excel replace
 
 predict mu,markups inputvar(ln)
@@ -104,6 +104,8 @@ sum mu,det
 predict ,parameters
 predict tfp,omega
 
+bys year: tabstat mu, stats(mean sd median p25 p75 min max)
+
 save tfp2, replace
 
 clear all
@@ -149,6 +151,33 @@ foreach i in `ids' {
 	use tfpb`i',clear
 	sum mu1,det
 }
+
+// COVID IMPACT
+
+clear all
+use pakau
+keep if year<2020 // before covid
+prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
+predict tfp,omega
+predict mu,markups inputvar(ln)
+sum mu,det
+drop if mu < r(p5) | mu > r(p95)
+sum mu,det
+bys year: tabstat mu, stats(mean median min max)
+save before,replace
+
+clear all
+use pakau
+keep if year>=2020 // after covid
+prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
+predict tfp,omega
+predict mu,markups inputvar(ln)
+sum mu,det
+drop if mu < r(p5) | mu > r(p95)
+sum mu,det
+bys year: tabstat mu, stats(mean median min max)
+save after,replace
+
 
 /*
 

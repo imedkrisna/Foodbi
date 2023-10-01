@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\Foodbi\tfplog.smcl
+       {txt}log:  {res}C:\github\foodbi\tfplog.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 1 Oct 2023, 09:44:53
+ {txt}opened on:  {res} 1 Oct 2023, 16:29:36
 {txt}
 {com}. /*
 > ╔╗─────────╔═══╗╔╗────╔═══╗╔╗─────╔╗
@@ -66,7 +66,7 @@ saved
 {p_end}
 
 {com}. 
-. prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om2) va
+. prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
 .{res}....
 
 
@@ -82,10 +82,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}    52357
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .4183988{col 26}{space 2} .0068135{col 37}{space 1}   61.41{col 46}{space 3}0.000{col 54}{space 4} .4050446{col 67}{space 3} .4317529
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1125666{col 26}{space 2} .0033585{col 37}{space 1}   33.52{col 46}{space 3}0.000{col 54}{space 4} .1059841{col 67}{space 3}  .119149
+{space 10}ln {c |}{col 14}{res}{space 2} .4183988{col 26}{space 2} .0044881{col 37}{space 1}   93.22{col 46}{space 3}0.000{col 54}{space 4} .4096023{col 67}{space 3} .4271952
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1120384{col 26}{space 2} .0052713{col 37}{space 1}   21.25{col 46}{space 3}0.000{col 54}{space 4} .1017069{col 67}{space 3} .1223699
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 3294.25
+Wald test on Constant returns to scale: Chi2 = 2375.07
                                           p = (0.00)
 
 {com}. outreg2 using "tfp2.xls",excel replace
@@ -212,10 +212,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}    20413
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .6766907{col 26}{space 2} .0085996{col 37}{space 1}   78.69{col 46}{space 3}0.000{col 54}{space 4} .6598358{col 67}{space 3} .6935457
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0755844{col 26}{space 2} .0062621{col 37}{space 1}   12.07{col 46}{space 3}0.000{col 54}{space 4} .0633109{col 67}{space 3}  .087858
+{space 10}ln {c |}{col 14}{res}{space 2} .6766907{col 26}{space 2} .0060041{col 37}{space 1}  112.70{col 46}{space 3}0.000{col 54}{space 4} .6649229{col 67}{space 3} .6884586
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0753702{col 26}{space 2} .0065189{col 37}{space 1}   11.56{col 46}{space 3}0.000{col 54}{space 4} .0625934{col 67}{space 3}  .088147
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 5309.20
+Wald test on Constant returns to scale: Chi2 = 1573.13
                                           p = (0.00)
 
 {com}. outreg2 using "tfp2.xls",excel replace
@@ -271,8 +271,8 @@ Wald test on Constant returns to scale: Chi2 = 5309.20
 {res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .6766907{col 26}{space 2} .0085996{col 37}{space 1}   78.69{col 46}{space 3}0.000{col 54}{space 4} .6598358{col 67}{space 3} .6935457
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0755844{col 26}{space 2} .0062621{col 37}{space 1}   12.07{col 46}{space 3}0.000{col 54}{space 4} .0633109{col 67}{space 3}  .087858
+{space 10}ln {c |}{col 14}{res}{space 2} .6766907{col 26}{space 2} .0060041{col 37}{space 1}  112.70{col 46}{space 3}0.000{col 54}{space 4} .6649229{col 67}{space 3} .6884586
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0753702{col 26}{space 2} .0065189{col 37}{space 1}   11.56{col 46}{space 3}0.000{col 54}{space 4} .0625934{col 67}{space 3}  .088147
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 
 {com}. predict tfp,omega
@@ -326,10 +326,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}      456
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .5639879{col 26}{space 2} .0235703{col 37}{space 1}   23.93{col 46}{space 3}0.000{col 54}{space 4}  .517791{col 67}{space 3} .6101849
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1688191{col 26}{space 2} .0411466{col 37}{space 1}    4.10{col 46}{space 3}0.000{col 54}{space 4} .0881733{col 67}{space 3} .2494649
+{space 10}ln {c |}{col 14}{res}{space 2} .5639879{col 26}{space 2} .0416597{col 37}{space 1}   13.54{col 46}{space 3}0.000{col 54}{space 4} .4823364{col 67}{space 3} .6456394
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1685328{col 26}{space 2} .0369234{col 37}{space 1}    4.56{col 46}{space 3}0.000{col 54}{space 4} .0961642{col 67}{space 3} .2409014
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 46.13
+Wald test on Constant returns to scale: Chi2 = 23.93
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -358,10 +358,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     7631
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .4096068{col 26}{space 2} .0062094{col 37}{space 1}   65.97{col 46}{space 3}0.000{col 54}{space 4} .3974366{col 67}{space 3}  .421777
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1596706{col 26}{space 2} .0342716{col 37}{space 1}    4.66{col 46}{space 3}0.000{col 54}{space 4} .0924995{col 67}{space 3} .2268418
+{space 10}ln {c |}{col 14}{res}{space 2} .4096068{col 26}{space 2} .0164525{col 37}{space 1}   24.90{col 46}{space 3}0.000{col 54}{space 4} .3773606{col 67}{space 3} .4418531
+{txt}{space 10}lk {c |}{col 14}{res}{space 2}  .159511{col 26}{space 2} .0245916{col 37}{space 1}    6.49{col 46}{space 3}0.000{col 54}{space 4} .1113123{col 67}{space 3} .2077097
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 174.13
+Wald test on Constant returns to scale: Chi2 = 146.41
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -390,10 +390,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}      676
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .4132295{col 26}{space 2} .0092145{col 37}{space 1}   44.85{col 46}{space 3}0.000{col 54}{space 4} .3951693{col 67}{space 3} .4312897
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1257649{col 26}{space 2} .0464365{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} .0347509{col 67}{space 3} .2167788
+{space 10}ln {c |}{col 14}{res}{space 2} .4132295{col 26}{space 2} .0340872{col 37}{space 1}   12.12{col 46}{space 3}0.000{col 54}{space 4} .3464199{col 67}{space 3} .4800391
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1258762{col 26}{space 2} .0266342{col 37}{space 1}    4.73{col 46}{space 3}0.000{col 54}{space 4} .0736742{col 67}{space 3} .1780783
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 69.68
+Wald test on Constant returns to scale: Chi2 = 1678.04
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -422,10 +422,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     3623
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2}  .351462{col 26}{space 2} .0282473{col 37}{space 1}   12.44{col 46}{space 3}0.000{col 54}{space 4} .2960984{col 67}{space 3} .4068257
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0858431{col 26}{space 2} .0469816{col 37}{space 1}    1.83{col 46}{space 3}0.068{col 54}{space 4}-.0062391{col 67}{space 3} .1779253
+{space 10}ln {c |}{col 14}{res}{space 2}  .351462{col 26}{space 2} .0191067{col 37}{space 1}   18.39{col 46}{space 3}0.000{col 54}{space 4} .3140136{col 67}{space 3} .3889105
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0865513{col 26}{space 2} .0206923{col 37}{space 1}    4.18{col 46}{space 3}0.000{col 54}{space 4} .0459952{col 67}{space 3} .1271074
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 60.51
+Wald test on Constant returns to scale: Chi2 = 202.51
                                           p = (0.00)
 (1 missing value generated)
 {p 0 4 2}
@@ -455,10 +455,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}      430
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .4191496{col 26}{space 2} .0980538{col 37}{space 1}    4.27{col 46}{space 3}0.000{col 54}{space 4} .2269678{col 67}{space 3} .6113315
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0554027{col 26}{space 2}  .036433{col 37}{space 1}    1.52{col 46}{space 3}0.128{col 54}{space 4}-.0160047{col 67}{space 3} .1268101
+{space 10}ln {c |}{col 14}{res}{space 2} .4191496{col 26}{space 2} .0162342{col 37}{space 1}   25.82{col 46}{space 3}0.000{col 54}{space 4} .3873311{col 67}{space 3} .4509682
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0565537{col 26}{space 2} .0369837{col 37}{space 1}    1.53{col 46}{space 3}0.126{col 54}{space 4} -.015933{col 67}{space 3} .1290404
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 37.98
+Wald test on Constant returns to scale: Chi2 = 110.15
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -487,10 +487,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     8538
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2}  .398606{col 26}{space 2} .0072007{col 37}{space 1}   55.36{col 46}{space 3}0.000{col 54}{space 4}  .384493{col 67}{space 3} .4127191
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1014764{col 26}{space 2} .0213778{col 37}{space 1}    4.75{col 46}{space 3}0.000{col 54}{space 4} .0595767{col 67}{space 3} .1433762
+{space 10}ln {c |}{col 14}{res}{space 2}  .398606{col 26}{space 2} .0222547{col 37}{space 1}   17.91{col 46}{space 3}0.000{col 54}{space 4} .3549876{col 67}{space 3} .4422244
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1020053{col 26}{space 2} .0276255{col 37}{space 1}    3.69{col 46}{space 3}0.000{col 54}{space 4} .0478604{col 67}{space 3} .1561503
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 727.61
+Wald test on Constant returns to scale: Chi2 = 1061.43
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -519,10 +519,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}    30131
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .3514213{col 26}{space 2} .0080396{col 37}{space 1}   43.71{col 46}{space 3}0.000{col 54}{space 4} .3356639{col 67}{space 3} .3671788
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1048459{col 26}{space 2} .0074427{col 37}{space 1}   14.09{col 46}{space 3}0.000{col 54}{space 4} .0902586{col 67}{space 3} .1194333
+{space 10}ln {c |}{col 14}{res}{space 2} .3514213{col 26}{space 2} .0037214{col 37}{space 1}   94.43{col 46}{space 3}0.000{col 54}{space 4} .3441276{col 67}{space 3} .3587151
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1049267{col 26}{space 2}  .012928{col 37}{space 1}    8.12{col 46}{space 3}0.000{col 54}{space 4} .0795884{col 67}{space 3}  .130265
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 2991.25
+Wald test on Constant returns to scale: Chi2 = 1173.43
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -551,10 +551,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}      872
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .3522461{col 26}{space 2} .0608317{col 37}{space 1}    5.79{col 46}{space 3}0.000{col 54}{space 4} .2330182{col 67}{space 3}  .471474
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .2077685{col 26}{space 2} .0360909{col 37}{space 1}    5.76{col 46}{space 3}0.000{col 54}{space 4} .1370317{col 67}{space 3} .2785053
+{space 10}ln {c |}{col 14}{res}{space 2} .3522461{col 26}{space 2} .0593777{col 37}{space 1}    5.93{col 46}{space 3}0.000{col 54}{space 4} .2358679{col 67}{space 3} .4686243
+{txt}{space 10}lk {c |}{col 14}{res}{space 2}  .207118{col 26}{space 2} .0592926{col 37}{space 1}    3.49{col 46}{space 3}0.000{col 54}{space 4} .0909067{col 67}{space 3} .3233293
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 30.10
+Wald test on Constant returns to scale: Chi2 = 17.75
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -609,10 +609,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}      311
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .5988942{col 26}{space 2} .0476166{col 37}{space 1}   12.58{col 46}{space 3}0.000{col 54}{space 4} .5055675{col 67}{space 3}  .692221
-{txt}{space 10}lk {c |}{col 14}{res}{space 2}   .05193{col 26}{space 2}  .054616{col 37}{space 1}    0.95{col 46}{space 3}0.342{col 54}{space 4}-.0551154{col 67}{space 3} .1589754
+{space 10}ln {c |}{col 14}{res}{space 2} .5988942{col 26}{space 2} .0685824{col 37}{space 1}    8.73{col 46}{space 3}0.000{col 54}{space 4} .4644751{col 67}{space 3} .7333133
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0518451{col 26}{space 2}  .051443{col 37}{space 1}    1.01{col 46}{space 3}0.314{col 54}{space 4}-.0489812{col 67}{space 3} .1526715
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 11.87
+Wald test on Constant returns to scale: Chi2 = 35.25
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -642,10 +642,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     3562
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .7087719{col 26}{space 2} .0054979{col 37}{space 1}  128.92{col 46}{space 3}0.000{col 54}{space 4} .6979961{col 67}{space 3} .7195476
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0695095{col 26}{space 2} .0455478{col 37}{space 1}    1.53{col 46}{space 3}0.127{col 54}{space 4}-.0197624{col 67}{space 3} .1587815
+{space 10}ln {c |}{col 14}{res}{space 2} .7087719{col 26}{space 2} .0127112{col 37}{space 1}   55.76{col 46}{space 3}0.000{col 54}{space 4} .6838583{col 67}{space 3} .7336854
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0697589{col 26}{space 2} .0617004{col 37}{space 1}    1.13{col 46}{space 3}0.258{col 54}{space 4}-.0511717{col 67}{space 3} .1906895
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 19.65
+Wald test on Constant returns to scale: Chi2 = 9.29
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -675,10 +675,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}      839
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .6132293{col 26}{space 2} .0176995{col 37}{space 1}   34.65{col 46}{space 3}0.000{col 54}{space 4}  .578539{col 67}{space 3} .6479197
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0234822{col 26}{space 2} .0178061{col 37}{space 1}    1.32{col 46}{space 3}0.187{col 54}{space 4}-.0114171{col 67}{space 3} .0583814
+{space 10}ln {c |}{col 14}{res}{space 2} .6132293{col 26}{space 2} .0233521{col 37}{space 1}   26.26{col 46}{space 3}0.000{col 54}{space 4} .5674601{col 67}{space 3} .6589986
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0234925{col 26}{space 2} .0257293{col 37}{space 1}    0.91{col 46}{space 3}0.361{col 54}{space 4}-.0269359{col 67}{space 3}  .073921
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 106.77
+Wald test on Constant returns to scale: Chi2 = 85.22
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -708,10 +708,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     2569
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .5378713{col 26}{space 2} .0108135{col 37}{space 1}   49.74{col 46}{space 3}0.000{col 54}{space 4} .5166773{col 67}{space 3} .5590654
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0486057{col 26}{space 2} .0266976{col 37}{space 1}    1.82{col 46}{space 3}0.069{col 54}{space 4}-.0037206{col 67}{space 3}  .100932
+{space 10}ln {c |}{col 14}{res}{space 2} .5378713{col 26}{space 2} .0276061{col 37}{space 1}   19.48{col 46}{space 3}0.000{col 54}{space 4} .4837644{col 67}{space 3} .5919783
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0489594{col 26}{space 2} .0123853{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} .0246847{col 67}{space 3} .0732341
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 297.58
+Wald test on Constant returns to scale: Chi2 = 155.77
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -741,11 +741,11 @@ Dependent variable: value added{col 49}Number of obs      = {res}      209
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .3193672{col 26}{space 2} .0819041{col 37}{space 1}    3.90{col 46}{space 3}0.000{col 54}{space 4} .1588382{col 67}{space 3} .4798963
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .2510165{col 26}{space 2}  .134207{col 37}{space 1}    1.87{col 46}{space 3}0.061{col 54}{space 4}-.0120244{col 67}{space 3} .5140573
+{space 10}ln {c |}{col 14}{res}{space 2} .3193672{col 26}{space 2} .0389772{col 37}{space 1}    8.19{col 46}{space 3}0.000{col 54}{space 4} .2429734{col 67}{space 3} .3957611
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .2510194{col 26}{space 2} .1457985{col 37}{space 1}    1.72{col 46}{space 3}0.085{col 54}{space 4}-.0347404{col 67}{space 3} .5367791
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 4.55
-                                          p = (0.03)
+Wald test on Constant returns to scale: Chi2 = 9.05
+                                          p = (0.00)
 {p 0 4 2}
 file {bf}
 tfpb105.dta{rm}
@@ -774,10 +774,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     2596
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .5124348{col 26}{space 2} .0177919{col 37}{space 1}   28.80{col 46}{space 3}0.000{col 54}{space 4} .4775634{col 67}{space 3} .5473062
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0407202{col 26}{space 2} .0232606{col 37}{space 1}    1.75{col 46}{space 3}0.080{col 54}{space 4}-.0048698{col 67}{space 3} .0863101
+{space 10}ln {c |}{col 14}{res}{space 2} .5124348{col 26}{space 2} .0187588{col 37}{space 1}   27.32{col 46}{space 3}0.000{col 54}{space 4} .4756683{col 67}{space 3} .5492013
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0405896{col 26}{space 2} .0193957{col 37}{space 1}    2.09{col 46}{space 3}0.036{col 54}{space 4} .0025748{col 67}{space 3} .0786044
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 310.82
+Wald test on Constant returns to scale: Chi2 = 880.48
                                           p = (0.00)
 (2 missing values generated)
 {p 0 4 2}
@@ -808,10 +808,10 @@ Dependent variable: value added{col 49}Number of obs      = {res}     9935
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .6893749{col 26}{space 2} .0116994{col 37}{space 1}   58.92{col 46}{space 3}0.000{col 54}{space 4} .6664444{col 67}{space 3} .7123053
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0603366{col 26}{space 2}  .013949{col 37}{space 1}    4.33{col 46}{space 3}0.000{col 54}{space 4}  .032997{col 67}{space 3} .0876762
+{space 10}ln {c |}{col 14}{res}{space 2} .6893749{col 26}{space 2} .0094316{col 37}{space 1}   73.09{col 46}{space 3}0.000{col 54}{space 4} .6708892{col 67}{space 3} .7078605
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0603754{col 26}{space 2}  .012309{col 37}{space 1}    4.90{col 46}{space 3}0.000{col 54}{space 4} .0362503{col 67}{space 3} .0845006
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 330.01
+Wald test on Constant returns to scale: Chi2 = 291.43
                                           p = (0.00)
 {p 0 4 2}
 file {bf}
@@ -841,11 +841,11 @@ Dependent variable: value added{col 49}Number of obs      = {res}      392
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}ln {c |}{col 14}{res}{space 2} .4922353{col 26}{space 2} .0757808{col 37}{space 1}    6.50{col 46}{space 3}0.000{col 54}{space 4} .3437077{col 67}{space 3} .6407629
-{txt}{space 10}lk {c |}{col 14}{res}{space 2} .2174035{col 26}{space 2} .0429775{col 37}{space 1}    5.06{col 46}{space 3}0.000{col 54}{space 4} .1331692{col 67}{space 3} .3016377
+{space 10}ln {c |}{col 14}{res}{space 2} .4922353{col 26}{space 2} .0638363{col 37}{space 1}    7.71{col 46}{space 3}0.000{col 54}{space 4} .3671185{col 67}{space 3} .6173522
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .2173326{col 26}{space 2} .0499261{col 37}{space 1}    4.35{col 46}{space 3}0.000{col 54}{space 4} .1194792{col 67}{space 3} .3151859
 {txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-Wald test on Constant returns to scale: Chi2 = 6.90
-                                          p = (0.01)
+Wald test on Constant returns to scale: Chi2 = 9.06
+                                          p = (0.00)
 {p 0 4 2}
 file {bf}
 tfpb108.dta{rm}
@@ -991,6 +991,225 @@ saved
 {txt}99%    {res} 116.6893       256.9088       {txt}Kurtosis      {res} 56.98931
 {txt}
 {com}. 
+. // COVID IMPACT
+. 
+. clear all
+{res}{txt}
+{com}. use pakau
+{txt}
+{com}. keep if year<2020 // before covid
+{txt}(14,175 observations deleted)
+
+{com}. prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
+.{res}....
+
+
+{txt}lp productivity estimator {col 49}Cobb-Douglas PF
+
+Dependent variable: value added{col 49}Number of obs      = {res}    12374
+{txt}Group variable (id): nobs{col 49}Number of groups   = {res}     5217
+{txt}Time variable (t): year
+{col 49}Obs per group: min = {res}        1
+{col 49}{txt}               avg = {res}      2.4
+{col 49}{txt}               max = {res}        3
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}ln {c |}{col 14}{res}{space 2} .6950381{col 26}{space 2} .0074538{col 37}{space 1}   93.25{col 46}{space 3}0.000{col 54}{space 4} .6804289{col 67}{space 3} .7096472
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .0357922{col 26}{space 2} .0167339{col 37}{space 1}    2.14{col 46}{space 3}0.032{col 54}{space 4} .0029944{col 67}{space 3}   .06859
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Wald test on Constant returns to scale: Chi2 = 214.30
+                                          p = (0.00)
+
+{com}. predict tfp,omega
+{txt}
+{com}. predict mu,markups inputvar(ln)
+{txt}
+{com}. sum mu,det
+
+                             {txt}mu
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .6976073       .0065633
+{txt} 5%    {res} .7521966       .0273568
+{txt}10%    {res} .8525056       .0303123       {txt}Obs         {res}     21,105
+{txt}25%    {res} 1.222489       .0303124       {txt}Sum of wgt. {res}     21,105
+
+{txt}50%    {res} 2.258009                      {txt}Mean          {res} 8.226924
+                        {txt}Largest       Std. dev.     {res} 57.43865
+{txt}75%    {res} 5.619496       1979.433
+{txt}90%    {res} 13.80829       2252.792       {txt}Variance      {res} 3299.199
+{txt}95%    {res} 22.31391       3601.728       {txt}Skewness      {res} 47.36107
+{txt}99%    {res}  92.6953       4683.872       {txt}Kurtosis      {res} 3091.234
+{txt}
+{com}. drop if mu < r(p5) | mu > r(p95)
+{txt}(2,110 observations deleted)
+
+{com}. sum mu,det
+
+                             {txt}mu
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .7688588       .7521966
+{txt} 5%    {res} .8419752        .752335
+{txt}10%    {res} .9345101       .7523587       {txt}Obs         {res}     18,995
+{txt}25%    {res} 1.311194       .7524491       {txt}Sum of wgt. {res}     18,995
+
+{txt}50%    {res} 2.258009                      {txt}Mean          {res} 4.028648
+                        {txt}Largest       Std. dev.     {res} 4.282189
+{txt}75%    {res} 5.022246         22.218
+{txt}90%    {res} 9.597706       22.22766       {txt}Variance      {res} 18.33714
+{txt}95%    {res} 14.76093       22.30895       {txt}Skewness      {res}  2.07521
+{txt}99%    {res} 19.66321       22.31391       {txt}Kurtosis      {res} 6.972244
+{txt}
+{com}. bys year: tabstat mu, stats(mean median min max)
+
+{txt}{hline}
+-> year = 2017
+
+{ralign 12:Variable} {...}
+{c |}      Mean       p50       Min       Max
+{hline 13}{c +}{hline 40}
+{ralign 12:mu} {...}
+{c |}{...}
+ {res} 4.392927  2.196624  .7524491  22.30895
+{txt}{hline 13}{c BT}{hline 40}
+
+{hline}
+-> year = 2018
+
+{ralign 12:Variable} {...}
+{c |}      Mean       p50       Min       Max
+{hline 13}{c +}{hline 40}
+{ralign 12:mu} {...}
+{c |}{...}
+ {res}  3.88808  2.251876  .7521966  22.22766
+{txt}{hline 13}{c BT}{hline 40}
+
+{hline}
+-> year = 2019
+
+{ralign 12:Variable} {...}
+{c |}      Mean       p50       Min       Max
+{hline 13}{c +}{hline 40}
+{ralign 12:mu} {...}
+{c |}{...}
+ {res} 3.768128  2.313871  .7523587  22.31391
+{txt}{hline 13}{c BT}{hline 40}
+
+{com}. save before,replace
+{txt}{p 0 4 2}
+file {bf}
+before.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. clear all
+{res}{txt}
+{com}. use pakau
+{txt}
+{com}. keep if year>=2020 // after covid
+{txt}(21,105 observations deleted)
+
+{com}. prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
+.{res}....
+
+
+{txt}lp productivity estimator {col 49}Cobb-Douglas PF
+
+Dependent variable: value added{col 49}Number of obs      = {res}     8039
+{txt}Group variable (id): nobs{col 49}Number of groups   = {res}     4798
+{txt}Time variable (t): year
+{col 49}Obs per group: min = {res}        1
+{col 49}{txt}               avg = {res}      1.7
+{col 49}{txt}               max = {res}        2
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         lva{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}ln {c |}{col 14}{res}{space 2} .6461098{col 26}{space 2} .0083453{col 37}{space 1}   77.42{col 46}{space 3}0.000{col 54}{space 4} .6297533{col 67}{space 3} .6624663
+{txt}{space 10}lk {c |}{col 14}{res}{space 2} .1061564{col 26}{space 2} .0531635{col 37}{space 1}    2.00{col 46}{space 3}0.046{col 54}{space 4}  .001958{col 67}{space 3} .2103549
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+Wald test on Constant returns to scale: Chi2 = 21.50
+                                          p = (0.00)
+
+{com}. predict tfp,omega
+{txt}
+{com}. predict mu,markups inputvar(ln)
+{txt}(2 missing values generated)
+
+{com}. sum mu,det
+
+                             {txt}mu
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}  .418775       .0102654
+{txt} 5%    {res}  .677923       .0190904
+{txt}10%    {res} .7468404       .0228532       {txt}Obs         {res}     14,173
+{txt}25%    {res} 1.039884       .0234764       {txt}Sum of wgt. {res}     14,173
+
+{txt}50%    {res} 2.094154                      {txt}Mean          {res} 7.477066
+                        {txt}Largest       Std. dev.     {res} 29.95779
+{txt}75%    {res} 5.019894       784.4124
+{txt}90%    {res} 11.81421        906.201       {txt}Variance      {res} 897.4693
+{txt}95%    {res} 24.68535       906.8079       {txt}Skewness      {res} 18.51642
+{txt}99%    {res}  96.8119       1348.086       {txt}Kurtosis      {res} 536.6939
+{txt}
+{com}. drop if mu < r(p5) | mu > r(p95)
+{txt}(1,418 observations deleted)
+
+{com}. sum mu,det
+
+                             {txt}mu
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .6802914        .677923
+{txt} 5%    {res} .7391511       .6779274
+{txt}10%    {res} .8098871       .6779747       {txt}Obs         {res}     12,757
+{txt}25%    {res} 1.109024       .6779966       {txt}Sum of wgt. {res}     12,757
+
+{txt}50%    {res} 2.094154                      {txt}Mean          {res} 3.745254
+                        {txt}Largest       Std. dev.     {res} 4.208127
+{txt}75%    {res} 4.315406       24.60255
+{txt}90%    {res} 9.280183       24.64372       {txt}Variance      {res} 17.70833
+{txt}95%    {res} 12.41849       24.66238       {txt}Skewness      {res}  2.34293
+{txt}99%    {res} 21.62237       24.68535       {txt}Kurtosis      {res}   9.0373
+{txt}
+{com}. bys year: tabstat mu, stats(mean median min max)
+
+{txt}{hline}
+-> year = 2020
+
+{ralign 12:Variable} {...}
+{c |}      Mean       p50       Min       Max
+{hline 13}{c +}{hline 40}
+{ralign 12:mu} {...}
+{c |}{...}
+ {res} 3.708621  1.947701  .6781706  24.60255
+{txt}{hline 13}{c BT}{hline 40}
+
+{hline}
+-> year = 2021
+
+{ralign 12:Variable} {...}
+{c |}      Mean       p50       Min       Max
+{hline 13}{c +}{hline 40}
+{ralign 12:mu} {...}
+{c |}{...}
+ {res} 3.777084  2.218699   .677923  24.68535
+{txt}{hline 13}{c BT}{hline 40}
+
+{com}. save after,replace
+{txt}{p 0 4 2}
+file {bf}
+after.dta{rm}
+saved
+{p_end}
+
+{com}. 
+. 
 . /*
 > 
 > 
@@ -1014,9 +1233,9 @@ saved
 . 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\Foodbi\tfplog.smcl
+       {txt}log:  {res}C:\github\foodbi\tfplog.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 1 Oct 2023, 09:45:27
+ {txt}closed on:  {res} 1 Oct 2023, 16:30:14
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

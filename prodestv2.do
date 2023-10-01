@@ -67,6 +67,7 @@ predict tfp,omega
 // outliers = 5% bot and 5% top
 sum mu,det
 drop if mu < r(p5) | mu > r(p95)
+sum mu,det
 
 save tfp1, replace
 
@@ -98,6 +99,7 @@ predict mu,markups inputvar(ln)
 // outliers = 5% bot and 5% top
 sum mu,det
 drop if mu < r(p5) | mu > r(p95)
+sum mu,det
 
 predict ,parameters
 predict tfp,omega

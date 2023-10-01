@@ -39,7 +39,11 @@ log using tfplog,replace
 */
 cd "C:\github\foodbi" // Please change this to the proper working directory
 
-use "new_data/use/data0015.dta" // Pleace change this with the data in
+import excel "C:\github\Foodbi\new_data\use\makro.xlsx", sheet("compile") firstrow clear
+tsset year
+save birate,replace
+
+use "new_data/use/data0015.dta",clear // Pleace change this with the data in
 
 xtset psid year
 keep if disic2_4==10 // ISIC Rev. 4. For ISIC rev.3, 15
@@ -55,10 +59,14 @@ gen lm=log(rdnvcu+rimvcu)
 gen ll=log(ltlnou)
 gen lva=log(vtlvcu)
 
+merge m:1 year using birate
+drop if psid==. // amid birate 2016++
 save pakai,replace
 
+
+
 prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
-outreg2 using "tfp2.xls",excel replace
+outreg2 using "tfp1.xls",excel replace
 
 predict mu,markups inputvar(ln)
 
@@ -71,7 +79,7 @@ sum mu,det
 
 save tfp1, replace
 
-clear
+clear all
 
 
 import excel "C:\github\Foodbi\new_data\use\mf11krm.xlsx", sheet("Data") firstrow case(lower)
@@ -87,7 +95,8 @@ gen lm=log(rdnvcu+rimvcu)
 gen ll=log(ltlnou)
 gen lva=log(vtlvcu)
 gen disic3=substr(disic4, 1, 3)
-
+merge m:1 year using birate
+drop if nobs==. // amid birate <2017
 save pakau,replace
 
 prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
@@ -108,6 +117,8 @@ bys year: tabstat mu, stats(mean sd median p25 p75 min max)
 
 save tfp2, replace
 
+// Regressing by 3-digit KBLI
+
 clear all
 use pakai
 levelsof disic3_4,local(ids)
@@ -126,6 +137,14 @@ foreach i in `ids' {
 }
 
 clear all
+use tfpa101
+append using tfpa102 tfpa103 tfpa104 tfpa105 tfpa106 tfpa107 tfpa108
+sum mu,det
+drop if mu < r(p5) | mu > r(p95)
+sum mu,det
+save tfpa,replace
+
+clear all
 use pakau
 destring disic3,replace
 levelsof disic3,local(ids)
@@ -142,6 +161,16 @@ foreach i in `ids' {
 	outreg2 using tfpb`i'.xls,replace se bdec(3) tdec(3) excel
 
 }
+
+clear all
+use tfpb101
+append using tfpb102 tfpb103 tfpb104 tfpb105 tfpb106 tfpb107 tfpb108
+sum mu,det
+drop if mu < r(p5) | mu > r(p95)
+sum mu,det
+save tfpb,replace
+
+/*
 
 clear all
 use pakau
@@ -179,7 +208,7 @@ bys year: tabstat mu, stats(mean median min max)
 save after,replace
 
 
-/*
+
 
 
 ╔═══╗────╔╗────╔═╗╔╗─────────╔═══╗╔╗

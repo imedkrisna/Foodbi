@@ -12,11 +12,11 @@ Pay attention to the data used in the do files. I ignore all data which is store
 - KBLI is used to fix some old version of data which has funny variable names and ISIC.
 - prodest is the earliest. IDK what im doing
 - prodestv1 a bit better but using output
-
+- prodestv2 use value added and removes outlier (top & bot 5%). Need to clean more since some lines will be obsolete.
 
 ## Current version
 
-- prodest2 use value added and removes outlier (top & bot 5%). Need to clean more since some lines will be obsolete.
+- Prodestv3 use regression for each ISIC4 and mamin_new as data year>2017 from scratch. Also tabstat for important 4-digit ISIC
 - regression is the do file for the regression
 - StataGraph is for making graphs.
 

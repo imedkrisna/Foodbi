@@ -170,6 +170,15 @@ drop if mu < r(p5) | mu > r(p95)
 sum mu,det
 save tfpb,replace
 
+tabstat mu if disic4=="1043", stats(mean sd median p25 p75 min max)
+tabstat mu if disic4=="1063", stats(mean sd median p25 p75 min max)
+tabstat mu if disic4=="1072", stats(mean sd median p25 p75 min max)
+
+use tfpa,clear
+tabstat mu if disic4_4==1040, stats(mean sd median p25 p75 min max)
+tabstat mu if disic4_4==1062, stats(mean sd median p25 p75 min max)
+tabstat mu if disic4_4==1072, stats(mean sd median p25 p75 min max)
+
 /*
 
 clear all

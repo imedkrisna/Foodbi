@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	lva
+	
+ln	0.435**
+	(0.189)
+lk	-0.332
+	(0.290)
+	
+Observations	53
+Number of groups	23
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

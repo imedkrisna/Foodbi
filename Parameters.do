@@ -216,7 +216,7 @@ foreach i in imdep ownership salesor {
    use "new_data/use/`i'", clear
    foreach o in wa_cr44d wa_hhi4d wa_pcm{
        gen `o'_precov = (`o'17 + `o'18 + `o'19)/3
-	   gen `o'_postcov = (`o'19 + `o'20 + `o'21)/3
+	   gen `o'_postcov = (`o'20 + `o'21)/2
    }
    save `i', replace
 }

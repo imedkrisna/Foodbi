@@ -125,6 +125,24 @@ foreach i in 17 18 19 20 21{
 	save "new_data\use\mamin`i'_n.dta", replace
 }
 
+// Generate year for each files
+foreach i in 17 18 19 20 21{
+	use "new_data\use\mamin`i'_n.dta", clear
+	gen year=20`i'
+	save "new_data\use\mamin`i'_n.dta", replace
+}
+
+
+// Combine final 5 files
+
+use "new_data\use\mamin17_n.dta",clear
+append using "new_data\use\mamin18_n.dta" "new_data\use\mamin19_n.dta" "new_data\use\mamin20_n.dta" "new_data\use\mamin21_n.dta"
+save mamin_new.dta,replace
+
+// adding WPI
+///////////////////////////////////////////////////////////////////////////////
+// check
+
 //COLLAPSE
 foreach i in 17 18 19 20 21{
 	use "new_data\use\mamin`i'_n.dta", clear

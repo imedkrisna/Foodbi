@@ -16,7 +16,7 @@ Pay attention to the data used in the do files. I ignore all data which is store
 
 ## Current version
 
-- Prodestv3 use regression for each ISIC4 and mamin_new as data year>2017 from scratch. Also tabstat for important 4-digit ISIC
+- Prodestv3 use regression for each ISIC4 and mamin_new as data year>2017 from scratch.
 - regression is the do file for the regression
 - StataGraph is for making graphs.
 

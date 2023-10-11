@@ -63,8 +63,6 @@ merge m:1 year using birate
 drop if psid==. // amid birate 2016++
 save pakai,replace
 
-
-
 prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
 outreg2 using "tfp1.xls",excel replace
 
@@ -146,13 +144,13 @@ save tfpc,replace
 
 clear all
 use pakau
-levelsof Disic4,local(idd)
+levelsof Disic3,local(idd)
 foreach i in `idd' {
 	clear all
 	use pakau
 	xtset Noobs year
 	//destring disic4,replace
-	keep if Disic4==`i'
+	keep if Disic3==`i'
 	prodest lva, free(ln) state(lk) proxy(lm) method(lp) fsresidual(om) va
 	predict tfp,omega
 	predict mu,markups inputvar(ln)
@@ -161,9 +159,12 @@ foreach i in `idd' {
 
 }
 
-use tfpd1011,clear
+// use tfpd1011,clear
 
-append using tfpd1011 tfpd1012 tfpd1013 tfpd1021 tfpd1022 tfpd1029 tfpd1031 tfpd1032 tfpd1033 tfpd1039 tfpd1041 tfpd1042 tfpd1043 tfpd1049 tfpd1051 tfpd1052 tfpd1053 tfpd1059 tfpd1061 tfpd1062 tfpd1063 tfpd1071 tfpd1072 tfpd1073 tfpd1074 tfpd1075 tfpd1076 tfpd1077 tfpd1079 tfpd1080
+// append using tfpd1011 tfpd1012 tfpd1013 tfpd1021 tfpd1022 tfpd1029 tfpd1031 tfpd1032 tfpd1033 tfpd1039 tfpd1041 tfpd1042 tfpd1043 tfpd1049 tfpd1051 tfpd1052 tfpd1053 tfpd1059 tfpd1061 tfpd1062 tfpd1063 tfpd1071 tfpd1072 tfpd1073 tfpd1074 tfpd1075 tfpd1076 tfpd1077 tfpd1079 tfpd1080
+
+use tfp101,clear
+append using tfp102 tfp103 tfp104 tfp105 tfp106 tfp107 tfp108
 
 sum mu,det
 drop if mu < r(p5) | mu > r(p95)

@@ -1,0 +1,19 @@
+	(1)
+VARIABLES	lwpi
+	
+L.birate	-0.0464
+	(0.0456)
+mui	0.000169
+	(0.0205)
+tfpi	-0.0410
+	(0.0678)
+wa_cr44d	0.0638
+	(0.367)
+Constant	5.325***
+	(0.518)
+	
+Observations	99
+Number of Disic4	28
+R-squared	0.027
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

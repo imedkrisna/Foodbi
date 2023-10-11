@@ -59,7 +59,7 @@ gen lm=log(rdnvcu+rimvcu)
 gen ll=log(ltlnou)
 gen lva=log(vtlvcu)
 
-merge m:1 year using birate
+merge m:1 year using birate,nogenerate
 drop if psid==. // amid birate 2016++
 save pakai,replace
 
@@ -92,7 +92,10 @@ gen lo=log(Output)
 gen lm=log(Rdnvcu+Rimvcu)
 gen ll=log(Ltlnou)
 gen lva=log(Vtlvcu)
-merge m:1 year using birate
+tostring Disic4,replace
+gen Disic3=substr(Disic4, 1, 3)
+destring Disic4 Disic3,replace
+merge m:1 year using birate,nogenerate
 drop if Noobs==. // amid birate <2017
 gen covid=0
 replace covid=1 if year>2019
@@ -163,21 +166,57 @@ foreach i in `idd' {
 
 // append using tfpd1011 tfpd1012 tfpd1013 tfpd1021 tfpd1022 tfpd1029 tfpd1031 tfpd1032 tfpd1033 tfpd1039 tfpd1041 tfpd1042 tfpd1043 tfpd1049 tfpd1051 tfpd1052 tfpd1053 tfpd1059 tfpd1061 tfpd1062 tfpd1063 tfpd1071 tfpd1072 tfpd1073 tfpd1074 tfpd1075 tfpd1076 tfpd1077 tfpd1079 tfpd1080
 
-use tfp101,clear
-append using tfp102 tfp103 tfp104 tfp105 tfp106 tfp107 tfp108
+use tfpd101,clear
+append using tfpd102 tfpd103 tfpd104 tfpd105 tfpd106 tfpd107 tfpd108
 
 sum mu,det
 drop if mu < r(p5) | mu > r(p95)
 sum mu,det
 save tfpd,replace
 
-tabstat mu if Disic4==1043, stats(mean sd median p25 p75 min max)
-tabstat mu if Disic4==1063, stats(mean sd median p25 p75 min max)
-tabstat mu if Disic4==1072, stats(mean sd median p25 p75 min max)
+// create industry markups ISIC 4 digits
+
+use tfp1,clear
+egen tot=total(output), by(disic4_4 year)
+gen sha=output/tot
+asgen mui=mu,w(sha) by(disic4_4 year)
+asgen tfpi=tfp,w(sha) by(disic4_4 year)
+save tfp1,replace
+
+use tfpc,clear
+egen tot=total(output), by(disic4_4 year)
+gen sha=output/tot
+asgen mui=mu,w(sha) by(disic4_4 year)
+asgen tfpi=tfp,w(sha) by(disic4_4 year)
+save tfpc,replace
+
+use tfp2,clear
+egen tot=total(Output), by(Disic4 year)
+gen sha=Output/tot
+asgen mui=mu,w(sha) by(Disic4 year)
+asgen tfpi=tfp,w(sha) by(Disic4 year)
+save tfp2,replace
+
+use tfpd,clear
+egen tot=total(Output), by(Disic4 year)
+gen sha=Output/tot
+asgen mui=mu,w(sha) by(Disic4 year)
+asgen tfpi=tfp,w(sha) by(Disic4 year)
+save tfpd,replace
+
+// Show stats of markups
 
 use tfpc,clear
 tabstat mu if disic4_4==1040, stats(mean sd median p25 p75 min max)
 tabstat mu if disic4_4==1062, stats(mean sd median p25 p75 min max)
 tabstat mu if disic4_4==1072, stats(mean sd median p25 p75 min max)
+
+use tfpd,clear
+tabstat mu if Disic4==1043, stats(mean sd median p25 p75 min max)
+tabstat mu if Disic4==1063, stats(mean sd median p25 p75 min max)
+tabstat mu if Disic4==1072, stats(mean sd median p25 p75 min max)
+
+
+
 
 log close

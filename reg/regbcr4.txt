@@ -1,0 +1,15 @@
+	(1)
+VARIABLES	mui
+	
+tfpi	-0.351
+	(0.320)
+wa_cr44d	5.185**
+	(2.003)
+Constant	5.452**
+	(2.618)
+	
+Observations	144
+Number of Disic4	30
+R-squared	0.069
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

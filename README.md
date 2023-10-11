@@ -58,3 +58,8 @@ Some notes on the results:
    1. Lending rate and BI rate behave similarly, with lending rate having a larger magnitude, as expected.
    2. On the old dataset, both are significant to log WPI, both at t and t-1 (1 year lag). interest rate do reduces WPI, as per the theory. Magnitude for current rate and lagged rate are the same.
    3. Interestingly, new dataset finds that current lending rate and BI rate to be positively related to log WPI. Meaning, increased interest rate actually increase WPI. Lagged values have no significance.
+
+## Next
+
+- more control variables maybe. Please suggests
+- Try GMM?

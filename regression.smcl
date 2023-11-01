@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\foodbi\regression.smcl
+       {txt}log:  {res}C:\github\Foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 1 Nov 2023, 19:06:42
+ {txt}opened on:  {res} 1 Nov 2023, 20:24:40
 {txt}
 {com}. 
 . cd "C:\github\foodbi"
@@ -586,9 +586,9 @@ F test that all u_i=0: F({res}27{txt}, {res}67{txt}) = {res}1.82{col 62}{txt}Pro
 {com}. 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\foodbi\regression.smcl
+       {txt}log:  {res}C:\github\Foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 1 Nov 2023, 19:06:45
+ {txt}closed on:  {res} 1 Nov 2023, 20:24:42
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

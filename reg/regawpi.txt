@@ -1,17 +1,31 @@
 	(1)
 VARIABLES	lwpi
 	
-L.lending	-0.137***
-	(0.00789)
-mui	0.0738***
-	(0.0227)
-wa_cr44d	-0.0295
-	(0.172)
-Constant	7.109***
-	(0.160)
+birate	-0.0748***
+	(0.000350)
+mu1	0.0125***
+	(0.000842)
+wa_cr44d	0.236***
+	(0.00967)
+102.disic3_4	-0.0740**
+	(0.0319)
+103.disic3_4	-0.255***
+	(0.0342)
+104.disic3_4	-0.0436
+	(0.0416)
+105.disic3_4	-0.292***
+	(0.0481)
+106.disic3_4	-0.186***
+	(0.0337)
+107.disic3_4	-0.111***
+	(0.0311)
+108.disic3_4	-0.110**
+	(0.0445)
+Constant	5.879***
+	(0.0307)
 	
-Observations	155
-Number of disic4_4	13
-R-squared	0.696
+Observations	58,987
+Number of psid	9,994
+R-squared	0.490
 Standard errors in parentheses	
 *** p<0.01, ** p<0.05, * p<0.1	

@@ -1,15 +1,33 @@
 	(1)
-VARIABLES	mui
+VARIABLES	mu1
 	
-tfp	0.132
-	(0.0956)
-wa_hhi4d_y	1.408
-	(1.205)
-Constant	1.575**
-	(0.774)
+tfp	0.435***
+	(0.0294)
+wa_hhi4d_y	-0.700**
+	(0.316)
+1.ownership	0.605***
+	(0.148)
+2.ownership	0.712***
+	(0.149)
+102.disic3_4	-1.931***
+	(0.347)
+103.disic3_4	-2.414***
+	(0.388)
+104.disic3_4	-2.086***
+	(0.617)
+105.disic3_4	-1.913**
+	(0.771)
+106.disic3_4	-2.261***
+	(0.387)
+107.disic3_4	-3.037***
+	(0.362)
+108.disic3_4	-2.122***
+	(0.588)
+Constant	0.182
+	(0.384)
 	
-Observations	135
-Number of disic4_4	13
-R-squared	0.029
+Observations	12,509
+Number of psid	6,801
+R-squared	0.046
 Standard errors in parentheses	
 *** p<0.01, ** p<0.05, * p<0.1	

@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\github\foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 1 Nov 2023, 17:32:37
+ {txt}opened on:  {res} 1 Nov 2023, 19:06:42
 {txt}
 {com}. 
 . cd "C:\github\foodbi"
@@ -11,7 +11,7 @@
 {txt}
 {com}. 
 . // 00-15
-. use tfpa,clear
+. use tfpc,clear
 {txt}
 {com}. 
 . xtset psid year
@@ -20,157 +20,575 @@
 {p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{txt:, but with gaps}{p_end}
 {txt}{col 10}Delta: {res}1 unit
 {txt}
-{com}. xtreg mu tfp wa_cr44d i.disic3_4,fe
+{com}. xtreg pcm mu lending wa_cr44d i.disic4_4,fe
 {res}
-{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    47,017
-{txt}Group variable: {res}psid{txt}{col 49}Number of groups{col 67}={col 69}{res}     8,438
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    74,942
+{txt}Group variable: {res}psid{txt}{col 49}Number of groups{col 67}={col 69}{res}    10,946
 
 {txt}R-squared:{col 49}Obs per group:
-     Within  = {res}0.0351{col 63}{txt}min{col 67}={col 69}{res}         1
-{txt}     Between = {res}0.2544{col 63}{txt}avg{col 67}={col 69}{res}       5.6
-{txt}     Overall = {res}0.1631{col 63}{txt}max{col 67}={col 69}{res}        15
+     Within  = {res}0.2015{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     Between = {res}0.1490{col 63}{txt}avg{col 67}={col 69}{res}       6.8
+{txt}     Overall = {res}0.1676{col 63}{txt}max{col 67}={col 69}{res}        16
 
-{txt}{col 49}F({res}9{txt},{res}38570{txt}){col 67}={col 70}{res}   155.99
-{txt}corr(u_i, Xb) = {res}0.0435{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+{txt}{col 49}F({res}15{txt},{res}63981{txt}){col 67}={col 70}{res}  1076.32
+{txt}corr(u_i, Xb) = {res}-0.1030{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}         mu1{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{col 1}         pcm{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 9}tfp {c |}{col 14}{res}{space 2} .4782385{col 26}{space 2}   .01308{col 37}{space 1}   36.56{col 46}{space 3}0.000{col 54}{space 4} .4526014{col 67}{space 3} .5038755
-{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0349603{col 26}{space 2} .0533674{col 37}{space 1}   -0.66{col 46}{space 3}0.512{col 54}{space 4}-.1395619{col 67}{space 3} .0696412
+{space 10}mu {c |}{col 14}{res}{space 2}  .058515{col 26}{space 2} .0004617{col 37}{space 1}  126.75{col 46}{space 3}0.000{col 54}{space 4} .0576102{col 67}{space 3} .0594199
+{txt}{space 5}lending {c |}{col 14}{res}{space 2} .0001021{col 26}{space 2}  .000296{col 37}{space 1}    0.34{col 46}{space 3}0.730{col 54}{space 4}-.0004781{col 67}{space 3} .0006822
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .0344615{col 26}{space 2} .0047845{col 37}{space 1}    7.20{col 46}{space 3}0.000{col 54}{space 4} .0250838{col 67}{space 3} .0438391
 {txt}{space 12} {c |}
-{space 4}disic3_4 {c |}
-{space 8}102  {c |}{col 14}{res}{space 2}-1.851333{col 26}{space 2} .1579685{col 37}{space 1}  -11.72{col 46}{space 3}0.000{col 54}{space 4}-2.160955{col 67}{space 3}-1.541711
-{txt}{space 8}103  {c |}{col 14}{res}{space 2}-2.289786{col 26}{space 2} .1784651{col 37}{space 1}  -12.83{col 46}{space 3}0.000{col 54}{space 4}-2.639582{col 67}{space 3} -1.93999
-{txt}{space 8}104  {c |}{col 14}{res}{space 2}-3.103629{col 26}{space 2} .2424192{col 37}{space 1}  -12.80{col 46}{space 3}0.000{col 54}{space 4}-3.578776{col 67}{space 3}-2.628481
-{txt}{space 8}105  {c |}{col 14}{res}{space 2} -2.35925{col 26}{space 2} .2956715{col 37}{space 1}   -7.98{col 46}{space 3}0.000{col 54}{space 4}-2.938773{col 67}{space 3}-1.779726
-{txt}{space 8}106  {c |}{col 14}{res}{space 2}-2.310699{col 26}{space 2} .1735574{col 37}{space 1}  -13.31{col 46}{space 3}0.000{col 54}{space 4}-2.650876{col 67}{space 3}-1.970522
-{txt}{space 8}107  {c |}{col 14}{res}{space 2} -2.92079{col 26}{space 2} .1603972{col 37}{space 1}  -18.21{col 46}{space 3}0.000{col 54}{space 4}-3.235172{col 67}{space 3}-2.606407
-{txt}{space 8}108  {c |}{col 14}{res}{space 2}-2.163224{col 26}{space 2} .2409249{col 37}{space 1}   -8.98{col 46}{space 3}0.000{col 54}{space 4}-2.635443{col 67}{space 3}-1.691005
+{space 4}disic4_4 {c |}
+{space 7}1020  {c |}{col 14}{res}{space 2} .0236977{col 26}{space 2} .0148922{col 37}{space 1}    1.59{col 46}{space 3}0.112{col 54}{space 4}-.0054911{col 67}{space 3} .0528865
+{txt}{space 7}1030  {c |}{col 14}{res}{space 2} -.019751{col 26}{space 2} .0171359{col 37}{space 1}   -1.15{col 46}{space 3}0.249{col 54}{space 4}-.0533373{col 67}{space 3} .0138354
+{txt}{space 7}1040  {c |}{col 14}{res}{space 2} .0119211{col 26}{space 2} .0214269{col 37}{space 1}    0.56{col 46}{space 3}0.578{col 54}{space 4}-.0300756{col 67}{space 3} .0539179
+{txt}{space 7}1050  {c |}{col 14}{res}{space 2} .0426446{col 26}{space 2} .0252346{col 37}{space 1}    1.69{col 46}{space 3}0.091{col 54}{space 4}-.0068153{col 67}{space 3} .0921045
+{txt}{space 7}1061  {c |}{col 14}{res}{space 2}-.0052699{col 26}{space 2}  .017267{col 37}{space 1}   -0.31{col 46}{space 3}0.760{col 54}{space 4}-.0391133{col 67}{space 3} .0285734
+{txt}{space 7}1062  {c |}{col 14}{res}{space 2} .0178302{col 26}{space 2} .0192164{col 37}{space 1}    0.93{col 46}{space 3}0.353{col 54}{space 4}-.0198338{col 67}{space 3} .0554943
+{txt}{space 7}1071  {c |}{col 14}{res}{space 2} .0605169{col 26}{space 2} .0158138{col 37}{space 1}    3.83{col 46}{space 3}0.000{col 54}{space 4} .0295219{col 67}{space 3} .0915119
+{txt}{space 7}1072  {c |}{col 14}{res}{space 2} .0273277{col 26}{space 2} .0238656{col 37}{space 1}    1.15{col 46}{space 3}0.252{col 54}{space 4}-.0194489{col 67}{space 3} .0741043
+{txt}{space 7}1073  {c |}{col 14}{res}{space 2} .0064954{col 26}{space 2} .0196587{col 37}{space 1}    0.33{col 46}{space 3}0.741{col 54}{space 4}-.0320358{col 67}{space 3} .0450265
+{txt}{space 7}1074  {c |}{col 14}{res}{space 2} .0497098{col 26}{space 2} .0192148{col 37}{space 1}    2.59{col 46}{space 3}0.010{col 54}{space 4} .0120487{col 67}{space 3} .0873708
+{txt}{space 7}1079  {c |}{col 14}{res}{space 2} .0638379{col 26}{space 2} .0148915{col 37}{space 1}    4.29{col 46}{space 3}0.000{col 54}{space 4} .0346505{col 67}{space 3} .0930252
+{txt}{space 7}1080  {c |}{col 14}{res}{space 2} .0177893{col 26}{space 2} .0235113{col 37}{space 1}    0.76{col 46}{space 3}0.449{col 54}{space 4}-.0282929{col 67}{space 3} .0638715
 {txt}{space 12} {c |}
-{space 7}_cons {c |}{col 14}{res}{space 2} .4524602{col 26}{space 2}  .159624{col 37}{space 1}    2.83{col 46}{space 3}0.005{col 54}{space 4} .1395932{col 67}{space 3} .7653273
+{space 7}_cons {c |}{col 14}{res}{space 2} .0596522{col 26}{space 2} .0150987{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} .0300588{col 67}{space 3} .0892456
 {txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-     sigma_u {c |} {res} 1.0528716
-     {txt}sigma_e {c |} {res} 1.1771395
-         {txt}rho {c |} {res} .44444726{txt}   (fraction of variance due to u_i)
+     sigma_u {c |} {res} .11666884
+     {txt}sigma_e {c |} {res} .14567429
+         {txt}rho {c |} {res}  .3907722{txt}   (fraction of variance due to u_i)
 {hline 13}{c BT}{hline 64}
-F test that all u_i=0: F({res}8437{txt}, {res}38570{txt}) = {res}2.47{col 62}{txt}Prob > F = {res}0.0000
+F test that all u_i=0: F({res}10945{txt}, {res}63981{txt}) = {res}3.35{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. outreg2 using "reg/regapcmfirm.xls",excel replace
+{txt}{browse `"reg/regapcmfirm.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regapcmfirm.txt""':seeout}
+
+{com}. 
+. duplicates drop disic4_4 year,force
+
+{p 0 4}{txt}Duplicates in terms of {res} disic4_4 year{p_end}
+
+{txt}(74,949 observations deleted)
+
+{com}. xtset disic4_4 year
+{res}
+{col 1}{txt:Panel variable: }{res:disic4_4}{txt: (strongly balanced)}
+{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2000}}{txt: to }{res:{bind:2015}}{p_end}
+{txt}{col 10}Delta: {res}1 unit
+{txt}
+{com}. xtreg mui tfpi wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       194
+{txt}Group variable: {res}disic4_4{txt}{col 49}Number of groups{col 67}={col 69}{res}        13
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.1863{col 63}{txt}min{col 67}={col 69}{res}        14
+{txt}     Between = {res}0.0079{col 63}{txt}avg{col 67}={col 69}{res}      14.9
+{txt}     Overall = {res}0.0008{col 63}{txt}max{col 67}={col 69}{res}        15
+
+{txt}{col 49}F({res}2{txt},{res}179{txt}){col 67}={col 70}{res}    20.49
+{txt}corr(u_i, Xb) = {res}-0.7873{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         mui{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}tfpi {c |}{col 14}{res}{space 2} .6834563{col 26}{space 2} .1127674{col 37}{space 1}    6.06{col 46}{space 3}0.000{col 54}{space 4} .4609318{col 67}{space 3} .9059808
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .7171288{col 26}{space 2} .5786528{col 37}{space 1}    1.24{col 46}{space 3}0.217{col 54}{space 4}  -.42473{col 67}{space 3} 1.858988
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.930051{col 26}{space 2} 1.064936{col 37}{space 1}   -3.69{col 46}{space 3}0.000{col 54}{space 4}-6.031495{col 67}{space 3}-1.828607
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 1.6501453
+     {txt}sigma_e {c |} {res} .80485271
+         {txt}rho {c |} {res} .80782183{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}12{txt}, {res}179{txt}) = {res}23.58{col 62}{txt}Prob > F = {res}0.0000
 {txt}
 {com}. outreg2 using "reg/regacr4.xls",excel replace
 {txt}{browse `"reg/regacr4.xls"'}
 {browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regacr4.txt""':seeout}
 
 {com}. 
-. xtreg mu tfp wa_hhi4d_y i.ownership i.disic3_4,fe
+. xtreg wa_pcm lending mui wa_cr44d,fe
 {res}
-{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    12,509
-{txt}Group variable: {res}psid{txt}{col 49}Number of groups{col 67}={col 69}{res}     6,801
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       207
+{txt}Group variable: {res}disic4_4{txt}{col 49}Number of groups{col 67}={col 69}{res}        13
 
 {txt}R-squared:{col 49}Obs per group:
-     Within  = {res}0.0462{col 63}{txt}min{col 67}={col 69}{res}         1
-{txt}     Between = {res}0.2521{col 63}{txt}avg{col 67}={col 69}{res}       1.8
-{txt}     Overall = {res}0.1959{col 63}{txt}max{col 67}={col 69}{res}         4
+     Within  = {res}0.2565{col 63}{txt}min{col 67}={col 69}{res}        15
+{txt}     Between = {res}0.0051{col 63}{txt}avg{col 67}={col 69}{res}      15.9
+{txt}     Overall = {res}0.0903{col 63}{txt}max{col 67}={col 69}{res}        16
 
-{txt}{col 49}F({res}11{txt},{res}5697{txt}){col 67}={col 70}{res}    25.09
-{txt}corr(u_i, Xb) = {res}-0.0280{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+{txt}{col 49}F({res}3{txt},{res}191{txt}){col 67}={col 70}{res}    21.97
+{txt}corr(u_i, Xb) = {res}-0.4162{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{col 1}         mu1{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{col 1}      wa_pcm{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 9}tfp {c |}{col 14}{res}{space 2} .4345673{col 26}{space 2} .0293573{col 37}{space 1}   14.80{col 46}{space 3}0.000{col 54}{space 4} .3770158{col 67}{space 3} .4921188
-{txt}{space 2}wa_hhi4d_y {c |}{col 14}{res}{space 2}-.7001669{col 26}{space 2}  .316115{col 37}{space 1}   -2.21{col 46}{space 3}0.027{col 54}{space 4}-1.319872{col 67}{space 3}-.0804613
-{txt}{space 12} {c |}
-{space 3}ownership {c |}
-{space 3}domestic  {c |}{col 14}{res}{space 2} .6045304{col 26}{space 2} .1481336{col 37}{space 1}    4.08{col 46}{space 3}0.000{col 54}{space 4} .3141322{col 67}{space 3} .8949286
-{txt}{space 8}SOE  {c |}{col 14}{res}{space 2} .7122724{col 26}{space 2} .1492032{col 37}{space 1}    4.77{col 46}{space 3}0.000{col 54}{space 4} .4197774{col 67}{space 3} 1.004767
-{txt}{space 12} {c |}
-{space 4}disic3_4 {c |}
-{space 8}102  {c |}{col 14}{res}{space 2}-1.931052{col 26}{space 2} .3474776{col 37}{space 1}   -5.56{col 46}{space 3}0.000{col 54}{space 4} -2.61224{col 67}{space 3}-1.249864
-{txt}{space 8}103  {c |}{col 14}{res}{space 2}-2.413953{col 26}{space 2}  .387647{col 37}{space 1}   -6.23{col 46}{space 3}0.000{col 54}{space 4}-3.173889{col 67}{space 3}-1.654017
-{txt}{space 8}104  {c |}{col 14}{res}{space 2}-2.086145{col 26}{space 2} .6169226{col 37}{space 1}   -3.38{col 46}{space 3}0.001{col 54}{space 4}-3.295548{col 67}{space 3}-.8767416
-{txt}{space 8}105  {c |}{col 14}{res}{space 2}-1.913117{col 26}{space 2} .7705195{col 37}{space 1}   -2.48{col 46}{space 3}0.013{col 54}{space 4}-3.423628{col 67}{space 3}-.4026051
-{txt}{space 8}106  {c |}{col 14}{res}{space 2}-2.260539{col 26}{space 2} .3865128{col 37}{space 1}   -5.85{col 46}{space 3}0.000{col 54}{space 4}-3.018251{col 67}{space 3}-1.502827
-{txt}{space 8}107  {c |}{col 14}{res}{space 2}-3.036608{col 26}{space 2} .3624926{col 37}{space 1}   -8.38{col 46}{space 3}0.000{col 54}{space 4}-3.747231{col 67}{space 3}-2.325985
-{txt}{space 8}108  {c |}{col 14}{res}{space 2}-2.122463{col 26}{space 2}  .587541{col 37}{space 1}   -3.61{col 46}{space 3}0.000{col 54}{space 4}-3.274267{col 67}{space 3} -.970659
-{txt}{space 12} {c |}
-{space 7}_cons {c |}{col 14}{res}{space 2} .1815597{col 26}{space 2} .3843188{col 37}{space 1}    0.47{col 46}{space 3}0.637{col 54}{space 4}-.5718513{col 67}{space 3} .9349707
+{space 5}lending {c |}{col 14}{res}{space 2} -.005504{col 26}{space 2} .0023023{col 37}{space 1}   -2.39{col 46}{space 3}0.018{col 54}{space 4}-.0100453{col 67}{space 3}-.0009628
+{txt}{space 9}mui {c |}{col 14}{res}{space 2} .0211408{col 26}{space 2} .0063954{col 37}{space 1}    3.31{col 46}{space 3}0.001{col 54}{space 4} .0085261{col 67}{space 3} .0337555
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .3095808{col 26}{space 2} .0506356{col 37}{space 1}    6.11{col 46}{space 3}0.000{col 54}{space 4}  .209704{col 67}{space 3} .4094576
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1300541{col 26}{space 2} .0465652{col 37}{space 1}    2.79{col 46}{space 3}0.006{col 54}{space 4} .0382061{col 67}{space 3} .2219022
 {txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-     sigma_u {c |} {res} 1.1343549
-     {txt}sigma_e {c |} {res} 1.1116761
-         {txt}rho {c |} {res} .51009627{txt}   (fraction of variance due to u_i)
+     sigma_u {c |} {res} .08191953
+     {txt}sigma_e {c |} {res} .07600958
+         {txt}rho {c |} {res} .53736919{txt}   (fraction of variance due to u_i)
 {hline 13}{c BT}{hline 64}
-F test that all u_i=0: F({res}6800{txt}, {res}5697{txt}) = {res}1.45{col 62}{txt}Prob > F = {res}0.0000
+F test that all u_i=0: F({res}12{txt}, {res}191{txt}) = {res}12.55{col 62}{txt}Prob > F = {res}0.0000
 {txt}
-{com}. outreg2 using "reg/regahhi.xls",excel replace
-{txt}{browse `"reg/regahhi.xls"'}
-{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regahhi.txt""':seeout}
+{com}. outreg2 using "reg/regapcmind.xls",excel replace
+{txt}{browse `"reg/regapcmind.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regapcmind.txt""':seeout}
 
 {com}. 
+. //xtreg mui tfp wa_hhi4d_y,fe
+. //outreg2 using "reg/regahhi.xls",excel replace
+. 
 . gen lwpi=log(wpio)
-{txt}(15,956 missing values generated)
+{txt}(39 missing values generated)
 
 {com}. 
-. xtreg lwpi birate mu wa_cr44d i.disic3_4,fe
+. // no lags
+. 
+. xtreg lwpi lending mui wa_cr44d,fe
 {res}
-{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    58,987
-{txt}Group variable: {res}psid{txt}{col 49}Number of groups{col 67}={col 69}{res}     9,994
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       168
+{txt}Group variable: {res}disic4_4{txt}{col 49}Number of groups{col 67}={col 69}{res}        13
 
 {txt}R-squared:{col 49}Obs per group:
-     Within  = {res}0.4901{col 63}{txt}min{col 67}={col 69}{res}         1
-{txt}     Between = {res}0.8199{col 63}{txt}avg{col 67}={col 69}{res}       5.9
-{txt}     Overall = {res}0.5842{col 63}{txt}max{col 67}={col 69}{res}        13
+     Within  = {res}0.7070{col 63}{txt}min{col 67}={col 69}{res}        12
+{txt}     Between = {res}0.0162{col 63}{txt}avg{col 67}={col 69}{res}      12.9
+{txt}     Overall = {res}0.6718{col 63}{txt}max{col 67}={col 69}{res}        13
 
-{txt}{col 49}F({res}10{txt},{res}48983{txt}){col 67}={col 70}{res}  4707.81
-{txt}corr(u_i, Xb) = {res}0.3348{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+{txt}{col 49}F({res}3{txt},{res}152{txt}){col 67}={col 70}{res}   122.28
+{txt}corr(u_i, Xb) = {res}-0.1361{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 6}birate {c |}{col 14}{res}{space 2}-.0748187{col 26}{space 2} .0003496{col 37}{space 1} -214.03{col 46}{space 3}0.000{col 54}{space 4}-.0755038{col 67}{space 3}-.0741335
-{txt}{space 9}mu1 {c |}{col 14}{res}{space 2} .0124997{col 26}{space 2} .0008423{col 37}{space 1}   14.84{col 46}{space 3}0.000{col 54}{space 4} .0108487{col 67}{space 3} .0141507
-{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .2361463{col 26}{space 2} .0096652{col 37}{space 1}   24.43{col 46}{space 3}0.000{col 54}{space 4} .2172023{col 67}{space 3} .2550903
-{txt}{space 12} {c |}
-{space 4}disic3_4 {c |}
-{space 8}102  {c |}{col 14}{res}{space 2}-.0739942{col 26}{space 2}  .031908{col 37}{space 1}   -2.32{col 46}{space 3}0.020{col 54}{space 4}-.1365343{col 67}{space 3}-.0114541
-{txt}{space 8}103  {c |}{col 14}{res}{space 2}-.2550606{col 26}{space 2} .0342378{col 37}{space 1}   -7.45{col 46}{space 3}0.000{col 54}{space 4}-.3221671{col 67}{space 3}-.1879541
-{txt}{space 8}104  {c |}{col 14}{res}{space 2}-.0435635{col 26}{space 2} .0415726{col 37}{space 1}   -1.05{col 46}{space 3}0.295{col 54}{space 4}-.1250463{col 67}{space 3} .0379193
-{txt}{space 8}105  {c |}{col 14}{res}{space 2}-.2924218{col 26}{space 2} .0481296{col 37}{space 1}   -6.08{col 46}{space 3}0.000{col 54}{space 4}-.3867566{col 67}{space 3}-.1980871
-{txt}{space 8}106  {c |}{col 14}{res}{space 2}-.1857573{col 26}{space 2} .0337221{col 37}{space 1}   -5.51{col 46}{space 3}0.000{col 54}{space 4} -.251853{col 67}{space 3}-.1196616
-{txt}{space 8}107  {c |}{col 14}{res}{space 2}-.1113877{col 26}{space 2} .0310764{col 37}{space 1}   -3.58{col 46}{space 3}0.000{col 54}{space 4}-.1722977{col 67}{space 3}-.0504776
-{txt}{space 8}108  {c |}{col 14}{res}{space 2}-.1102893{col 26}{space 2} .0445015{col 37}{space 1}   -2.48{col 46}{space 3}0.013{col 54}{space 4}-.1975127{col 67}{space 3}-.0230658
-{txt}{space 12} {c |}
-{space 7}_cons {c |}{col 14}{res}{space 2} 5.879009{col 26}{space 2} .0307102{col 37}{space 1}  191.44{col 46}{space 3}0.000{col 54}{space 4} 5.818816{col 67}{space 3} 5.939201
+{space 5}lending {c |}{col 14}{res}{space 2}-.1369421{col 26}{space 2} .0073967{col 37}{space 1}  -18.51{col 46}{space 3}0.000{col 54}{space 4}-.1515557{col 67}{space 3}-.1223285
+{txt}{space 9}mui {c |}{col 14}{res}{space 2} .0687111{col 26}{space 2} .0219402{col 37}{space 1}    3.13{col 46}{space 3}0.002{col 54}{space 4} .0253639{col 67}{space 3} .1120583
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .0946567{col 26}{space 2} .1703093{col 37}{space 1}    0.56{col 46}{space 3}0.579{col 54}{space 4}-.2418223{col 67}{space 3} .4311357
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 6.982446{col 26}{space 2} .1489217{col 37}{space 1}   46.89{col 46}{space 3}0.000{col 54}{space 4} 6.688222{col 67}{space 3} 7.276669
 {txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-     sigma_u {c |} {res} .16221768
-     {txt}sigma_e {c |} {res} .22708409
-         {txt}rho {c |} {res} .33787857{txt}   (fraction of variance due to u_i)
+     sigma_u {c |} {res} .08135415
+     {txt}sigma_e {c |} {res} .22021351
+         {txt}rho {c |} {res} .12009071{txt}   (fraction of variance due to u_i)
 {hline 13}{c BT}{hline 64}
-F test that all u_i=0: F({res}9993{txt}, {res}48983{txt}) = {res}1.51{col 62}{txt}Prob > F = {res}0.0000
+F test that all u_i=0: F({res}12{txt}, {res}152{txt}) = {res}1.12{col 62}{txt}Prob > F = {res}0.3505
 {txt}
 {com}. outreg2 using "reg/regawpi.xls",excel replace
 {txt}{browse `"reg/regawpi.xls"'}
 {browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regawpi.txt""':seeout}
 
 {com}. 
+. xtreg lwpi birate mui wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       168
+{txt}Group variable: {res}disic4_4{txt}{col 49}Number of groups{col 67}={col 69}{res}        13
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.6036{col 63}{txt}min{col 67}={col 69}{res}        12
+{txt}     Between = {res}0.0000{col 63}{txt}avg{col 67}={col 69}{res}      12.9
+{txt}     Overall = {res}0.5694{col 63}{txt}max{col 67}={col 69}{res}        13
+
+{txt}{col 49}F({res}3{txt},{res}152{txt}){col 67}={col 70}{res}    77.16
+{txt}corr(u_i, Xb) = {res}-0.1638{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}{col 14}{res}{space 2}-.0893647{col 26}{space 2} .0061134{col 37}{space 1}  -14.62{col 46}{space 3}0.000{col 54}{space 4}-.1014428{col 67}{space 3}-.0772866
+{txt}{space 9}mui {c |}{col 14}{res}{space 2} .0792585{col 26}{space 2} .0254787{col 37}{space 1}    3.11{col 46}{space 3}0.002{col 54}{space 4} .0289203{col 67}{space 3} .1295966
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0260198{col 26}{space 2} .1981225{col 37}{space 1}   -0.13{col 46}{space 3}0.896{col 54}{space 4}-.4174492{col 67}{space 3} .3654097
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.804711{col 26}{space 2} .1275013{col 37}{space 1}   45.53{col 46}{space 3}0.000{col 54}{space 4} 5.552807{col 67}{space 3} 6.056614
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .08221265
+     {txt}sigma_e {c |} {res}  .2561486
+         {txt}rho {c |} {res} .09339261{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}12{txt}, {res}152{txt}) = {res}0.86{col 62}{txt}Prob > F = {res}0.5894
+{txt}
+{com}. outreg2 using "reg/regawpibi.xls",excel replace
+{txt}{browse `"reg/regawpibi.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regawpibi.txt""':seeout}
+
+{com}. 
+. // lags
+. 
+. xtreg lwpi L.lending mui wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       155
+{txt}Group variable: {res}disic4_4{txt}{col 49}Number of groups{col 67}={col 69}{res}        13
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.6959{col 63}{txt}min{col 67}={col 69}{res}        11
+{txt}     Between = {res}0.0014{col 63}{txt}avg{col 67}={col 69}{res}      11.9
+{txt}     Overall = {res}0.6581{col 63}{txt}max{col 67}={col 69}{res}        12
+
+{txt}{col 49}F({res}3{txt},{res}139{txt}){col 67}={col 70}{res}   106.01
+{txt}corr(u_i, Xb) = {res}-0.1469{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lending {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2} -.137084{col 26}{space 2} .0078914{col 37}{space 1}  -17.37{col 46}{space 3}0.000{col 54}{space 4}-.1526866{col 67}{space 3}-.1214814
+{txt}{space 12} {c |}
+{space 9}mui {c |}{col 14}{res}{space 2} .0737928{col 26}{space 2} .0227378{col 37}{space 1}    3.25{col 46}{space 3}0.001{col 54}{space 4} .0288361{col 67}{space 3} .1187495
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0295057{col 26}{space 2} .1715791{col 37}{space 1}   -0.17{col 46}{space 3}0.864{col 54}{space 4}-.3687481{col 67}{space 3} .3097367
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 7.108949{col 26}{space 2} .1601046{col 37}{space 1}   44.40{col 46}{space 3}0.000{col 54}{space 4} 6.792393{col 67}{space 3} 7.425504
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .08156305
+     {txt}sigma_e {c |} {res} .21454579
+         {txt}rho {c |} {res} .12627608{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}12{txt}, {res}139{txt}) = {res}1.13{col 62}{txt}Prob > F = {res}0.3410
+{txt}
+{com}. outreg2 using "reg/regawpil.xls",excel replace
+{txt}{browse `"reg/regawpil.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regawpil.txt""':seeout}
+
+{com}. 
+. xtreg lwpi L.birate mui wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       155
+{txt}Group variable: {res}disic4_4{txt}{col 49}Number of groups{col 67}={col 69}{res}        13
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.5552{col 63}{txt}min{col 67}={col 69}{res}        11
+{txt}     Between = {res}0.0003{col 63}{txt}avg{col 67}={col 69}{res}      11.9
+{txt}     Overall = {res}0.5145{col 63}{txt}max{col 67}={col 69}{res}        12
+
+{txt}{col 49}F({res}3{txt},{res}139{txt}){col 67}={col 70}{res}    57.84
+{txt}corr(u_i, Xb) = {res}-0.1825{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0846066{col 26}{space 2}  .006639{col 37}{space 1}  -12.74{col 46}{space 3}0.000{col 54}{space 4}-.0977332{col 67}{space 3}-.0714801
+{txt}{space 12} {c |}
+{space 9}mui {c |}{col 14}{res}{space 2} .0788987{col 26}{space 2} .0274902{col 37}{space 1}    2.87{col 46}{space 3}0.005{col 54}{space 4} .0245456{col 67}{space 3} .1332518
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .0286912{col 26}{space 2} .2073087{col 37}{space 1}    0.14{col 46}{space 3}0.890{col 54}{space 4} -.381195{col 67}{space 3} .4385774
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.803995{col 26}{space 2} .1362855{col 37}{space 1}   42.59{col 46}{space 3}0.000{col 54}{space 4} 5.534535{col 67}{space 3} 6.073456
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .08721186
+     {txt}sigma_e {c |} {res}  .2594467
+         {txt}rho {c |} {res} .10152244{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}12{txt}, {res}139{txt}) = {res}0.85{col 62}{txt}Prob > F = {res}0.5991
+{txt}
+{com}. outreg2 using "reg/regawpibil.xls",excel replace
+{txt}{browse `"reg/regawpibil.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regawpibil.txt""':seeout}
+
+{com}. 
 . // 17-21
 . 
-. use tfpb,clear
+. use tfpd,clear
 {txt}
 {com}. 
-. xtset nobs year
+. xtset Noobs year
 {res}
-{col 1}{txt:Panel variable: }{res:nobs}{txt: (unbalanced)}
+{col 1}{txt:Panel variable: }{res:Noobs}{txt: (unbalanced)}
 {p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2017}}{txt: to }{res:{bind:2021}}{txt:, but with gaps}{p_end}
 {txt}{col 10}Delta: {res}1 unit
 {txt}
-{com}. xtreg mu tfp wa_cr44d i.disic3_4,fe
-{err}variable {bf}wa_cr44d{sf} not found
-{txt}{search r(111), local:r(111);}
+{com}. xtreg pcm mu lending wa_cr44d i.Disic4,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    31,624
+{txt}Group variable: {res}Noobs{txt}{col 49}Number of groups{col 67}={col 69}{res}     9,992
 
-end of do-file
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.0044{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     Between = {res}0.0291{col 63}{txt}avg{col 67}={col 69}{res}       3.2
+{txt}     Overall = {res}0.0067{col 63}{txt}max{col 67}={col 69}{res}         5
 
-{search r(111), local:r(111);}
+{txt}{col 49}F({res}32{txt},{res}21600{txt}){col 67}={col 70}{res}     2.97
+{txt}corr(u_i, Xb) = {res}-0.0246{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
 
-{com}. bro
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         pcm{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}mu {c |}{col 14}{res}{space 2} .0347693{col 26}{space 2} .0036659{col 37}{space 1}    9.48{col 46}{space 3}0.000{col 54}{space 4}  .027584{col 67}{space 3} .0419547
+{txt}{space 5}lending {c |}{col 14}{res}{space 2} .0152778{col 26}{space 2} .0119878{col 37}{space 1}    1.27{col 46}{space 3}0.203{col 54}{space 4}-.0082191{col 67}{space 3} .0387747
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0839076{col 26}{space 2} .1180093{col 37}{space 1}   -0.71{col 46}{space 3}0.477{col 54}{space 4}-.3152144{col 67}{space 3} .1473993
+{txt}{space 12} {c |}
+{space 6}Disic4 {c |}
+{space 7}1012  {c |}{col 14}{res}{space 2} .0136084{col 26}{space 2} .6808673{col 37}{space 1}    0.02{col 46}{space 3}0.984{col 54}{space 4}-1.320942{col 67}{space 3} 1.348159
+{txt}{space 7}1013  {c |}{col 14}{res}{space 2} .0007679{col 26}{space 2} .6928863{col 37}{space 1}    0.00{col 46}{space 3}0.999{col 54}{space 4} -1.35734{col 67}{space 3} 1.358876
+{txt}{space 7}1021  {c |}{col 14}{res}{space 2}-.0458252{col 26}{space 2} .6979974{col 37}{space 1}   -0.07{col 46}{space 3}0.948{col 54}{space 4}-1.413952{col 67}{space 3} 1.322301
+{txt}{space 7}1022  {c |}{col 14}{res}{space 2}-.0473186{col 26}{space 2} .7124426{col 37}{space 1}   -0.07{col 46}{space 3}0.947{col 54}{space 4}-1.443759{col 67}{space 3} 1.349122
+{txt}{space 7}1029  {c |}{col 14}{res}{space 2}-.0155697{col 26}{space 2} .7018186{col 37}{space 1}   -0.02{col 46}{space 3}0.982{col 54}{space 4}-1.391186{col 67}{space 3} 1.360047
+{txt}{space 7}1031  {c |}{col 14}{res}{space 2}-.0161794{col 26}{space 2} .7252223{col 37}{space 1}   -0.02{col 46}{space 3}0.982{col 54}{space 4}-1.437669{col 67}{space 3}  1.40531
+{txt}{space 7}1032  {c |}{col 14}{res}{space 2}-.1417014{col 26}{space 2} .8931784{col 37}{space 1}   -0.16{col 46}{space 3}0.874{col 54}{space 4}-1.892397{col 67}{space 3} 1.608994
+{txt}{space 7}1033  {c |}{col 14}{res}{space 2} .0467173{col 26}{space 2} .9110389{col 37}{space 1}    0.05{col 46}{space 3}0.959{col 54}{space 4}-1.738986{col 67}{space 3} 1.832421
+{txt}{space 7}1039  {c |}{col 14}{res}{space 2} .0127124{col 26}{space 2}  .733477{col 37}{space 1}    0.02{col 46}{space 3}0.986{col 54}{space 4}-1.424957{col 67}{space 3} 1.450381
+{txt}{space 7}1041  {c |}{col 14}{res}{space 2} -.049235{col 26}{space 2} .8028184{col 37}{space 1}   -0.06{col 46}{space 3}0.951{col 54}{space 4}-1.622818{col 67}{space 3} 1.524348
+{txt}{space 7}1042  {c |}{col 14}{res}{space 2} .0294014{col 26}{space 2} .7616735{col 37}{space 1}    0.04{col 46}{space 3}0.969{col 54}{space 4}-1.463535{col 67}{space 3} 1.522338
+{txt}{space 7}1043  {c |}{col 14}{res}{space 2}-.1179187{col 26}{space 2} .7862744{col 37}{space 1}   -0.15{col 46}{space 3}0.881{col 54}{space 4}-1.659075{col 67}{space 3} 1.423237
+{txt}{space 7}1049  {c |}{col 14}{res}{space 2} .0734133{col 26}{space 2} .9204918{col 37}{space 1}    0.08{col 46}{space 3}0.936{col 54}{space 4}-1.730819{col 67}{space 3} 1.877645
+{txt}{space 7}1051  {c |}{col 14}{res}{space 2} .0415938{col 26}{space 2} .9161382{col 37}{space 1}    0.05{col 46}{space 3}0.964{col 54}{space 4}-1.754105{col 67}{space 3} 1.837292
+{txt}{space 7}1052  {c |}{col 14}{res}{space 2} .3529028{col 26}{space 2} 1.468954{col 37}{space 1}    0.24{col 46}{space 3}0.810{col 54}{space 4}-2.526355{col 67}{space 3} 3.232161
+{txt}{space 7}1053  {c |}{col 14}{res}{space 2}   .10448{col 26}{space 2} .9876199{col 37}{space 1}    0.11{col 46}{space 3}0.916{col 54}{space 4}-1.831328{col 67}{space 3} 2.040288
+{txt}{space 7}1059  {c |}{col 14}{res}{space 2} .1321506{col 26}{space 2}   .90849{col 37}{space 1}    0.15{col 46}{space 3}0.884{col 54}{space 4}-1.648557{col 67}{space 3} 1.912858
+{txt}{space 7}1061  {c |}{col 14}{res}{space 2}-.0023648{col 26}{space 2} .7321486{col 37}{space 1}   -0.00{col 46}{space 3}0.997{col 54}{space 4} -1.43743{col 67}{space 3} 1.432701
+{txt}{space 7}1062  {c |}{col 14}{res}{space 2}  .006623{col 26}{space 2} .7557982{col 37}{space 1}    0.01{col 46}{space 3}0.993{col 54}{space 4}-1.474797{col 67}{space 3} 1.488043
+{txt}{space 7}1063  {c |}{col 14}{res}{space 2}-.0683301{col 26}{space 2} .7901971{col 37}{space 1}   -0.09{col 46}{space 3}0.931{col 54}{space 4}-1.617175{col 67}{space 3} 1.480515
+{txt}{space 7}1071  {c |}{col 14}{res}{space 2}-.0058115{col 26}{space 2} .7108763{col 37}{space 1}   -0.01{col 46}{space 3}0.993{col 54}{space 4}-1.399182{col 67}{space 3} 1.387559
+{txt}{space 7}1072  {c |}{col 14}{res}{space 2}-.0301795{col 26}{space 2}  .750456{col 37}{space 1}   -0.04{col 46}{space 3}0.968{col 54}{space 4}-1.501129{col 67}{space 3}  1.44077
+{txt}{space 7}1073  {c |}{col 14}{res}{space 2} .0224284{col 26}{space 2}  .734458{col 37}{space 1}    0.03{col 46}{space 3}0.976{col 54}{space 4}-1.417164{col 67}{space 3}  1.46202
+{txt}{space 7}1074  {c |}{col 14}{res}{space 2}-.0370119{col 26}{space 2} .7208063{col 37}{space 1}   -0.05{col 46}{space 3}0.959{col 54}{space 4}-1.449845{col 67}{space 3} 1.375822
+{txt}{space 7}1075  {c |}{col 14}{res}{space 2}-.0265811{col 26}{space 2} .7072964{col 37}{space 1}   -0.04{col 46}{space 3}0.970{col 54}{space 4}-1.412934{col 67}{space 3} 1.359772
+{txt}{space 7}1076  {c |}{col 14}{res}{space 2}-.0658889{col 26}{space 2}  .764944{col 37}{space 1}   -0.09{col 46}{space 3}0.931{col 54}{space 4}-1.565236{col 67}{space 3} 1.433458
+{txt}{space 7}1077  {c |}{col 14}{res}{space 2}-.0025205{col 26}{space 2}  .712121{col 37}{space 1}   -0.00{col 46}{space 3}0.997{col 54}{space 4} -1.39833{col 67}{space 3} 1.393289
+{txt}{space 7}1079  {c |}{col 14}{res}{space 2}-.0506946{col 26}{space 2}  .708067{col 37}{space 1}   -0.07{col 46}{space 3}0.943{col 54}{space 4}-1.438558{col 67}{space 3} 1.337169
+{txt}{space 7}1080  {c |}{col 14}{res}{space 2}-.0897051{col 26}{space 2} .8192465{col 37}{space 1}   -0.11{col 46}{space 3}0.913{col 54}{space 4}-1.695489{col 67}{space 3} 1.516079
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0335805{col 26}{space 2} .7205677{col 37}{space 1}    0.05{col 46}{space 3}0.963{col 54}{space 4}-1.378785{col 67}{space 3} 1.445946
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .48211989
+     {txt}sigma_e {c |} {res} 1.3914948
+         {txt}rho {c |} {res} .10717935{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}9991{txt}, {res}21600{txt}) = {res}0.56{col 62}{txt}Prob > F = {res}1.0000
+{txt}
+{com}. outreg2 using "reg/regbpcmfirm.xls",excel replace
+{txt}{browse `"reg/regbpcmfirm.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbpcmfirm.txt""':seeout}
 
-. exit, clear
+{com}. 
+. duplicates drop Disic4 year,force
+
+{p 0 4}{txt}Duplicates in terms of {res} Disic4 year{p_end}
+
+{txt}(31,602 observations deleted)
+
+{com}. xtset Disic4 year
+{res}
+{col 1}{txt:Panel variable: }{res:Disic4}{txt: (strongly balanced)}
+{p 1 16 2}{txt:Time variable: }{res:year}{txt:, }{res:{bind:2017}}{txt: to }{res:{bind:2021}}{p_end}
+{txt}{col 10}Delta: {res}1 unit
+{txt}
+{com}. xtreg mui tfpi wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       144
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        30
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.0693{col 63}{txt}min{col 67}={col 69}{res}         3
+{txt}     Between = {res}0.1040{col 63}{txt}avg{col 67}={col 69}{res}       4.8
+{txt}     Overall = {res}0.0092{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}2{txt},{res}112{txt}){col 67}={col 70}{res}     4.17
+{txt}corr(u_i, Xb) = {res}-0.6058{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0179
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         mui{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}tfpi {c |}{col 14}{res}{space 2}-.3514401{col 26}{space 2} .3202011{col 37}{space 1}   -1.10{col 46}{space 3}0.275{col 54}{space 4}-.9858774{col 67}{space 3} .2829973
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} 5.184853{col 26}{space 2} 2.003202{col 37}{space 1}    2.59{col 46}{space 3}0.011{col 54}{space 4} 1.215765{col 67}{space 3}  9.15394
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.452858{col 26}{space 2} 2.618122{col 37}{space 1}    2.08{col 46}{space 3}0.040{col 54}{space 4} .2653854{col 67}{space 3} 10.64033
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 2.5528356
+     {txt}sigma_e {c |} {res} 1.9217523
+         {txt}rho {c |} {res} .63828646{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}29{txt}, {res}112{txt}) = {res}4.51{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. outreg2 using "reg/regbcr4.xls",excel replace
+{txt}{browse `"reg/regbcr4.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbcr4.txt""':seeout}
+
+{com}. 
+. //xtreg mui tfp wa_hhi4d_y,fe
+. //outreg2 using "reg/regbhhi.xls",excel replace
+. 
+. 
+. 
+. xtreg wa_pcm lending mui wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       146
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        30
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.1395{col 63}{txt}min{col 67}={col 69}{res}         3
+{txt}     Between = {res}0.1034{col 63}{txt}avg{col 67}={col 69}{res}       4.9
+{txt}     Overall = {res}0.1090{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}3{txt},{res}113{txt}){col 67}={col 70}{res}     6.11
+{txt}corr(u_i, Xb) = {res}-0.1240{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0007
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      wa_pcm{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lending {c |}{col 14}{res}{space 2}-.0060012{col 26}{space 2} .0121019{col 37}{space 1}   -0.50{col 46}{space 3}0.621{col 54}{space 4}-.0299772{col 67}{space 3} .0179748
+{txt}{space 9}mui {c |}{col 14}{res}{space 2} .0169041{col 26}{space 2}  .005168{col 37}{space 1}    3.27{col 46}{space 3}0.001{col 54}{space 4} .0066654{col 67}{space 3} .0271428
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .2074693{col 26}{space 2} .1183286{col 37}{space 1}    1.75{col 46}{space 3}0.082{col 54}{space 4}-.0269611{col 67}{space 3} .4418997
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .196729{col 26}{space 2} .1408163{col 37}{space 1}    1.40{col 46}{space 3}0.165{col 54}{space 4}-.0822534{col 67}{space 3} .4757115
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  .1096639
+     {txt}sigma_e {c |} {res} .11100085
+         {txt}rho {c |} {res} .49394151{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}29{txt}, {res}113{txt}) = {res}4.38{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. outreg2 using "reg/regbpcmind.xls",excel replace
+{txt}{browse `"reg/regbpcmind.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbpcmind.txt""':seeout}
+
+{com}. 
+. gen lwpi=log(wpi)
+{txt}(24 missing values generated)
+
+{com}. 
+. //no lags
+. 
+. xtreg lwpi lending mui tfpi wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       123
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        28
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.5564{col 63}{txt}min{col 67}={col 69}{res}         2
+{txt}     Between = {res}0.3781{col 63}{txt}avg{col 67}={col 69}{res}       4.4
+{txt}     Overall = {res}0.4279{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}4{txt},{res}91{txt}){col 67}={col 70}{res}    28.53
+{txt}corr(u_i, Xb) = {res}0.1041{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lending {c |}{col 14}{res}{space 2} .1931462{col 26}{space 2} .0183031{col 37}{space 1}   10.55{col 46}{space 3}0.000{col 54}{space 4} .1567894{col 67}{space 3} .2295031
+{txt}{space 9}mui {c |}{col 14}{res}{space 2}-.0011306{col 26}{space 2} .0083605{col 37}{space 1}   -0.14{col 46}{space 3}0.893{col 54}{space 4}-.0177376{col 67}{space 3} .0154764
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}-.0259923{col 26}{space 2}  .029957{col 37}{space 1}   -0.87{col 46}{space 3}0.388{col 54}{space 4}-.0854983{col 67}{space 3} .0335136
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0176327{col 26}{space 2}  .176003{col 37}{space 1}   -0.10{col 46}{space 3}0.920{col 54}{space 4}-.3672409{col 67}{space 3} .3319756
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.138049{col 26}{space 2} .2687146{col 37}{space 1}   11.68{col 46}{space 3}0.000{col 54}{space 4} 2.604281{col 67}{space 3} 3.671818
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17356822
+     {txt}sigma_e {c |} {res} .14629537
+         {txt}rho {c |} {res}  .5846486{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}27{txt}, {res}91{txt}) = {res}4.38{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. outreg2 using "reg/regbwpi.xls",excel replace
+{txt}{browse `"reg/regbwpi.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbwpi.txt""':seeout}
+
+{com}. 
+. xtreg lwpi L.birate mui tfpi wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}        99
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        28
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.0273{col 63}{txt}min{col 67}={col 69}{res}         2
+{txt}     Between = {res}0.0190{col 63}{txt}avg{col 67}={col 69}{res}       3.5
+{txt}     Overall = {res}0.0259{col 63}{txt}max{col 67}={col 69}{res}         4
+
+{txt}{col 49}F({res}4{txt},{res}67{txt}){col 67}={col 70}{res}     0.47
+{txt}corr(u_i, Xb) = {res}-0.1662{txt}{col 49}Prob > F{col 67}={col 73}{res}0.7572
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0464549{col 26}{space 2} .0456019{col 37}{space 1}   -1.02{col 46}{space 3}0.312{col 54}{space 4}-.1374766{col 67}{space 3} .0445668
+{txt}{space 12} {c |}
+{space 9}mui {c |}{col 14}{res}{space 2} .0001706{col 26}{space 2} .0205167{col 37}{space 1}    0.01{col 46}{space 3}0.993{col 54}{space 4}-.0407809{col 67}{space 3} .0411222
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}-.0409932{col 26}{space 2} .0677438{col 37}{space 1}   -0.61{col 46}{space 3}0.547{col 54}{space 4}-.1762104{col 67}{space 3} .0942239
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}  .063776{col 26}{space 2} .3672334{col 37}{space 1}    0.17{col 46}{space 3}0.863{col 54}{space 4}-.6692249{col 67}{space 3}  .796777
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  5.32426{col 26}{space 2} .5176193{col 37}{space 1}   10.29{col 46}{space 3}0.000{col 54}{space 4} 4.291087{col 67}{space 3} 6.357432
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .21223051
+     {txt}sigma_e {c |} {res} .22810886
+         {txt}rho {c |} {res} .46398747{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}27{txt}, {res}67{txt}) = {res}1.82{col 62}{txt}Prob > F = {res}0.0254
+{txt}
+{com}. outreg2 using "reg/regbwpibi.xls",excel replace
+{txt}{browse `"reg/regbwpibi.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbwpibi.txt""':seeout}
+
+{com}. 
+. // lags
+. 
+. xtreg lwpi lending mui tfpi wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       123
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        28
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.5564{col 63}{txt}min{col 67}={col 69}{res}         2
+{txt}     Between = {res}0.3781{col 63}{txt}avg{col 67}={col 69}{res}       4.4
+{txt}     Overall = {res}0.4279{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}4{txt},{res}91{txt}){col 67}={col 70}{res}    28.53
+{txt}corr(u_i, Xb) = {res}0.1041{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}lending {c |}{col 14}{res}{space 2} .1931462{col 26}{space 2} .0183031{col 37}{space 1}   10.55{col 46}{space 3}0.000{col 54}{space 4} .1567894{col 67}{space 3} .2295031
+{txt}{space 9}mui {c |}{col 14}{res}{space 2}-.0011306{col 26}{space 2} .0083605{col 37}{space 1}   -0.14{col 46}{space 3}0.893{col 54}{space 4}-.0177376{col 67}{space 3} .0154764
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}-.0259923{col 26}{space 2}  .029957{col 37}{space 1}   -0.87{col 46}{space 3}0.388{col 54}{space 4}-.0854983{col 67}{space 3} .0335136
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0176327{col 26}{space 2}  .176003{col 37}{space 1}   -0.10{col 46}{space 3}0.920{col 54}{space 4}-.3672409{col 67}{space 3} .3319756
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 3.138049{col 26}{space 2} .2687146{col 37}{space 1}   11.68{col 46}{space 3}0.000{col 54}{space 4} 2.604281{col 67}{space 3} 3.671818
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17356822
+     {txt}sigma_e {c |} {res} .14629537
+         {txt}rho {c |} {res}  .5846486{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}27{txt}, {res}91{txt}) = {res}4.38{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. outreg2 using "reg/regbwpi.xls",excel replace
+{txt}{browse `"reg/regbwpi.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbwpi.txt""':seeout}
+
+{com}. 
+. xtreg lwpi L.birate mui tfpi wa_cr44d,fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}        99
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        28
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.0273{col 63}{txt}min{col 67}={col 69}{res}         2
+{txt}     Between = {res}0.0190{col 63}{txt}avg{col 67}={col 69}{res}       3.5
+{txt}     Overall = {res}0.0259{col 63}{txt}max{col 67}={col 69}{res}         4
+
+{txt}{col 49}F({res}4{txt},{res}67{txt}){col 67}={col 70}{res}     0.47
+{txt}corr(u_i, Xb) = {res}-0.1662{txt}{col 49}Prob > F{col 67}={col 73}{res}0.7572
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}
+{space 9}L1. {c |}{col 14}{res}{space 2}-.0464549{col 26}{space 2} .0456019{col 37}{space 1}   -1.02{col 46}{space 3}0.312{col 54}{space 4}-.1374766{col 67}{space 3} .0445668
+{txt}{space 12} {c |}
+{space 9}mui {c |}{col 14}{res}{space 2} .0001706{col 26}{space 2} .0205167{col 37}{space 1}    0.01{col 46}{space 3}0.993{col 54}{space 4}-.0407809{col 67}{space 3} .0411222
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}-.0409932{col 26}{space 2} .0677438{col 37}{space 1}   -0.61{col 46}{space 3}0.547{col 54}{space 4}-.1762104{col 67}{space 3} .0942239
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}  .063776{col 26}{space 2} .3672334{col 37}{space 1}    0.17{col 46}{space 3}0.863{col 54}{space 4}-.6692249{col 67}{space 3}  .796777
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  5.32426{col 26}{space 2} .5176193{col 37}{space 1}   10.29{col 46}{space 3}0.000{col 54}{space 4} 4.291087{col 67}{space 3} 6.357432
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .21223051
+     {txt}sigma_e {c |} {res} .22810886
+         {txt}rho {c |} {res} .46398747{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}27{txt}, {res}67{txt}) = {res}1.82{col 62}{txt}Prob > F = {res}0.0254
+{txt}
+{com}. outreg2 using "reg/regbwpibi.xls",excel replace
+{txt}{browse `"reg/regbwpibi.xls"'}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "reg/regbwpibi.txt""':seeout}
+
+{com}. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}C:\github\foodbi\regression.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 1 Nov 2023, 19:06:45
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

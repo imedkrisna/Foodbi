@@ -1,0 +1,17 @@
+	(1)
+VARIABLES	wa_pcm
+	
+lending	-0.00550**
+	(0.00230)
+mui	0.0211***
+	(0.00640)
+wa_cr44d	0.310***
+	(0.0506)
+Constant	0.130***
+	(0.0466)
+	
+Observations	207
+Number of disic4_4	13
+R-squared	0.257
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

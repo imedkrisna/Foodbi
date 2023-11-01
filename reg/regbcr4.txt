@@ -5,7 +5,7 @@ tfpi	-0.351
 	(0.320)
 wa_cr44d	5.185**
 	(2.003)
-Constant	5.452**
+Constant	5.453**
 	(2.618)
 	
 Observations	144

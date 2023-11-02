@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\Foodbi\regression.smcl
+       {txt}log:  {res}C:\github\foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 1 Nov 2023, 20:24:40
+ {txt}opened on:  {res} 2 Nov 2023, 16:42:26
 {txt}
 {com}. 
 . cd "C:\github\foodbi"
@@ -302,58 +302,58 @@ F test that all u_i=0: F({res}12{txt}, {res}139{txt}) = {res}0.85{col 62}{txt}Pr
 {txt}Group variable: {res}Noobs{txt}{col 49}Number of groups{col 67}={col 69}{res}     9,992
 
 {txt}R-squared:{col 49}Obs per group:
-     Within  = {res}0.0044{col 63}{txt}min{col 67}={col 69}{res}         1
-{txt}     Between = {res}0.0291{col 63}{txt}avg{col 67}={col 69}{res}       3.2
-{txt}     Overall = {res}0.0067{col 63}{txt}max{col 67}={col 69}{res}         5
+     Within  = {res}0.1653{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     Between = {res}0.1616{col 63}{txt}avg{col 67}={col 69}{res}       3.2
+{txt}     Overall = {res}0.1611{col 63}{txt}max{col 67}={col 69}{res}         5
 
-{txt}{col 49}F({res}32{txt},{res}21600{txt}){col 67}={col 70}{res}     2.97
-{txt}corr(u_i, Xb) = {res}-0.0246{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+{txt}{col 49}F({res}32{txt},{res}21600{txt}){col 67}={col 70}{res}   133.72
+{txt}corr(u_i, Xb) = {res}-0.1039{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}         pcm{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 10}mu {c |}{col 14}{res}{space 2} .0347693{col 26}{space 2} .0036659{col 37}{space 1}    9.48{col 46}{space 3}0.000{col 54}{space 4}  .027584{col 67}{space 3} .0419547
-{txt}{space 5}lending {c |}{col 14}{res}{space 2} .0152778{col 26}{space 2} .0119878{col 37}{space 1}    1.27{col 46}{space 3}0.203{col 54}{space 4}-.0082191{col 67}{space 3} .0387747
-{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}-.0839076{col 26}{space 2} .1180093{col 37}{space 1}   -0.71{col 46}{space 3}0.477{col 54}{space 4}-.3152144{col 67}{space 3} .1473993
+{space 10}mu {c |}{col 14}{res}{space 2} .1489585{col 26}{space 2} .0022924{col 37}{space 1}   64.98{col 46}{space 3}0.000{col 54}{space 4} .1444652{col 67}{space 3} .1534517
+{txt}{space 5}lending {c |}{col 14}{res}{space 2}-.0018136{col 26}{space 2} .0074963{col 37}{space 1}   -0.24{col 46}{space 3}0.809{col 54}{space 4}-.0165069{col 67}{space 3} .0128797
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .1159009{col 26}{space 2} .0737948{col 37}{space 1}    1.57{col 46}{space 3}0.116{col 54}{space 4}-.0287424{col 67}{space 3} .2605442
 {txt}{space 12} {c |}
 {space 6}Disic4 {c |}
-{space 7}1012  {c |}{col 14}{res}{space 2} .0136084{col 26}{space 2} .6808673{col 37}{space 1}    0.02{col 46}{space 3}0.984{col 54}{space 4}-1.320942{col 67}{space 3} 1.348159
-{txt}{space 7}1013  {c |}{col 14}{res}{space 2} .0007679{col 26}{space 2} .6928863{col 37}{space 1}    0.00{col 46}{space 3}0.999{col 54}{space 4} -1.35734{col 67}{space 3} 1.358876
-{txt}{space 7}1021  {c |}{col 14}{res}{space 2}-.0458252{col 26}{space 2} .6979974{col 37}{space 1}   -0.07{col 46}{space 3}0.948{col 54}{space 4}-1.413952{col 67}{space 3} 1.322301
-{txt}{space 7}1022  {c |}{col 14}{res}{space 2}-.0473186{col 26}{space 2} .7124426{col 37}{space 1}   -0.07{col 46}{space 3}0.947{col 54}{space 4}-1.443759{col 67}{space 3} 1.349122
-{txt}{space 7}1029  {c |}{col 14}{res}{space 2}-.0155697{col 26}{space 2} .7018186{col 37}{space 1}   -0.02{col 46}{space 3}0.982{col 54}{space 4}-1.391186{col 67}{space 3} 1.360047
-{txt}{space 7}1031  {c |}{col 14}{res}{space 2}-.0161794{col 26}{space 2} .7252223{col 37}{space 1}   -0.02{col 46}{space 3}0.982{col 54}{space 4}-1.437669{col 67}{space 3}  1.40531
-{txt}{space 7}1032  {c |}{col 14}{res}{space 2}-.1417014{col 26}{space 2} .8931784{col 37}{space 1}   -0.16{col 46}{space 3}0.874{col 54}{space 4}-1.892397{col 67}{space 3} 1.608994
-{txt}{space 7}1033  {c |}{col 14}{res}{space 2} .0467173{col 26}{space 2} .9110389{col 37}{space 1}    0.05{col 46}{space 3}0.959{col 54}{space 4}-1.738986{col 67}{space 3} 1.832421
-{txt}{space 7}1039  {c |}{col 14}{res}{space 2} .0127124{col 26}{space 2}  .733477{col 37}{space 1}    0.02{col 46}{space 3}0.986{col 54}{space 4}-1.424957{col 67}{space 3} 1.450381
-{txt}{space 7}1041  {c |}{col 14}{res}{space 2} -.049235{col 26}{space 2} .8028184{col 37}{space 1}   -0.06{col 46}{space 3}0.951{col 54}{space 4}-1.622818{col 67}{space 3} 1.524348
-{txt}{space 7}1042  {c |}{col 14}{res}{space 2} .0294014{col 26}{space 2} .7616735{col 37}{space 1}    0.04{col 46}{space 3}0.969{col 54}{space 4}-1.463535{col 67}{space 3} 1.522338
-{txt}{space 7}1043  {c |}{col 14}{res}{space 2}-.1179187{col 26}{space 2} .7862744{col 37}{space 1}   -0.15{col 46}{space 3}0.881{col 54}{space 4}-1.659075{col 67}{space 3} 1.423237
-{txt}{space 7}1049  {c |}{col 14}{res}{space 2} .0734133{col 26}{space 2} .9204918{col 37}{space 1}    0.08{col 46}{space 3}0.936{col 54}{space 4}-1.730819{col 67}{space 3} 1.877645
-{txt}{space 7}1051  {c |}{col 14}{res}{space 2} .0415938{col 26}{space 2} .9161382{col 37}{space 1}    0.05{col 46}{space 3}0.964{col 54}{space 4}-1.754105{col 67}{space 3} 1.837292
-{txt}{space 7}1052  {c |}{col 14}{res}{space 2} .3529028{col 26}{space 2} 1.468954{col 37}{space 1}    0.24{col 46}{space 3}0.810{col 54}{space 4}-2.526355{col 67}{space 3} 3.232161
-{txt}{space 7}1053  {c |}{col 14}{res}{space 2}   .10448{col 26}{space 2} .9876199{col 37}{space 1}    0.11{col 46}{space 3}0.916{col 54}{space 4}-1.831328{col 67}{space 3} 2.040288
-{txt}{space 7}1059  {c |}{col 14}{res}{space 2} .1321506{col 26}{space 2}   .90849{col 37}{space 1}    0.15{col 46}{space 3}0.884{col 54}{space 4}-1.648557{col 67}{space 3} 1.912858
-{txt}{space 7}1061  {c |}{col 14}{res}{space 2}-.0023648{col 26}{space 2} .7321486{col 37}{space 1}   -0.00{col 46}{space 3}0.997{col 54}{space 4} -1.43743{col 67}{space 3} 1.432701
-{txt}{space 7}1062  {c |}{col 14}{res}{space 2}  .006623{col 26}{space 2} .7557982{col 37}{space 1}    0.01{col 46}{space 3}0.993{col 54}{space 4}-1.474797{col 67}{space 3} 1.488043
-{txt}{space 7}1063  {c |}{col 14}{res}{space 2}-.0683301{col 26}{space 2} .7901971{col 37}{space 1}   -0.09{col 46}{space 3}0.931{col 54}{space 4}-1.617175{col 67}{space 3} 1.480515
-{txt}{space 7}1071  {c |}{col 14}{res}{space 2}-.0058115{col 26}{space 2} .7108763{col 37}{space 1}   -0.01{col 46}{space 3}0.993{col 54}{space 4}-1.399182{col 67}{space 3} 1.387559
-{txt}{space 7}1072  {c |}{col 14}{res}{space 2}-.0301795{col 26}{space 2}  .750456{col 37}{space 1}   -0.04{col 46}{space 3}0.968{col 54}{space 4}-1.501129{col 67}{space 3}  1.44077
-{txt}{space 7}1073  {c |}{col 14}{res}{space 2} .0224284{col 26}{space 2}  .734458{col 37}{space 1}    0.03{col 46}{space 3}0.976{col 54}{space 4}-1.417164{col 67}{space 3}  1.46202
-{txt}{space 7}1074  {c |}{col 14}{res}{space 2}-.0370119{col 26}{space 2} .7208063{col 37}{space 1}   -0.05{col 46}{space 3}0.959{col 54}{space 4}-1.449845{col 67}{space 3} 1.375822
-{txt}{space 7}1075  {c |}{col 14}{res}{space 2}-.0265811{col 26}{space 2} .7072964{col 37}{space 1}   -0.04{col 46}{space 3}0.970{col 54}{space 4}-1.412934{col 67}{space 3} 1.359772
-{txt}{space 7}1076  {c |}{col 14}{res}{space 2}-.0658889{col 26}{space 2}  .764944{col 37}{space 1}   -0.09{col 46}{space 3}0.931{col 54}{space 4}-1.565236{col 67}{space 3} 1.433458
-{txt}{space 7}1077  {c |}{col 14}{res}{space 2}-.0025205{col 26}{space 2}  .712121{col 37}{space 1}   -0.00{col 46}{space 3}0.997{col 54}{space 4} -1.39833{col 67}{space 3} 1.393289
-{txt}{space 7}1079  {c |}{col 14}{res}{space 2}-.0506946{col 26}{space 2}  .708067{col 37}{space 1}   -0.07{col 46}{space 3}0.943{col 54}{space 4}-1.438558{col 67}{space 3} 1.337169
-{txt}{space 7}1080  {c |}{col 14}{res}{space 2}-.0897051{col 26}{space 2} .8192465{col 37}{space 1}   -0.11{col 46}{space 3}0.913{col 54}{space 4}-1.695489{col 67}{space 3} 1.516079
+{space 7}1012  {c |}{col 14}{res}{space 2} .0727893{col 26}{space 2} .4257672{col 37}{space 1}    0.17{col 46}{space 3}0.864{col 54}{space 4}-.7617458{col 67}{space 3} .9073245
+{txt}{space 7}1013  {c |}{col 14}{res}{space 2} .0134584{col 26}{space 2} .4332831{col 37}{space 1}    0.03{col 46}{space 3}0.975{col 54}{space 4}-.8358084{col 67}{space 3} .8627252
+{txt}{space 7}1021  {c |}{col 14}{res}{space 2}-.0030029{col 26}{space 2} .4364792{col 37}{space 1}   -0.01{col 46}{space 3}0.995{col 54}{space 4}-.8585343{col 67}{space 3} .8525285
+{txt}{space 7}1022  {c |}{col 14}{res}{space 2}-.1052974{col 26}{space 2} .4455122{col 37}{space 1}   -0.24{col 46}{space 3}0.813{col 54}{space 4}-.9785343{col 67}{space 3} .7679394
+{txt}{space 7}1029  {c |}{col 14}{res}{space 2} .0381485{col 26}{space 2} .4388687{col 37}{space 1}    0.09{col 46}{space 3}0.931{col 54}{space 4}-.8220666{col 67}{space 3} .8983636
+{txt}{space 7}1031  {c |}{col 14}{res}{space 2}-.1246221{col 26}{space 2} .4535038{col 37}{space 1}   -0.27{col 46}{space 3}0.783{col 54}{space 4}-1.013523{col 67}{space 3} .7642787
+{txt}{space 7}1032  {c |}{col 14}{res}{space 2}-.5337842{col 26}{space 2} .5585318{col 37}{space 1}   -0.96{col 46}{space 3}0.339{col 54}{space 4}-1.628548{col 67}{space 3} .5609795
+{txt}{space 7}1033  {c |}{col 14}{res}{space 2} .0151834{col 26}{space 2} .5697006{col 37}{space 1}    0.03{col 46}{space 3}0.979{col 54}{space 4}-1.101472{col 67}{space 3} 1.131839
+{txt}{space 7}1039  {c |}{col 14}{res}{space 2} .0554772{col 26}{space 2} .4586657{col 37}{space 1}    0.12{col 46}{space 3}0.904{col 54}{space 4}-.8435414{col 67}{space 3} .9544958
+{txt}{space 7}1041  {c |}{col 14}{res}{space 2} .1446598{col 26}{space 2}  .502027{col 37}{space 1}    0.29{col 46}{space 3}0.773{col 54}{space 4}-.8393502{col 67}{space 3}  1.12867
+{txt}{space 7}1042  {c |}{col 14}{res}{space 2}  .055446{col 26}{space 2} .4762978{col 37}{space 1}    0.12{col 46}{space 3}0.907{col 54}{space 4}-.8781329{col 67}{space 3} .9890249
+{txt}{space 7}1043  {c |}{col 14}{res}{space 2}-.3674619{col 26}{space 2} .4916815{col 37}{space 1}   -0.75{col 46}{space 3}0.455{col 54}{space 4}-1.331194{col 67}{space 3} .5962702
+{txt}{space 7}1049  {c |}{col 14}{res}{space 2} .1911873{col 26}{space 2} .5756118{col 37}{space 1}    0.33{col 46}{space 3}0.740{col 54}{space 4}-.9370542{col 67}{space 3} 1.319429
+{txt}{space 7}1051  {c |}{col 14}{res}{space 2} .1063319{col 26}{space 2} .5728893{col 37}{space 1}    0.19{col 46}{space 3}0.853{col 54}{space 4}-1.016573{col 67}{space 3} 1.229237
+{txt}{space 7}1052  {c |}{col 14}{res}{space 2}  1.22978{col 26}{space 2}  .918582{col 37}{space 1}    1.34{col 46}{space 3}0.181{col 54}{space 4}-.5707088{col 67}{space 3} 3.030268
+{txt}{space 7}1053  {c |}{col 14}{res}{space 2} .3918079{col 26}{space 2}  .617589{col 37}{space 1}    0.63{col 46}{space 3}0.526{col 54}{space 4}-.8187122{col 67}{space 3} 1.602328
+{txt}{space 7}1059  {c |}{col 14}{res}{space 2} .3009916{col 26}{space 2} .5681067{col 37}{space 1}    0.53{col 46}{space 3}0.596{col 54}{space 4}-.8125394{col 67}{space 3} 1.414523
+{txt}{space 7}1061  {c |}{col 14}{res}{space 2} .1865313{col 26}{space 2}  .457835{col 37}{space 1}    0.41{col 46}{space 3}0.684{col 54}{space 4}-.7108591{col 67}{space 3} 1.083922
+{txt}{space 7}1062  {c |}{col 14}{res}{space 2} .2177045{col 26}{space 2} .4726238{col 37}{space 1}    0.46{col 46}{space 3}0.645{col 54}{space 4} -.708673{col 67}{space 3} 1.144082
+{txt}{space 7}1063  {c |}{col 14}{res}{space 2}  .030596{col 26}{space 2} .4941345{col 37}{space 1}    0.06{col 46}{space 3}0.951{col 54}{space 4} -.937944{col 67}{space 3} .9991361
+{txt}{space 7}1071  {c |}{col 14}{res}{space 2} .0806593{col 26}{space 2} .4445328{col 37}{space 1}    0.18{col 46}{space 3}0.856{col 54}{space 4}-.7906577{col 67}{space 3} .9519764
+{txt}{space 7}1072  {c |}{col 14}{res}{space 2} -.036487{col 26}{space 2} .4692831{col 37}{space 1}   -0.08{col 46}{space 3}0.938{col 54}{space 4}-.9563166{col 67}{space 3} .8833426
+{txt}{space 7}1073  {c |}{col 14}{res}{space 2} .0677183{col 26}{space 2} .4592791{col 37}{space 1}    0.15{col 46}{space 3}0.883{col 54}{space 4}-.8325027{col 67}{space 3} .9679394
+{txt}{space 7}1074  {c |}{col 14}{res}{space 2}-.1444376{col 26}{space 2} .4507423{col 37}{space 1}   -0.32{col 46}{space 3}0.749{col 54}{space 4}-1.027926{col 67}{space 3} .7390505
+{txt}{space 7}1075  {c |}{col 14}{res}{space 2}-.0741648{col 26}{space 2} .4422941{col 37}{space 1}   -0.17{col 46}{space 3}0.867{col 54}{space 4} -.941094{col 67}{space 3} .7927643
+{txt}{space 7}1076  {c |}{col 14}{res}{space 2}-.1809044{col 26}{space 2}  .478343{col 37}{space 1}   -0.38{col 46}{space 3}0.705{col 54}{space 4}-1.118492{col 67}{space 3} .7566831
+{txt}{space 7}1077  {c |}{col 14}{res}{space 2}  .126789{col 26}{space 2} .4453111{col 37}{space 1}    0.28{col 46}{space 3}0.776{col 54}{space 4}-.7460536{col 67}{space 3} .9996317
+{txt}{space 7}1079  {c |}{col 14}{res}{space 2}-.0242987{col 26}{space 2} .4427761{col 37}{space 1}   -0.05{col 46}{space 3}0.956{col 54}{space 4}-.8921725{col 67}{space 3}  .843575
+{txt}{space 7}1080  {c |}{col 14}{res}{space 2}-.1278913{col 26}{space 2}    .5123{col 37}{space 1}   -0.25{col 46}{space 3}0.803{col 54}{space 4}-1.132037{col 67}{space 3} .8762545
 {txt}{space 12} {c |}
-{space 7}_cons {c |}{col 14}{res}{space 2} .0335805{col 26}{space 2} .7205677{col 37}{space 1}    0.05{col 46}{space 3}0.963{col 54}{space 4}-1.378785{col 67}{space 3} 1.445946
+{space 7}_cons {c |}{col 14}{res}{space 2} .0047103{col 26}{space 2} .4505931{col 37}{space 1}    0.01{col 46}{space 3}0.992{col 54}{space 4}-.8784854{col 67}{space 3}  .887906
 {txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-     sigma_u {c |} {res} .48211989
-     {txt}sigma_e {c |} {res} 1.3914948
-         {txt}rho {c |} {res} .10717935{txt}   (fraction of variance due to u_i)
+     sigma_u {c |} {res} .81878052
+     {txt}sigma_e {c |} {res} .87014442
+         {txt}rho {c |} {res} .46961591{txt}   (fraction of variance due to u_i)
 {hline 13}{c BT}{hline 64}
-F test that all u_i=0: F({res}9991{txt}, {res}21600{txt}) = {res}0.56{col 62}{txt}Prob > F = {res}1.0000
+F test that all u_i=0: F({res}9991{txt}, {res}21600{txt}) = {res}1.81{col 62}{txt}Prob > F = {res}0.0000
 {txt}
 {com}. outreg2 using "reg/regbpcmfirm.xls",excel replace
 {txt}{browse `"reg/regbpcmfirm.xls"'}
@@ -414,26 +414,26 @@ F test that all u_i=0: F({res}29{txt}, {res}112{txt}) = {res}4.51{col 62}{txt}Pr
 {txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        30
 
 {txt}R-squared:{col 49}Obs per group:
-     Within  = {res}0.1395{col 63}{txt}min{col 67}={col 69}{res}         3
-{txt}     Between = {res}0.1034{col 63}{txt}avg{col 67}={col 69}{res}       4.9
-{txt}     Overall = {res}0.1090{col 63}{txt}max{col 67}={col 69}{res}         5
+     Within  = {res}0.1001{col 63}{txt}min{col 67}={col 69}{res}         3
+{txt}     Between = {res}0.0013{col 63}{txt}avg{col 67}={col 69}{res}       4.9
+{txt}     Overall = {res}0.0149{col 63}{txt}max{col 67}={col 69}{res}         5
 
-{txt}{col 49}F({res}3{txt},{res}113{txt}){col 67}={col 70}{res}     6.11
-{txt}corr(u_i, Xb) = {res}-0.1240{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0007
+{txt}{col 49}F({res}3{txt},{res}113{txt}){col 67}={col 70}{res}     4.19
+{txt}corr(u_i, Xb) = {res}-0.6714{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0075
 
 {txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
 {col 1}      wa_pcm{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
 {hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-{space 5}lending {c |}{col 14}{res}{space 2}-.0060012{col 26}{space 2} .0121019{col 37}{space 1}   -0.50{col 46}{space 3}0.621{col 54}{space 4}-.0299772{col 67}{space 3} .0179748
-{txt}{space 9}mui {c |}{col 14}{res}{space 2} .0169041{col 26}{space 2}  .005168{col 37}{space 1}    3.27{col 46}{space 3}0.001{col 54}{space 4} .0066654{col 67}{space 3} .0271428
-{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .2074693{col 26}{space 2} .1183286{col 37}{space 1}    1.75{col 46}{space 3}0.082{col 54}{space 4}-.0269611{col 67}{space 3} .4418997
-{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .196729{col 26}{space 2} .1408163{col 37}{space 1}    1.40{col 46}{space 3}0.165{col 54}{space 4}-.0822534{col 67}{space 3} .4757115
+{space 5}lending {c |}{col 14}{res}{space 2} .8493486{col 26}{space 2} 1.176101{col 37}{space 1}    0.72{col 46}{space 3}0.472{col 54}{space 4} -1.48072{col 67}{space 3} 3.179418
+{txt}{space 9}mui {c |}{col 14}{res}{space 2}  .943621{col 26}{space 2} .5022425{col 37}{space 1}    1.88{col 46}{space 3}0.063{col 54}{space 4}-.0514121{col 67}{space 3} 1.938654
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} 27.41644{col 26}{space 2} 11.49956{col 37}{space 1}    2.38{col 46}{space 3}0.019{col 54}{space 4} 4.633735{col 67}{space 3} 50.19915
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-26.27117{col 26}{space 2} 13.68498{col 37}{space 1}   -1.92{col 46}{space 3}0.057{col 54}{space 4}-53.38359{col 67}{space 3} .8412563
 {txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
-     sigma_u {c |} {res}  .1096639
-     {txt}sigma_e {c |} {res} .11100085
-         {txt}rho {c |} {res} .49394151{txt}   (fraction of variance due to u_i)
+     sigma_u {c |} {res} 7.8984806
+     {txt}sigma_e {c |} {res} 10.787423
+         {txt}rho {c |} {res} .34900379{txt}   (fraction of variance due to u_i)
 {hline 13}{c BT}{hline 64}
-F test that all u_i=0: F({res}29{txt}, {res}113{txt}) = {res}4.38{col 62}{txt}Prob > F = {res}0.0000
+F test that all u_i=0: F({res}29{txt}, {res}113{txt}) = {res}1.20{col 62}{txt}Prob > F = {res}0.2482
 {txt}
 {com}. outreg2 using "reg/regbpcmind.xls",excel replace
 {txt}{browse `"reg/regbpcmind.xls"'}
@@ -586,9 +586,9 @@ F test that all u_i=0: F({res}27{txt}, {res}67{txt}) = {res}1.82{col 62}{txt}Pro
 {com}. 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\Foodbi\regression.smcl
+       {txt}log:  {res}C:\github\foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 1 Nov 2023, 20:24:42
+ {txt}closed on:  {res} 2 Nov 2023, 16:42:28
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

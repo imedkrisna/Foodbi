@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}C:\github\foodbi\tfplog.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 1 Nov 2023, 18:45:34
+ {txt}opened on:  {res} 2 Nov 2023, 16:41:51
 {txt}
 {com}. /*
 > ╔╗─────────╔═══╗╔╗────╔═══╗╔╗─────╔╗
@@ -1446,7 +1446,7 @@ saved
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}C:\github\foodbi\tfplog.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 1 Nov 2023, 18:46:11
+ {txt}closed on:  {res} 2 Nov 2023, 16:42:26
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

@@ -1,4 +1,7 @@
 # About
+
+Last update: 14 November 2023.
+
  This is a repo to produce various graphs and regression results for the following working paper:
 
         - Competitiveness in Indonesian Food Industry with Dionisius Narjoko and M. Ridhwan
@@ -14,6 +17,7 @@ Pay attention to the data used in the do files. I ignore all data which is store
 - prodestv1 a bit better but using output
 - prodestv2 use value added and removes outlier (top & bot 5%). Need to clean more since some lines will be obsolete.
 - Parameters which basically just preparing the data
+- regressionv2 is the do file for the regression, now with industry level regression, bi rate vs lending rate both current and lag 1.
 
 ## Current version
 
@@ -21,7 +25,7 @@ Run with this sequence:
 
 1. Parametersv2 fixes pcm variable.
 1. Prodestv3 use regression for each ISIC4 and mamin_new as data year>2017 from scratch, generate industry level markups & TFP
-1. regressionv2 is the do file for the regression, now with industry level regression, bi rate vs lending rate both current and lag 1. see "reg" folder.
+1. regressionv3 is the do file for the newest regression which just look at the 2017/2021 data. see "reg" folder for complete results.
 1. StataGraphv2 is for making graphs, adds markups in 3 industries. see "graph" folder.
 
 ## Notes

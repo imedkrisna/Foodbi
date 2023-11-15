@@ -1,0 +1,24 @@
+		(1)	(2)
+VARIABLES	LABELS	OLS	Fixed Effects
+			
+mui	mui	0.0366***	0.0427***
+		(0.0108)	(0.0131)
+wa_cr44d	Industry CR4	0.192	0.382***
+		(0.120)	(0.135)
+birate	Policy rate	0.0624*	0.0566
+		(0.0354)	(0.0337)
+Dasingi	Dasingi	-0.000648	-0.00117
+		(0.000924)	(0.00109)
+covid	COVID-19 Dummy	0.0924	0.0861
+		(0.0580)	(0.0569)
+tfpi	tfpi	-0.0470***	-0.0607*
+		(0.0172)	(0.0333)
+Constant	Constant	0.150	0.166
+		(0.301)	(0.399)
+			
+Observations		144	144
+R-squared			0.217
+Number of Disic4		30	30
+Industry FE			YES
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

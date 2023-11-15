@@ -1,0 +1,21 @@
+		(1)	(2)	(3)	(4)
+VARIABLES	LABELS	OLS	FE	OLS	FE
+					
+wa_cr44d	Industry CR4	-3.748***	-2.627	-3.616***	-2.235
+		(1.011)	(2.735)	(0.924)	(2.620)
+birate	Policy rate			0.0391	-0.00943
+				(0.382)	(0.364)
+Dasingi	Dasingi			0.0204	0.0272*
+				(0.0148)	(0.0158)
+covid	COVID-19 Dummy			-0.115	-0.167
+				(0.653)	(0.591)
+tfpi	tfpi			0.213	0.495**
+				(0.146)	(0.233)
+Constant	Constant	6.074***	5.493***	3.970*	1.286
+		(0.618)	(1.472)	(2.325)	(2.781)
+					
+Observations		144	144	144	144
+R-squared			0.016		0.114
+Number of Disic4		30	30	30	30
+Robust standard errors in parentheses					
+*** p<0.01, ** p<0.05, * p<0.1					

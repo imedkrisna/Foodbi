@@ -116,10 +116,11 @@ foreach i in 17 18 19 20 21{
 
 //WEIGHTED AVERAGE
 //using asgen w.avg
+//old asgen // 		asgen wa_`p'=`p', w(share) by(Disic4)
 foreach i in 17 18 19 20 21{
 	use "new_data\use\mamin`i'_n.dta", clear
 	foreach p of varlist hhi4d cr44d pcm {
-		asgen wa_`p'=`p', w(share) by(Disic4)
+		asgen wa_`p'=`p', w(Output) by(Disic4)
 		label variable wa_`p' "w.avg of `p'"
 	}
 	save "new_data\use\mamin`i'_n.dta", replace

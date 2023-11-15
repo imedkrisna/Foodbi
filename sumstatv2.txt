@@ -1,0 +1,14 @@
+		(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	LABELS	N	mean	sd	p50	min	max
+							
+Ltlnou	no. of workers	17,733	114.9	387.9	35	1	17,721
+V1115	Capital	17,733	1.473e+08	3.536e+09	2.022e+06	100	2.112e+11
+Output	Output	17,733	9.866e+07	5.789e+08	6.880e+06	7,240	3.538e+10
+pcm	Price-cost margin	17,733	0.309	0.321	0.201	0.0110	1.914
+salesor	Sales orientation	17,733	0.000169	0.0130	0	0	1
+wa_hhi4d	Industry HHI	17,733	0.0646	0.0646	0.0497	0.00723	0.971
+wa_cr44d	Industry CR4	17,656	0.363	0.148	0.357	0.111	0.998
+tfp	Total factor productivity	17,733	5.204	1.667	4.462	2.259	11.94
+mu	Markups	17,733	2.571	2.613	1.607	0.276	16.25
+tc	Total cost	17,733	7.835e+07	4.869e+08	5.229e+06	3,236	3.085e+10
+							

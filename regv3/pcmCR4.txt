@@ -1,0 +1,18 @@
+		(1)	(2)
+VARIABLES	LABELS	OLS	Fixed Effects
+			
+wa_cr44d	Industry CR4	0.0257***	0.00529
+		(0.00830)	(0.00875)
+birate	birate	0.000363	7.66e-05
+		(0.000860)	(0.000864)
+covid	covid	-5.87e-05	0.00103
+		(0.00139)	(0.00140)
+Constant	Constant	0.353***	0.368***
+		(0.00508)	(0.00500)
+			
+Observations		17,656	17,656
+R-squared			0.000
+Number of Noobs		5,926	5,926
+Firm FE			YES
+Robust standard errors in parentheses			
+*** p<0.01, ** p<0.05, * p<0.1			

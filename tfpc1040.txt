@@ -2,9 +2,9 @@
 VARIABLES	lva
 	
 ln	0.351***
-	(0.028)
-lk	0.086*
-	(0.047)
+	(0.011)
+lk	0.086***
+	(0.019)
 	
 Observations	3,623
 Number of groups	721

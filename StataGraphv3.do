@@ -3,24 +3,7 @@
 // making MU GRAPH time series
 
 //2017-2021
-use tfpd,clear
-
-//turn this off for all obs
-
-sum pcm,det
-drop if pcm < r(p5) | pcm > r(p95)
-sum mu,detail
-drop if mu>r(p95)
-drop if tfp==.
-asgen pcmi=pcm, w(Output) by(Disic4 year)
-la var pcmi "Industry PCM"
-drop mui
-asgen mui=mu,w(Output) by(Disic4 year)
-asgen Dasingi=Dasing,w(Output) by(Disic4 year)
-
-save tfpdd,replace
-
-// end of turn this off line
+use tfpdd,clear
 
 egen avmu=mean(mu),by(year)
 egen sdmu=sd(mu),by(year)
@@ -52,4 +35,11 @@ graph export "figv3/muiCR4.png", as(png) replace
 twoway (line wa_hhi4d year if Disic4==1043,lp(longdash)) || (line wa_hhi4d year if Disic4==1063,lp(shortdash)) || (line wa_hhi4d year if Disic4==1072) ||,legend(label(1 "Vegetable oil") label(2 "Rice mill") label(3 "Sugar refinery")) title("HHI in 3 industries")
 
 graph export "figv3/muiHHI.png", as(png) replace
+
+// CROSS-Section
+
+gen lcr=log(wa_cr44d)
+
+twoway (scatter lcr lwpi2)
+twoway (scatter wa_cr44d lwpi)
 

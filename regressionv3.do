@@ -8,10 +8,7 @@ cd "C:\github\foodbi"
 
 // tabstat
 
-use tfpd,clear
-
-gen tc = Rdnvcu+Rimvcu+Efuvcu+Enpvcu+Ztdvcu+It1vcu
-gen ltc=log(tc)
+use tfpdd,clear
 
 // labeling
 
@@ -36,19 +33,6 @@ la var Dasing "Foreign ownership"
 
 outreg2 using "regv3/sumstat.doc", replace sum(detail) keep(Ltlnou V1115 tc Output salesor tfp wa_cr44d wa_hhi4d pcm mu) eqkeep(N mean sd p50 min max) label
 
-sum pcm,det
-drop if pcm < r(p5) | pcm > r(p95)
-sum mu,detail
-drop if mu>r(p95)
-drop if tfp==.
-asgen pcmi=pcm, w(Output) by(Disic4 year)
-la var pcmi "Industry PCM"
-drop mui
-asgen mui=mu,w(Output) by(Disic4 year)
-asgen Dasingi=Dasing,w(Output) by(Disic4 year)
-gen lmui=log(mui)
-gen lmu=log(mu)
-
 outreg2 using "regv3/sumstatv2.doc", replace sum(detail) keep(Ltlnou V1115 tc Output salesor tfp wa_cr44d wa_hhi4d pcm mu) eqkeep(N mean sd p50 min max) label
 
 outreg2 using "regv3/sumstatv3.doc", replace sum(detail) keep(ln lk ltc lo tfp wa_cr44d wa_hhi4d pcm mu) eqkeep(N mean sd p50 min max) label
@@ -59,6 +43,10 @@ outreg2 using "regv3/sumstatv3.doc", replace sum(detail) keep(ln lk ltc lo tfp w
 xtset Noobs year
 
 // FIRMS
+
+// Does market concentration affects markups?
+
+xtreg lmu 
 
 // PCM CR4
 
@@ -122,13 +110,44 @@ outreg2 using "regv3/pcmCR4in_l.doc", append ctitle(Fixed Effects) addtext(Indus
 
 //* WPI
 
-gen lwpi=log(wpi)
-
-xtreg lwpi birate lmui tfpi wa_cr44d Dasingi cov,r
+xtreg lwpi birate tfpi wa_cr44d cov,r
 outreg2 using "regv3/wpi.doc", replace label ctitle(OLS)
 
-xtreg lwpi birate lmui tfpi wa_cr44d Dasingi cov,fe r
-outreg2 using "regv3/wpi.doc",replace label ctitle(Fixed Effects) addtext(Industry FE,YES)
+xtreg lwpi birate tfpi wa_cr44d cov,fe r
+outreg2 using "regv3/wpi.doc",append label ctitle(Fixed Effects) addtext(Industry FE,YES)
+
+xtreg lwpi birate lmui tfpi cov,r
+outreg2 using "regv3/wpi.doc", append label ctitle(OLS)
+
+xtreg lwpi birate lmui tfpi cov,fe r
+outreg2 using "regv3/wpi.doc",append label ctitle(Fixed Effects) addtext(Industry FE,YES)
+
+xtreg lwpi birate lmui tfpi wa_cr44d cov,r
+outreg2 using "regv3/wpi.doc", append label ctitle(OLS)
+
+xtreg lwpi birate lmui tfpi wa_cr44d cov,fe r
+outreg2 using "regv3/wpi.doc",append label ctitle(Fixed Effects) addtext(Industry FE,YES)
+
+// WPI4
+
+xtreg lwpi2 birate tfpi wa_cr44d cov if lwpi2!=.,r
+outreg2 using "regv3/wpi2.doc", replace label ctitle(OLS)
+
+xtreg lwpi2 birate tfpi wa_cr44d cov if lwpi2!=.,fe r
+outreg2 using "regv3/wpi2.doc",append label ctitle(Fixed Effects) addtext(Industry FE,YES)
+
+xtreg lwpi2 birate lmui tfpi cov if lwpi2!=.,r
+outreg2 using "regv3/wpi2.doc", append label ctitle(OLS)
+
+xtreg lwpi2 birate lmui tfpi cov if lwpi2!=.,fe r
+outreg2 using "regv3/wpi2.doc",append label ctitle(Fixed Effects) addtext(Industry FE,YES)
+
+xtreg lwpi2 birate lmui tfpi wa_cr44d cov if lwpi2!=.,r
+outreg2 using "regv3/wpi2.doc", append label ctitle(OLS)
+
+xtreg lwpi2 birate lmui tfpi wa_cr44d cov if lwpi2!=.,fe r
+outreg2 using "regv3/wpi2.doc",append label ctitle(Fixed Effects) addtext(Industry FE,YES)
+
 //*/
 
 log close

@@ -1,26 +1,26 @@
 		(1)	(2)	(3)
 VARIABLES	LABELS	OLS	Fixed Effects	Fixed Effects
 				
-lmu	lmu	0.316***		
-		(0.00450)		
-birate	Policy rate	-0.0153***	-0.0107***	-0.0107***
-		(0.00377)	(0.00345)	(0.00345)
-wa_cr44d	Industry CR4	0.133***	0.0466**	0.0466**
-		(0.0167)	(0.0186)	(0.0186)
-ln	Log #Workers	0.0485***	0.166***	0.166***
-		(0.00210)	(0.00478)	(0.00478)
-covid	COVID-19 Dummy	-0.0204***	-0.0150***	-0.0150***
-		(0.00594)	(0.00549)	(0.00549)
-tfp	Total factor productivity	-0.0960***	-0.435***	-0.435***
-		(0.00219)	(0.0111)	(0.0111)
-Dasing	Foreign ownership	-0.000487***	-0.000442*	-0.000442*
-		(0.000146)	(0.000234)	(0.000234)
-Constant	Constant	-0.0216	0.0759	0.0759
-		(0.0321)	(0.204)	(0.204)
+lmu	lmu	0.261***		
+		(0.00339)		
+birate	Policy rate	-0.00892***	-0.00540**	-0.00540**
+		(0.00263)	(0.00239)	(0.00239)
+wa_cr44d	Industry CR4	0.0983***	0.0225*	0.0225*
+		(0.0113)	(0.0129)	(0.0129)
+ln	Log #Workers	0.0342***	0.140***	0.140***
+		(0.00156)	(0.00401)	(0.00401)
+covid	COVID-19 Dummy	-0.0144***	-0.00464	-0.00464
+		(0.00412)	(0.00373)	(0.00373)
+tfp	Total factor productivity	-0.0672***	-0.331***	-0.331***
+		(0.00156)	(0.00880)	(0.00880)
+Dasing	Foreign ownership	-0.000444***	0.000105	0.000105
+		(0.000103)	(0.000173)	(0.000173)
+Constant	Constant	0.0114	0.164**	0.164**
+		(0.0231)	(0.0704)	(0.0704)
 				
-Observations		17,656	17,656	17,656
-R-squared			0.609	0.609
-Number of Noobs		5,926	5,926	5,926
+Observations		15,098	15,098	15,098
+R-squared			0.651	0.651
+Number of Noobs		5,488	5,488	5,488
 Firm FE			YES	YES
 Robust standard errors in parentheses				
 *** p<0.01, ** p<0.05, * p<0.1				

@@ -216,7 +216,32 @@ tabstat mu if Disic4==1043, stats(mean sd median p25 p75 min max)
 tabstat mu if Disic4==1063, stats(mean sd median p25 p75 min max)
 tabstat mu if Disic4==1072, stats(mean sd median p25 p75 min max)
 
+// treating tfpd as the final data used
+
+sum pcm,det
+drop if pcm < r(p5) | pcm > r(p95)
+sum mu,detail
+drop if mu>r(p95)
+drop if tfp==.
+asgen pcmi=pcm, w(Output) by(Disic4 year)
+la var pcmi "Industry PCM"
+drop mui
+asgen mui=mu,w(Output) by(Disic4 year)
+asgen Dasingi=Dasing,w(Output) by(Disic4 year)
+asgen mui3=mu,w(Output) by(Disic3 year)
+gen lmui=log(mui)
+gen lmu=log(mu)
+gen lmui3=log(mui3)
+
+merge m:1 Disic3 year using wpi,gen(swt)
+merge m:1 Disic4 year using wpi2,gen(swt2)
+gen lwpi2=log(price)
+gen lwpi=log(wpi10)
+
+gen tc = Rdnvcu+Rimvcu+Efuvcu+Enpvcu+Ztdvcu+It1vcu
+gen ltc=log(tc)
 
 
+save tfpdd,replace
 
 log close

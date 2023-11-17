@@ -1,0 +1,21 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS	OLS	OLS	Fixed Effects
+				
+mu	Markups	0.0624***	0.0769***	0.0768***
+		(0.00161)	(0.00215)	(0.00216)
+ln	Log #Workers	0.00536***	0.0447***	0.0448***
+		(0.00201)	(0.00481)	(0.00485)
+covid	COVID-19 Dummy	-0.00726*	0.00342	0.00292
+		(0.00388)	(0.00407)	(0.00409)
+Dasing	Foreign ownership	-0.000721***	-0.000677**	-0.000659**
+		(0.000169)	(0.000265)	(0.000265)
+Constant	Constant	0.0782***	-0.506***	-0.944***
+		(0.0275)	(0.0676)	(0.178)
+				
+Observations		17,733	17,733	17,733
+R-squared			0.297	0.300
+Number of Noobs		5,936	5,936	5,936
+Firm FE				YES
+Industry FE				YES
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

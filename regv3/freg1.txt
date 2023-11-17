@@ -1,0 +1,21 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS	OLS	Fixed Effects	Fixed Effects
+				
+wa_cr44d	Industry CR4	-1.528***	-0.0193	0.172
+		(0.156)	(0.198)	(0.207)
+ln	Log #Workers	0.0834***	-0.557***	-0.555***
+		(0.0195)	(0.0457)	(0.0458)
+Dasing	Foreign ownership	0.0151***	0.00361	0.00413
+		(0.00201)	(0.00347)	(0.00349)
+covid	COVID-19 Dummy	0.00240	-0.102***	-0.111***
+		(0.0340)	(0.0354)	(0.0352)
+Constant	Constant	2.024***	10.32***	11.08***
+		(0.271)	(0.643)	(1.639)
+				
+Observations		17,656	17,656	17,656
+R-squared			0.026	0.030
+Number of Noobs		5,926	5,926	5,926
+Firm FE			YES	YES
+Industry FE				YES
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

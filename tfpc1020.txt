@@ -2,8 +2,8 @@
 VARIABLES	lva
 	
 ln	0.410***
-	(0.021)
-lk	0.159***
+	(0.019)
+lk	0.160***
 	(0.024)
 	
 Observations	7,631

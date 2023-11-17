@@ -241,6 +241,31 @@ gen lwpi=log(wpi10)
 gen tc = Rdnvcu+Rimvcu+Efuvcu+Enpvcu+Ztdvcu+It1vcu
 gen ltc=log(tc)
 
+// labeling
+
+la var Ltlnou "no. of workers"
+la var Output "Output"
+la var V1115 "Capitsah al"
+la var tc "Total cost"
+la var Prprex "% output exported"
+la var salesor "Sales orientation"
+la var tfp "Total factor productivity"
+la var wa_cr44d "Industry CR4"
+la var wa_hhi4d "Industry HHI"
+la var pcm "Price-cost margin"
+la var mu "Markups"
+la var ln "Log #Workers"
+la var birate "Policy rate"
+la var cov "COVID-19 Dummy"
+la var Dasing "Foreign ownership"
+la var lmu "Log of markups"
+la var lmui "Log of industry markups"
+la var lwpi "log of price index"
+la var lwpi2 "log of price index"
+la var Disic3 "ISIC-3-digits"
+la var Disic2 "ISIC-2-digits"
+la var Disic4 "ISIC-4-digits"
+la var mui "Industry markups"
 
 save tfpdd,replace
 

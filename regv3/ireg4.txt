@@ -1,20 +1,19 @@
 		(1)	(2)
-VARIABLES	LABELS	OLS	Fixed Effects
+VARIABLES	LABELS	OLS	OLS
 			
 mui	Industry markups	0.0339***	0.0397***
 		(0.0113)	(0.0130)
 wa_cr44d	Industry CR4	0.151	0.392**
 		(0.133)	(0.154)
-Dasingi	Dasingi	-0.000942	-0.00140
-		(0.000986)	(0.00119)
 covid	COVID-19 Dummy	0.0222	0.0230
 		(0.0274)	(0.0278)
+Dasingi	Dasingi	-0.000942	-0.00140
+		(0.000986)	(0.00119)
 Constant	Constant	0.153	0.00886
 		(0.102)	(0.108)
 			
 Observations		144	144
 R-squared			0.167
 Number of Disic4		30	30
-Industry FE			YES
 Robust standard errors in parentheses			
 *** p<0.01, ** p<0.05, * p<0.1			

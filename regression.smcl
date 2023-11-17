@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\foodbi\regression.smcl
+       {txt}log:  {res}C:\github\Foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}15 Nov 2023, 21:45:35
+ {txt}opened on:  {res}16 Nov 2023, 21:56:29
 {txt}
 {com}. 
 . cd "C:\github\foodbi"
@@ -1363,6 +1363,10 @@ E
 {txt}
 {com}. asgen Dasingi=Dasing,w(Output) by(Disic4 year)
 {txt}
+{com}. gen lmui=log(mui)
+{txt}
+{com}. gen lmu=log(mu)
+{txt}
 {com}. 
 . outreg2 using "regv3/sumstatv2.doc", replace sum(detail) keep(Ltlnou V1115 tc Output salesor tfp wa_cr44d wa_hhi4d pcm mu) eqkeep(N mean sd p50 min max) label
 
@@ -2640,6 +2644,36 @@ E
 {txt}90%    {res} 35.37384       99.40201       {txt}Variance      {res} 197.9463
 {txt}95%    {res} 49.02457       99.40201       {txt}Skewness      {res}  .990031
 {txt}99%    {res} 56.04863       99.40201       {txt}Kurtosis      {res} 4.155686
+
+                            {txt}lmui
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .2954277      -.5271937
+{txt} 5%    {res} .9145416      -.5271937
+{txt}10%    {res} 1.016724      -.4413454       {txt}Obs         {res}     17,733
+{txt}25%    {res} 1.235438      -.4413454       {txt}Sum of wgt. {res}     17,733
+
+{txt}50%    {res} 1.425924                      {txt}Mean          {res} 1.421248
+                        {txt}Largest       Std. dev.     {res} .3580022
+{txt}75%    {res} 1.637828       2.405531
+{txt}90%    {res} 1.866679       2.405531       {txt}Variance      {res} .1281656
+{txt}95%    {res} 1.993685       2.405531       {txt}Skewness      {res}-.4059887
+{txt}99%    {res} 2.259607       2.405531       {txt}Kurtosis      {res} 4.499754
+
+                             {txt}lmu
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}-.5409208      -1.287325
+{txt} 5%    {res}-.3168734      -1.139365
+{txt}10%    {res} -.222701      -1.136291       {txt}Obs         {res}     17,733
+{txt}25%    {res} .0200313      -1.126161       {txt}Sum of wgt. {res}     17,733
+
+{txt}50%    {res} .4742035                      {txt}Mean          {res} .6159508
+                        {txt}Largest       Std. dev.     {res} .7499454
+{txt}75%    {res} 1.075297       2.783669
+{txt}90%    {res} 1.734698       2.786559       {txt}Variance      {res} .5624181
+{txt}95%    {res} 2.116839       2.787403       {txt}Skewness      {res} .7622734
+{txt}99%    {res} 2.607721       2.787985       {txt}Kurtosis      {res} 2.966888
 
 Following variable is string, not included:  
 Classification  Following variable has no observation, not included:  
@@ -3925,6 +3959,36 @@ E
 {txt}95%    {res} 49.02457       99.40201       {txt}Skewness      {res}  .990031
 {txt}99%    {res} 56.04863       99.40201       {txt}Kurtosis      {res} 4.155686
 
+                            {txt}lmui
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res} .2954277      -.5271937
+{txt} 5%    {res} .9145416      -.5271937
+{txt}10%    {res} 1.016724      -.4413454       {txt}Obs         {res}     17,733
+{txt}25%    {res} 1.235438      -.4413454       {txt}Sum of wgt. {res}     17,733
+
+{txt}50%    {res} 1.425924                      {txt}Mean          {res} 1.421248
+                        {txt}Largest       Std. dev.     {res} .3580022
+{txt}75%    {res} 1.637828       2.405531
+{txt}90%    {res} 1.866679       2.405531       {txt}Variance      {res} .1281656
+{txt}95%    {res} 1.993685       2.405531       {txt}Skewness      {res}-.4059887
+{txt}99%    {res} 2.259607       2.405531       {txt}Kurtosis      {res} 4.499754
+
+                             {txt}lmu
+{hline 61}
+      Percentiles      Smallest
+ 1%    {res}-.5409208      -1.287325
+{txt} 5%    {res}-.3168734      -1.139365
+{txt}10%    {res} -.222701      -1.136291       {txt}Obs         {res}     17,733
+{txt}25%    {res} .0200313      -1.126161       {txt}Sum of wgt. {res}     17,733
+
+{txt}50%    {res} .4742035                      {txt}Mean          {res} .6159508
+                        {txt}Largest       Std. dev.     {res} .7499454
+{txt}75%    {res} 1.075297       2.783669
+{txt}90%    {res} 1.734698       2.786559       {txt}Variance      {res} .5624181
+{txt}95%    {res} 2.116839       2.787403       {txt}Skewness      {res} .7622734
+{txt}99%    {res} 2.607721       2.787985       {txt}Kurtosis      {res} 2.966888
+
 Following variable is string, not included:  
 Classification  Following variable has no observation, not included:  
 E  
@@ -4259,6 +4323,179 @@ E
 {browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmMUfirm.txt", label"':seeout}
 
 {com}. 
+. xtreg pcm lmu birate wa_cr44d ln cov tfp Dasing,r
+{res}
+{txt}Random-effects GLS regression                   Number of obs     = {res}    17,656
+{txt}Group variable: {res}Noobs                           {txt}Number of groups  = {res}     5,926
+
+{txt}R-squared:                                      Obs per group:
+     Within  = {res}0.4986                                         {txt}min = {res}         1
+{txt}     Between = {res}0.3627                                         {txt}avg = {res}       3.0
+{txt}     Overall = {res}0.4204                                         {txt}max = {res}         5
+
+                                                {txt}Wald chi2({res}7{txt})      =  {res}  5265.21
+{txt}corr(u_i, X) = {res}0{txt} (assumed)                      Prob > chi2       =     {res}0.0000
+
+{txt}{ralign 78:(Std. err. adjusted for {res:5,926} clusters in {res:Noobs})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         pcm{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}lmu {c |}{col 14}{res}{space 2} .3159642{col 26}{space 2} .0045018{col 37}{space 1}   70.19{col 46}{space 3}0.000{col 54}{space 4} .3071407{col 67}{space 3} .3247876
+{txt}{space 6}birate {c |}{col 14}{res}{space 2}-.0152812{col 26}{space 2} .0037676{col 37}{space 1}   -4.06{col 46}{space 3}0.000{col 54}{space 4}-.0226655{col 67}{space 3}-.0078968
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .1332257{col 26}{space 2} .0166551{col 37}{space 1}    8.00{col 46}{space 3}0.000{col 54}{space 4} .1005822{col 67}{space 3} .1658691
+{txt}{space 10}ln {c |}{col 14}{res}{space 2} .0484583{col 26}{space 2} .0020992{col 37}{space 1}   23.08{col 46}{space 3}0.000{col 54}{space 4} .0443439{col 67}{space 3} .0525726
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}-.0203554{col 26}{space 2} .0059391{col 37}{space 1}   -3.43{col 46}{space 3}0.001{col 54}{space 4}-.0319958{col 67}{space 3}-.0087151
+{txt}{space 9}tfp {c |}{col 14}{res}{space 2} -.095989{col 26}{space 2} .0021945{col 37}{space 1}  -43.74{col 46}{space 3}0.000{col 54}{space 4}-.1002902{col 67}{space 3}-.0916879
+{txt}{space 6}Dasing {c |}{col 14}{res}{space 2}-.0004867{col 26}{space 2} .0001455{col 37}{space 1}   -3.34{col 46}{space 3}0.001{col 54}{space 4}-.0007719{col 67}{space 3}-.0002014
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0216494{col 26}{space 2} .0320923{col 37}{space 1}   -0.67{col 46}{space 3}0.500{col 54}{space 4}-.0845492{col 67}{space 3} .0412503
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17707821
+     {txt}sigma_e {c |} {res} .18096983
+         {txt}rho {c |} {res} .48913229{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/pcmMUfirm_l.doc", replace ctitle(OLS) label
+{txt}{stata `"shellout using `"regv3/pcmMUfirm_l.doc"'"':regv3/pcmMUfirm_l.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmMUfirm_l.txt", label"':seeout}
+
+{com}. xtreg pcm lmu birate Dasing wa_cr44d i.Disic4 ln cov tfp,fe r
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    17,656
+{txt}Group variable: {res}Noobs{txt}{col 49}Number of groups{col 67}={col 69}{res}     5,926
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.6088{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     Between = {res}0.5287{col 63}{txt}avg{col 67}={col 69}{res}       3.0
+{txt}     Overall = {res}0.5803{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}36{txt},{res}5925{txt}){col 67}={col 70}{res}   146.10
+{txt}corr(u_i, Xb) = {res}-0.1671{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{ralign 78:(Std. err. adjusted for {res:5,926} clusters in {res:Noobs})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         pcm{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}lmu {c |}{col 14}{res}{space 2} .4187621{col 26}{space 2} .0060107{col 37}{space 1}   69.67{col 46}{space 3}0.000{col 54}{space 4} .4069788{col 67}{space 3} .4305453
+{txt}{space 6}birate {c |}{col 14}{res}{space 2}-.0107003{col 26}{space 2} .0034466{col 37}{space 1}   -3.10{col 46}{space 3}0.002{col 54}{space 4}-.0174568{col 67}{space 3}-.0039438
+{txt}{space 6}Dasing {c |}{col 14}{res}{space 2}-.0004417{col 26}{space 2}  .000234{col 37}{space 1}   -1.89{col 46}{space 3}0.059{col 54}{space 4}-.0009005{col 67}{space 3}  .000017
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .0466404{col 26}{space 2} .0185528{col 37}{space 1}    2.51{col 46}{space 3}0.012{col 54}{space 4} .0102701{col 67}{space 3} .0830106
+{txt}{space 12} {c |}
+{space 6}Disic4 {c |}
+{space 7}1012  {c |}{col 14}{res}{space 2} .2336621{col 26}{space 2} .1888096{col 37}{space 1}    1.24{col 46}{space 3}0.216{col 54}{space 4}-.1364736{col 67}{space 3} .6037978
+{txt}{space 7}1013  {c |}{col 14}{res}{space 2} .3575848{col 26}{space 2}  .194589{col 37}{space 1}    1.84{col 46}{space 3}0.066{col 54}{space 4}-.0238804{col 67}{space 3} .7390501
+{txt}{space 7}1021  {c |}{col 14}{res}{space 2}-.5857836{col 26}{space 2} .1964075{col 37}{space 1}   -2.98{col 46}{space 3}0.003{col 54}{space 4}-.9708138{col 67}{space 3}-.2007533
+{txt}{space 7}1022  {c |}{col 14}{res}{space 2} -.608654{col 26}{space 2}  .198385{col 37}{space 1}   -3.07{col 46}{space 3}0.002{col 54}{space 4}-.9975609{col 67}{space 3} -.219747
+{txt}{space 7}1029  {c |}{col 14}{res}{space 2}-.5561101{col 26}{space 2} .1966769{col 37}{space 1}   -2.83{col 46}{space 3}0.005{col 54}{space 4}-.9416685{col 67}{space 3}-.1705517
+{txt}{space 7}1031  {c |}{col 14}{res}{space 2} .3915201{col 26}{space 2} .1970854{col 37}{space 1}    1.99{col 46}{space 3}0.047{col 54}{space 4} .0051609{col 67}{space 3} .7778794
+{txt}{space 7}1032  {c |}{col 14}{res}{space 2}  .369629{col 26}{space 2} .2258341{col 37}{space 1}    1.64{col 46}{space 3}0.102{col 54}{space 4}-.0730882{col 67}{space 3} .8123461
+{txt}{space 7}1033  {c |}{col 14}{res}{space 2} .4756565{col 26}{space 2} .2021083{col 37}{space 1}    2.35{col 46}{space 3}0.019{col 54}{space 4} .0794506{col 67}{space 3} .8718623
+{txt}{space 7}1039  {c |}{col 14}{res}{space 2} .4955861{col 26}{space 2} .1992683{col 37}{space 1}    2.49{col 46}{space 3}0.013{col 54}{space 4} .1049475{col 67}{space 3} .8862246
+{txt}{space 7}1041  {c |}{col 14}{res}{space 2} .6150653{col 26}{space 2} .2256722{col 37}{space 1}    2.73{col 46}{space 3}0.006{col 54}{space 4} .1726655{col 67}{space 3} 1.057465
+{txt}{space 7}1042  {c |}{col 14}{res}{space 2} .7552233{col 26}{space 2} .2016525{col 37}{space 1}    3.75{col 46}{space 3}0.000{col 54}{space 4} .3599109{col 67}{space 3} 1.150536
+{txt}{space 7}1043  {c |}{col 14}{res}{space 2} .7492987{col 26}{space 2} .2395463{col 37}{space 1}    3.13{col 46}{space 3}0.002{col 54}{space 4} .2797006{col 67}{space 3} 1.218897
+{txt}{space 7}1049  {c |}{col 14}{res}{space 2} .6870781{col 26}{space 2} .2009588{col 37}{space 1}    3.42{col 46}{space 3}0.001{col 54}{space 4} .2931256{col 67}{space 3}  1.08103
+{txt}{space 7}1051  {c |}{col 14}{res}{space 2} 1.351061{col 26}{space 2} .2160974{col 37}{space 1}    6.25{col 46}{space 3}0.000{col 54}{space 4} .9274311{col 67}{space 3}  1.77469
+{txt}{space 7}1052  {c |}{col 14}{res}{space 2} 1.234106{col 26}{space 2} .2353612{col 37}{space 1}    5.24{col 46}{space 3}0.000{col 54}{space 4}  .772712{col 67}{space 3} 1.695499
+{txt}{space 7}1053  {c |}{col 14}{res}{space 2} .9961297{col 26}{space 2}  .197817{col 37}{space 1}    5.04{col 46}{space 3}0.000{col 54}{space 4} .6083362{col 67}{space 3} 1.383923
+{txt}{space 7}1059  {c |}{col 14}{res}{space 2}  1.23605{col 26}{space 2} .2191375{col 37}{space 1}    5.64{col 46}{space 3}0.000{col 54}{space 4} .8064609{col 67}{space 3} 1.665639
+{txt}{space 7}1061  {c |}{col 14}{res}{space 2} .9916013{col 26}{space 2} .2027691{col 37}{space 1}    4.89{col 46}{space 3}0.000{col 54}{space 4} .5940999{col 67}{space 3} 1.389103
+{txt}{space 7}1062  {c |}{col 14}{res}{space 2} .9516552{col 26}{space 2}  .201463{col 37}{space 1}    4.72{col 46}{space 3}0.000{col 54}{space 4} .5567142{col 67}{space 3} 1.346596
+{txt}{space 7}1063  {c |}{col 14}{res}{space 2} .9516052{col 26}{space 2} .2025437{col 37}{space 1}    4.70{col 46}{space 3}0.000{col 54}{space 4} .5545457{col 67}{space 3} 1.348665
+{txt}{space 7}1071  {c |}{col 14}{res}{space 2}-.3016938{col 26}{space 2} .1967362{col 37}{space 1}   -1.53{col 46}{space 3}0.125{col 54}{space 4}-.6873684{col 67}{space 3} .0839809
+{txt}{space 7}1072  {c |}{col 14}{res}{space 2}-.2940479{col 26}{space 2} .2016106{col 37}{space 1}   -1.46{col 46}{space 3}0.145{col 54}{space 4}-.6892783{col 67}{space 3} .1011824
+{txt}{space 7}1073  {c |}{col 14}{res}{space 2}-.1272302{col 26}{space 2} .2120691{col 37}{space 1}   -0.60{col 46}{space 3}0.549{col 54}{space 4}-.5429629{col 67}{space 3} .2885025
+{txt}{space 7}1074  {c |}{col 14}{res}{space 2}-.3393003{col 26}{space 2} .1991073{col 37}{space 1}   -1.70{col 46}{space 3}0.088{col 54}{space 4}-.7296231{col 67}{space 3} .0510225
+{txt}{space 7}1075  {c |}{col 14}{res}{space 2}-.3005569{col 26}{space 2} .1958403{col 37}{space 1}   -1.53{col 46}{space 3}0.125{col 54}{space 4}-.6844752{col 67}{space 3} .0833614
+{txt}{space 7}1076  {c |}{col 14}{res}{space 2}-.2928007{col 26}{space 2} .2068017{col 37}{space 1}   -1.42{col 46}{space 3}0.157{col 54}{space 4}-.6982074{col 67}{space 3} .1126059
+{txt}{space 7}1077  {c |}{col 14}{res}{space 2}-.3215944{col 26}{space 2} .1968081{col 37}{space 1}   -1.63{col 46}{space 3}0.102{col 54}{space 4}-.7074101{col 67}{space 3} .0642213
+{txt}{space 7}1079  {c |}{col 14}{res}{space 2}-.3093936{col 26}{space 2} .1962628{col 37}{space 1}   -1.58{col 46}{space 3}0.115{col 54}{space 4}-.6941402{col 67}{space 3}  .075353
+{txt}{space 7}1080  {c |}{col 14}{res}{space 2} .0534171{col 26}{space 2} .2010269{col 37}{space 1}    0.27{col 46}{space 3}0.790{col 54}{space 4}-.3406689{col 67}{space 3} .4475031
+{txt}{space 12} {c |}
+{space 10}ln {c |}{col 14}{res}{space 2} .1655651{col 26}{space 2} .0047792{col 37}{space 1}   34.64{col 46}{space 3}0.000{col 54}{space 4} .1561962{col 67}{space 3} .1749341
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}-.0149545{col 26}{space 2} .0054902{col 37}{space 1}   -2.72{col 46}{space 3}0.006{col 54}{space 4}-.0257173{col 67}{space 3}-.0041918
+{txt}{space 9}tfp {c |}{col 14}{res}{space 2}-.4346356{col 26}{space 2}   .01107{col 37}{space 1}  -39.26{col 46}{space 3}0.000{col 54}{space 4}-.4563369{col 67}{space 3}-.4129342
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .075878{col 26}{space 2} .2043987{col 37}{space 1}    0.37{col 46}{space 3}0.710{col 54}{space 4} -.324818{col 67}{space 3}  .476574
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .19159629
+     {txt}sigma_e {c |} {res} .16351115
+         {txt}rho {c |} {res} .57859749{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/pcmMUfirm_l.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) label keep(wa_cr44d birate Dasing ln cov mu tfp)
+{txt}{stata `"shellout using `"regv3/pcmMUfirm_l.doc"'"':regv3/pcmMUfirm_l.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmMUfirm_l.txt", label"':seeout}
+
+{com}. xtreg pcm lmu birate wa_cr44d i.Disic4 ln cov tfp Dasing,fe r
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}    17,656
+{txt}Group variable: {res}Noobs{txt}{col 49}Number of groups{col 67}={col 69}{res}     5,926
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.6088{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     Between = {res}0.5287{col 63}{txt}avg{col 67}={col 69}{res}       3.0
+{txt}     Overall = {res}0.5803{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}36{txt},{res}5925{txt}){col 67}={col 70}{res}   146.10
+{txt}corr(u_i, Xb) = {res}-0.1671{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{ralign 78:(Std. err. adjusted for {res:5,926} clusters in {res:Noobs})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}         pcm{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}lmu {c |}{col 14}{res}{space 2} .4187621{col 26}{space 2} .0060107{col 37}{space 1}   69.67{col 46}{space 3}0.000{col 54}{space 4} .4069788{col 67}{space 3} .4305453
+{txt}{space 6}birate {c |}{col 14}{res}{space 2}-.0107003{col 26}{space 2} .0034466{col 37}{space 1}   -3.10{col 46}{space 3}0.002{col 54}{space 4}-.0174568{col 67}{space 3}-.0039438
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .0466404{col 26}{space 2} .0185528{col 37}{space 1}    2.51{col 46}{space 3}0.012{col 54}{space 4} .0102701{col 67}{space 3} .0830106
+{txt}{space 12} {c |}
+{space 6}Disic4 {c |}
+{space 7}1012  {c |}{col 14}{res}{space 2} .2336621{col 26}{space 2} .1888096{col 37}{space 1}    1.24{col 46}{space 3}0.216{col 54}{space 4}-.1364736{col 67}{space 3} .6037978
+{txt}{space 7}1013  {c |}{col 14}{res}{space 2} .3575848{col 26}{space 2}  .194589{col 37}{space 1}    1.84{col 46}{space 3}0.066{col 54}{space 4}-.0238804{col 67}{space 3} .7390501
+{txt}{space 7}1021  {c |}{col 14}{res}{space 2}-.5857836{col 26}{space 2} .1964075{col 37}{space 1}   -2.98{col 46}{space 3}0.003{col 54}{space 4}-.9708138{col 67}{space 3}-.2007533
+{txt}{space 7}1022  {c |}{col 14}{res}{space 2} -.608654{col 26}{space 2}  .198385{col 37}{space 1}   -3.07{col 46}{space 3}0.002{col 54}{space 4}-.9975609{col 67}{space 3} -.219747
+{txt}{space 7}1029  {c |}{col 14}{res}{space 2}-.5561101{col 26}{space 2} .1966769{col 37}{space 1}   -2.83{col 46}{space 3}0.005{col 54}{space 4}-.9416685{col 67}{space 3}-.1705517
+{txt}{space 7}1031  {c |}{col 14}{res}{space 2} .3915201{col 26}{space 2} .1970854{col 37}{space 1}    1.99{col 46}{space 3}0.047{col 54}{space 4} .0051609{col 67}{space 3} .7778794
+{txt}{space 7}1032  {c |}{col 14}{res}{space 2}  .369629{col 26}{space 2} .2258341{col 37}{space 1}    1.64{col 46}{space 3}0.102{col 54}{space 4}-.0730882{col 67}{space 3} .8123461
+{txt}{space 7}1033  {c |}{col 14}{res}{space 2} .4756565{col 26}{space 2} .2021083{col 37}{space 1}    2.35{col 46}{space 3}0.019{col 54}{space 4} .0794506{col 67}{space 3} .8718623
+{txt}{space 7}1039  {c |}{col 14}{res}{space 2} .4955861{col 26}{space 2} .1992683{col 37}{space 1}    2.49{col 46}{space 3}0.013{col 54}{space 4} .1049475{col 67}{space 3} .8862246
+{txt}{space 7}1041  {c |}{col 14}{res}{space 2} .6150653{col 26}{space 2} .2256722{col 37}{space 1}    2.73{col 46}{space 3}0.006{col 54}{space 4} .1726655{col 67}{space 3} 1.057465
+{txt}{space 7}1042  {c |}{col 14}{res}{space 2} .7552233{col 26}{space 2} .2016525{col 37}{space 1}    3.75{col 46}{space 3}0.000{col 54}{space 4} .3599109{col 67}{space 3} 1.150536
+{txt}{space 7}1043  {c |}{col 14}{res}{space 2} .7492987{col 26}{space 2} .2395463{col 37}{space 1}    3.13{col 46}{space 3}0.002{col 54}{space 4} .2797006{col 67}{space 3} 1.218897
+{txt}{space 7}1049  {c |}{col 14}{res}{space 2} .6870781{col 26}{space 2} .2009588{col 37}{space 1}    3.42{col 46}{space 3}0.001{col 54}{space 4} .2931256{col 67}{space 3}  1.08103
+{txt}{space 7}1051  {c |}{col 14}{res}{space 2} 1.351061{col 26}{space 2} .2160974{col 37}{space 1}    6.25{col 46}{space 3}0.000{col 54}{space 4} .9274311{col 67}{space 3}  1.77469
+{txt}{space 7}1052  {c |}{col 14}{res}{space 2} 1.234106{col 26}{space 2} .2353612{col 37}{space 1}    5.24{col 46}{space 3}0.000{col 54}{space 4}  .772712{col 67}{space 3} 1.695499
+{txt}{space 7}1053  {c |}{col 14}{res}{space 2} .9961297{col 26}{space 2}  .197817{col 37}{space 1}    5.04{col 46}{space 3}0.000{col 54}{space 4} .6083362{col 67}{space 3} 1.383923
+{txt}{space 7}1059  {c |}{col 14}{res}{space 2}  1.23605{col 26}{space 2} .2191375{col 37}{space 1}    5.64{col 46}{space 3}0.000{col 54}{space 4} .8064609{col 67}{space 3} 1.665639
+{txt}{space 7}1061  {c |}{col 14}{res}{space 2} .9916013{col 26}{space 2} .2027691{col 37}{space 1}    4.89{col 46}{space 3}0.000{col 54}{space 4} .5940999{col 67}{space 3} 1.389103
+{txt}{space 7}1062  {c |}{col 14}{res}{space 2} .9516552{col 26}{space 2}  .201463{col 37}{space 1}    4.72{col 46}{space 3}0.000{col 54}{space 4} .5567142{col 67}{space 3} 1.346596
+{txt}{space 7}1063  {c |}{col 14}{res}{space 2} .9516052{col 26}{space 2} .2025437{col 37}{space 1}    4.70{col 46}{space 3}0.000{col 54}{space 4} .5545457{col 67}{space 3} 1.348665
+{txt}{space 7}1071  {c |}{col 14}{res}{space 2}-.3016938{col 26}{space 2} .1967362{col 37}{space 1}   -1.53{col 46}{space 3}0.125{col 54}{space 4}-.6873684{col 67}{space 3} .0839809
+{txt}{space 7}1072  {c |}{col 14}{res}{space 2}-.2940479{col 26}{space 2} .2016106{col 37}{space 1}   -1.46{col 46}{space 3}0.145{col 54}{space 4}-.6892783{col 67}{space 3} .1011824
+{txt}{space 7}1073  {c |}{col 14}{res}{space 2}-.1272302{col 26}{space 2} .2120691{col 37}{space 1}   -0.60{col 46}{space 3}0.549{col 54}{space 4}-.5429629{col 67}{space 3} .2885025
+{txt}{space 7}1074  {c |}{col 14}{res}{space 2}-.3393003{col 26}{space 2} .1991073{col 37}{space 1}   -1.70{col 46}{space 3}0.088{col 54}{space 4}-.7296231{col 67}{space 3} .0510225
+{txt}{space 7}1075  {c |}{col 14}{res}{space 2}-.3005569{col 26}{space 2} .1958403{col 37}{space 1}   -1.53{col 46}{space 3}0.125{col 54}{space 4}-.6844752{col 67}{space 3} .0833614
+{txt}{space 7}1076  {c |}{col 14}{res}{space 2}-.2928007{col 26}{space 2} .2068017{col 37}{space 1}   -1.42{col 46}{space 3}0.157{col 54}{space 4}-.6982074{col 67}{space 3} .1126059
+{txt}{space 7}1077  {c |}{col 14}{res}{space 2}-.3215944{col 26}{space 2} .1968081{col 37}{space 1}   -1.63{col 46}{space 3}0.102{col 54}{space 4}-.7074101{col 67}{space 3} .0642213
+{txt}{space 7}1079  {c |}{col 14}{res}{space 2}-.3093936{col 26}{space 2} .1962628{col 37}{space 1}   -1.58{col 46}{space 3}0.115{col 54}{space 4}-.6941402{col 67}{space 3}  .075353
+{txt}{space 7}1080  {c |}{col 14}{res}{space 2} .0534171{col 26}{space 2} .2010269{col 37}{space 1}    0.27{col 46}{space 3}0.790{col 54}{space 4}-.3406689{col 67}{space 3} .4475031
+{txt}{space 12} {c |}
+{space 10}ln {c |}{col 14}{res}{space 2} .1655651{col 26}{space 2} .0047792{col 37}{space 1}   34.64{col 46}{space 3}0.000{col 54}{space 4} .1561962{col 67}{space 3} .1749341
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}-.0149545{col 26}{space 2} .0054902{col 37}{space 1}   -2.72{col 46}{space 3}0.006{col 54}{space 4}-.0257173{col 67}{space 3}-.0041918
+{txt}{space 9}tfp {c |}{col 14}{res}{space 2}-.4346356{col 26}{space 2}   .01107{col 37}{space 1}  -39.26{col 46}{space 3}0.000{col 54}{space 4}-.4563369{col 67}{space 3}-.4129342
+{txt}{space 6}Dasing {c |}{col 14}{res}{space 2}-.0004417{col 26}{space 2}  .000234{col 37}{space 1}   -1.89{col 46}{space 3}0.059{col 54}{space 4}-.0009005{col 67}{space 3}  .000017
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .075878{col 26}{space 2} .2043987{col 37}{space 1}    0.37{col 46}{space 3}0.710{col 54}{space 4} -.324818{col 67}{space 3}  .476574
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .19159629
+     {txt}sigma_e {c |} {res} .16351115
+         {txt}rho {c |} {res} .57859749{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/pcmMUfirm_l.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) keep(wa_cr44d birate Dasing ln cov mu tfp) label
+{txt}{stata `"shellout using `"regv3/pcmMUfirm_l.doc"'"':regv3/pcmMUfirm_l.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmMUfirm_l.txt", label"':seeout}
+
+{com}. 
 . // INDUSTRY
 . 
 . duplicates drop Disic4 year,force
@@ -4549,22 +4786,161 @@ E
 {browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmCR4in.txt", label"':seeout}
 
 {com}. 
-. /* WPI
-> 
-> gen lwpi=log(wpi)
-> 
-> xtreg lwpi birate mui tfpi wa_cr44d Dasingi cov,r
-> outreg2 using "regv3/wpi.doc", replace label ctitle(OLS)
-> 
-> xtreg lwpi birate mui tfpi wa_cr44d Dasingi cov,fe r
-> outreg2 using "regv3/wpi.doc",replace label ctitle(Fixed Effects) addtext(Industry FE,YES)
-> */
+. xtreg pcmi lmui wa_cr44d birate Dasingi cov tfpi,r
+{res}
+{txt}Random-effects GLS regression                   Number of obs     = {res}       144
+{txt}Group variable: {res}Disic4                          {txt}Number of groups  = {res}        30
+
+{txt}R-squared:                                      Obs per group:
+     Within  = {res}0.2628                                         {txt}min = {res}         3
+{txt}     Between = {res}0.0897                                         {txt}avg = {res}       4.8
+{txt}     Overall = {res}0.1501                                         {txt}max = {res}         5
+
+                                                {txt}Wald chi2({res}6{txt})      =  {res}    73.64
+{txt}corr(u_i, X) = {res}0{txt} (assumed)                      Prob > chi2       =     {res}0.0000
+
+{txt}{ralign 78:(Std. err. adjusted for {res:30} clusters in {res:Disic4})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        pcmi{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}lmui {c |}{col 14}{res}{space 2} .1632025{col 26}{space 2} .0398076{col 37}{space 1}    4.10{col 46}{space 3}0.000{col 54}{space 4}  .085181{col 67}{space 3}  .241224
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .2635049{col 26}{space 2} .1249225{col 37}{space 1}    2.11{col 46}{space 3}0.035{col 54}{space 4} .0186613{col 67}{space 3} .5083485
+{txt}{space 6}birate {c |}{col 14}{res}{space 2} .0582617{col 26}{space 2} .0328675{col 37}{space 1}    1.77{col 46}{space 3}0.076{col 54}{space 4}-.0061573{col 67}{space 3} .1226807
+{txt}{space 5}Dasingi {c |}{col 14}{res}{space 2}-.0007647{col 26}{space 2} .0009014{col 37}{space 1}   -0.85{col 46}{space 3}0.396{col 54}{space 4}-.0025314{col 67}{space 3} .0010021
+{txt}{space 7}covid {c |}{col 14}{res}{space 2} .0950672{col 26}{space 2} .0530379{col 37}{space 1}    1.79{col 46}{space 3}0.073{col 54}{space 4}-.0088852{col 67}{space 3} .1990197
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}-.0458605{col 26}{space 2} .0163418{col 37}{space 1}   -2.81{col 46}{space 3}0.005{col 54}{space 4}-.0778898{col 67}{space 3}-.0138312
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0721886{col 26}{space 2} .2901041{col 37}{space 1}    0.25{col 46}{space 3}0.803{col 54}{space 4} -.496405{col 67}{space 3} .6407822
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .13779137
+     {txt}sigma_e {c |} {res} .16471379
+         {txt}rho {c |} {res} .41170114{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/pcmCR4in_l.doc", replace ctitle(OLS) label
+{txt}{stata `"shellout using `"regv3/pcmCR4in_l.doc"'"':regv3/pcmCR4in_l.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmCR4in_l.txt", label"':seeout}
+
+{com}. xtreg pcmi lmui wa_cr44d birate Dasingi cov tfpi,fe r
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       144
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        30
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.2684{col 63}{txt}min{col 67}={col 69}{res}         3
+{txt}     Between = {res}0.0834{col 63}{txt}avg{col 67}={col 69}{res}       4.8
+{txt}     Overall = {res}0.1429{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}6{txt},{res}29{txt}){col 67}={col 70}{res}     6.74
+{txt}corr(u_i, Xb) = {res}-0.3768{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0002
+
+{txt}{ralign 78:(Std. err. adjusted for {res:30} clusters in {res:Disic4})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        pcmi{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 8}lmui {c |}{col 14}{res}{space 2}  .191692{col 26}{space 2} .0498571{col 37}{space 1}    3.84{col 46}{space 3}0.001{col 54}{space 4} .0897229{col 67}{space 3} .2936611
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .3798385{col 26}{space 2} .1335029{col 37}{space 1}    2.85{col 46}{space 3}0.008{col 54}{space 4} .1067944{col 67}{space 3} .6528826
+{txt}{space 6}birate {c |}{col 14}{res}{space 2} .0540047{col 26}{space 2} .0310116{col 37}{space 1}    1.74{col 46}{space 3}0.092{col 54}{space 4}-.0094212{col 67}{space 3} .1174306
+{txt}{space 5}Dasingi {c |}{col 14}{res}{space 2}-.0013137{col 26}{space 2} .0010115{col 37}{space 1}   -1.30{col 46}{space 3}0.204{col 54}{space 4}-.0033825{col 67}{space 3} .0007551
+{txt}{space 7}covid {c |}{col 14}{res}{space 2} .0920831{col 26}{space 2} .0515464{col 37}{space 1}    1.79{col 46}{space 3}0.084{col 54}{space 4}-.0133411{col 67}{space 3} .1975073
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}-.0674788{col 26}{space 2} .0276479{col 37}{space 1}   -2.44{col 46}{space 3}0.021{col 54}{space 4}-.1240251{col 67}{space 3}-.0109326
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1674533{col 26}{space 2} .3462485{col 37}{space 1}    0.48{col 46}{space 3}0.632{col 54}{space 4}-.5407045{col 67}{space 3}  .875611
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .16881961
+     {txt}sigma_e {c |} {res} .16471379
+         {txt}rho {c |} {res} .51230818{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/pcmCR4in_l.doc", append ctitle(Fixed Effects) addtext(Industry FE, YES) label
+{txt}{stata `"shellout using `"regv3/pcmCR4in_l.doc"'"':regv3/pcmCR4in_l.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/pcmCR4in_l.txt", label"':seeout}
+
+{com}. 
+. //* WPI
+. 
+. gen lwpi=log(wpi)
+{txt}(24 missing values generated)
+
+{com}. 
+. xtreg lwpi birate lmui tfpi wa_cr44d Dasingi cov,r
+{res}
+{txt}Random-effects GLS regression                   Number of obs     = {res}       123
+{txt}Group variable: {res}Disic4                          {txt}Number of groups  = {res}        28
+
+{txt}R-squared:                                      Obs per group:
+     Within  = {res}0.7169                                         {txt}min = {res}         2
+{txt}     Between = {res}0.4241                                         {txt}avg = {res}       4.4
+{txt}     Overall = {res}0.5179                                         {txt}max = {res}         5
+
+                                                {txt}Wald chi2({res}6{txt})      =  {res}   123.54
+{txt}corr(u_i, X) = {res}0{txt} (assumed)                      Prob > chi2       =     {res}0.0000
+
+{txt}{ralign 78:(Std. err. adjusted for {res:28} clusters in {res:Disic4})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      z{col 46}   P>|z|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}{col 14}{res}{space 2} -.008381{col 26}{space 2} .0243791{col 37}{space 1}   -0.34{col 46}{space 3}0.731{col 54}{space 4}-.0561632{col 67}{space 3} .0394012
+{txt}{space 8}lmui {c |}{col 14}{res}{space 2}-.0154061{col 26}{space 2} .0256736{col 37}{space 1}   -0.60{col 46}{space 3}0.548{col 54}{space 4}-.0657254{col 67}{space 3} .0349132
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2} .0024169{col 26}{space 2} .0227846{col 37}{space 1}    0.11{col 46}{space 3}0.916{col 54}{space 4}  -.04224{col 67}{space 3} .0470739
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2} .0598818{col 26}{space 2} .1318141{col 37}{space 1}    0.45{col 46}{space 3}0.650{col 54}{space 4}-.1984692{col 67}{space 3} .3182327
+{txt}{space 5}Dasingi {c |}{col 14}{res}{space 2} .0003741{col 26}{space 2} .0007385{col 37}{space 1}    0.51{col 46}{space 3}0.612{col 54}{space 4}-.0010733{col 67}{space 3} .0018215
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}-.3597293{col 26}{space 2} .0402519{col 37}{space 1}   -8.94{col 46}{space 3}0.000{col 54}{space 4}-.4386215{col 67}{space 3}-.2808371
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 5.039656{col 26}{space 2} .1242309{col 37}{space 1}   40.57{col 46}{space 3}0.000{col 54}{space 4} 4.796168{col 67}{space 3} 5.283144
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .15006076
+     {txt}sigma_e {c |} {res} .11641237
+         {txt}rho {c |} {res}  .6242913{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/wpi.doc", replace label ctitle(OLS)
+{txt}{stata `"shellout using `"regv3/wpi.doc"'"':regv3/wpi.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/wpi.txt", label"':seeout}
+
+{com}. 
+. xtreg lwpi birate lmui tfpi wa_cr44d Dasingi cov,fe r
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       123
+{txt}Group variable: {res}Disic4{txt}{col 49}Number of groups{col 67}={col 69}{res}        28
+
+{txt}R-squared:{col 49}Obs per group:
+     Within  = {res}0.7253{col 63}{txt}min{col 67}={col 69}{res}         2
+{txt}     Between = {res}0.1619{col 63}{txt}avg{col 67}={col 69}{res}       4.4
+{txt}     Overall = {res}0.4047{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}6{txt},{res}27{txt}){col 67}={col 70}{res}    42.19
+{txt}corr(u_i, Xb) = {res}-0.1273{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{ralign 78:(Std. err. adjusted for {res:28} clusters in {res:Disic4})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lwpi{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}birate {c |}{col 14}{res}{space 2}-.0068944{col 26}{space 2} .0223609{col 37}{space 1}   -0.31{col 46}{space 3}0.760{col 54}{space 4}-.0527753{col 67}{space 3} .0389865
+{txt}{space 8}lmui {c |}{col 14}{res}{space 2}-.0266429{col 26}{space 2} .0304051{col 37}{space 1}   -0.88{col 46}{space 3}0.389{col 54}{space 4}-.0890291{col 67}{space 3} .0357433
+{txt}{space 8}tfpi {c |}{col 14}{res}{space 2}  .042539{col 26}{space 2} .0503299{col 37}{space 1}    0.85{col 46}{space 3}0.405{col 54}{space 4}-.0607293{col 67}{space 3} .1458074
+{txt}{space 4}wa_cr44d {c |}{col 14}{res}{space 2}  -.05812{col 26}{space 2} .1006213{col 37}{space 1}   -0.58{col 46}{space 3}0.568{col 54}{space 4}-.2645777{col 67}{space 3} .1483378
+{txt}{space 5}Dasingi {c |}{col 14}{res}{space 2} .0006957{col 26}{space 2}  .000746{col 37}{space 1}    0.93{col 46}{space 3}0.359{col 54}{space 4} -.000835{col 67}{space 3} .0022264
+{txt}{space 7}covid {c |}{col 14}{res}{space 2}-.3518215{col 26}{space 2} .0383157{col 37}{space 1}   -9.18{col 46}{space 3}0.000{col 54}{space 4}-.4304387{col 67}{space 3}-.2732042
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.786295{col 26}{space 2} .2725063{col 37}{space 1}   17.56{col 46}{space 3}0.000{col 54}{space 4} 4.227158{col 67}{space 3} 5.345432
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .19311442
+     {txt}sigma_e {c |} {res} .11641237
+         {txt}rho {c |} {res}  .7334677{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. outreg2 using "regv3/wpi.doc",replace label ctitle(Fixed Effects) addtext(Industry FE,YES)
+{txt}{stata `"shellout using `"regv3/wpi.doc"'"':regv3/wpi.doc}
+{browse `"C:\github\foodbi"' :dir}{com} : {txt}{stata `"seeout using "regv3/wpi.txt", label"':seeout}
+
+{com}. //*/
 . 
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\github\foodbi\regression.smcl
+       {txt}log:  {res}C:\github\Foodbi\regression.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}15 Nov 2023, 21:45:43
+ {txt}closed on:  {res}16 Nov 2023, 21:56:39
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

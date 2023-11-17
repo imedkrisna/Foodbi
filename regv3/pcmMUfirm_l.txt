@@ -1,0 +1,26 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS	OLS	Fixed Effects	Fixed Effects
+				
+lmu	lmu	0.316***		
+		(0.00450)		
+birate	Policy rate	-0.0153***	-0.0107***	-0.0107***
+		(0.00377)	(0.00345)	(0.00345)
+wa_cr44d	Industry CR4	0.133***	0.0466**	0.0466**
+		(0.0167)	(0.0186)	(0.0186)
+ln	Log #Workers	0.0485***	0.166***	0.166***
+		(0.00210)	(0.00478)	(0.00478)
+covid	COVID-19 Dummy	-0.0204***	-0.0150***	-0.0150***
+		(0.00594)	(0.00549)	(0.00549)
+tfp	Total factor productivity	-0.0960***	-0.435***	-0.435***
+		(0.00219)	(0.0111)	(0.0111)
+Dasing	Foreign ownership	-0.000487***	-0.000442*	-0.000442*
+		(0.000146)	(0.000234)	(0.000234)
+Constant	Constant	-0.0216	0.0759	0.0759
+		(0.0321)	(0.204)	(0.204)
+				
+Observations		17,656	17,656	17,656
+R-squared			0.609	0.609
+Number of Noobs		5,926	5,926	5,926
+Firm FE			YES	YES
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

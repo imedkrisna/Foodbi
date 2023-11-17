@@ -46,6 +46,8 @@ la var pcmi "Industry PCM"
 drop mui
 asgen mui=mu,w(Output) by(Disic4 year)
 asgen Dasingi=Dasing,w(Output) by(Disic4 year)
+gen lmui=log(mui)
+gen lmu=log(mu)
 
 outreg2 using "regv3/sumstatv2.doc", replace sum(detail) keep(Ltlnou V1115 tc Output salesor tfp wa_cr44d wa_hhi4d pcm mu) eqkeep(N mean sd p50 min max) label
 
@@ -75,6 +77,13 @@ xtreg pcm mu birate Dasing wa_cr44d i.Disic4 ln cov tfp,fe r
 outreg2 using "regv3/pcmMUfirm.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) label keep(wa_cr44d birate Dasing ln cov mu tfp)
 xtreg pcm mu birate wa_cr44d i.Disic4 ln cov tfp Dasing,fe r
 outreg2 using "regv3/pcmMUfirm.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) keep(wa_cr44d birate Dasing ln cov mu tfp) label
+
+xtreg pcm lmu birate wa_cr44d ln cov tfp Dasing,r
+outreg2 using "regv3/pcmMUfirm_l.doc", replace ctitle(OLS) label
+xtreg pcm lmu birate Dasing wa_cr44d i.Disic4 ln cov tfp,fe r
+outreg2 using "regv3/pcmMUfirm_l.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) label keep(wa_cr44d birate Dasing ln cov mu tfp)
+xtreg pcm lmu birate wa_cr44d i.Disic4 ln cov tfp Dasing,fe r
+outreg2 using "regv3/pcmMUfirm_l.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) keep(wa_cr44d birate Dasing ln cov mu tfp) label
 
 // INDUSTRY
 
@@ -106,16 +115,21 @@ outreg2 using "regv3/pcmCR4in.doc", replace ctitle(OLS) label
 xtreg pcmi mui wa_cr44d birate Dasingi cov tfpi,fe r
 outreg2 using "regv3/pcmCR4in.doc", append ctitle(Fixed Effects) addtext(Industry FE, YES) label
 
-/* WPI
+xtreg pcmi lmui wa_cr44d birate Dasingi cov tfpi,r
+outreg2 using "regv3/pcmCR4in_l.doc", replace ctitle(OLS) label
+xtreg pcmi lmui wa_cr44d birate Dasingi cov tfpi,fe r
+outreg2 using "regv3/pcmCR4in_l.doc", append ctitle(Fixed Effects) addtext(Industry FE, YES) label
+
+//* WPI
 
 gen lwpi=log(wpi)
 
-xtreg lwpi birate mui tfpi wa_cr44d Dasingi cov,r
+xtreg lwpi birate lmui tfpi wa_cr44d Dasingi cov,r
 outreg2 using "regv3/wpi.doc", replace label ctitle(OLS)
 
-xtreg lwpi birate mui tfpi wa_cr44d Dasingi cov,fe r
+xtreg lwpi birate lmui tfpi wa_cr44d Dasingi cov,fe r
 outreg2 using "regv3/wpi.doc",replace label ctitle(Fixed Effects) addtext(Industry FE,YES)
-*/
+//*/
 
 log close
 

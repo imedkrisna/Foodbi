@@ -18,18 +18,18 @@ outreg2 using "regv3/sumstatv3.doc", replace sum(detail) keep(ln lk ltc lo tfp w
 
 // before drop: N=35,280 (see sumstat) 
 // after drop: N=17,733 (see sumstat v2 and v3)
-drop if Noobs==.
+
 xtset Noobs year
 
 // FIRMS
 
 // Does market concentration affects markups?
 
-xtreg mu wa_cr44d ln Dasing cov,r
+xtreg lmu wa_cr44d ln Dasing cov,r
 outreg2 using "regv3/freg1.doc", replace ctitle(OLS) label
-xtreg mu wa_cr44d ln Dasing cov,r fe
+xtreg lmu wa_cr44d ln Dasing cov,r fe
 outreg2 using "regv3/freg1.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES) label
-xtreg mu wa_cr44d ln Dasing cov i.Disic4,r fe
+xtreg lmu wa_cr44d ln Dasing cov i.Disic4,r fe
 outreg2 using "regv3/freg1.doc", append ctitle(Fixed Effects) addtext(Firm FE, YES, Industry FE, YES) label keep(wa_cr44d ln Dasing cov)
 
 // Does PCM better?
@@ -100,7 +100,7 @@ use tfpdd,clear
 duplicates drop Disic3 year,force
 xtset Disic3 year
 
-xtreg lwpi wa_cr44d cov,r
+xtreg lwpi3 wa_cr44d cov,r
 outreg2 using "regv3/wpi.doc", replace label ctitle(OLS)
 
 xtreg lwpi wa_cr44d cov,fe r

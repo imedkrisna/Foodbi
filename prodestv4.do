@@ -216,57 +216,6 @@ tabstat mu if Disic4==1043, stats(mean sd median p25 p75 min max)
 tabstat mu if Disic4==1063, stats(mean sd median p25 p75 min max)
 tabstat mu if Disic4==1072, stats(mean sd median p25 p75 min max)
 
-// treating tfpd as the final data used
 
-sum pcm,det
-drop if pcm < r(p5) | pcm > r(p95)
-sum mu,detail
-drop if mu>r(p95)
-drop if tfp==.
-asgen pcmi=pcm, w(Output) by(Disic4 year)
-la var pcmi "Industry PCM"
-drop mui
-asgen mui=mu,w(Output) by(Disic4 year)
-asgen Dasingi=Dasing,w(Output) by(Disic4 year)
-asgen mui3=mu,w(Output) by(Disic3 year)
-gen lmui=log(mui)
-gen lmu=log(mu)
-gen lmui3=log(mui3)
-
-merge m:1 Disic3 year using wpi,gen(swt)
-merge m:1 Disic4 year using wpi2,gen(swt2)
-gen lwpi2=log(price)
-gen lwpi=log(wpi10)
-
-gen tc = Rdnvcu+Rimvcu+Efuvcu+Enpvcu+Ztdvcu+It1vcu
-gen ltc=log(tc)
-
-// labeling
-
-la var Ltlnou "no. of workers"
-la var Output "Output"
-la var V1115 "Capitsah al"
-la var tc "Total cost"
-la var Prprex "% output exported"
-la var salesor "Sales orientation"
-la var tfp "Total factor productivity"
-la var wa_cr44d "Industry CR4"
-la var wa_hhi4d "Industry HHI"
-la var pcm "Price-cost margin"
-la var mu "Markups"
-la var ln "Log #Workers"
-la var birate "Policy rate"
-la var cov "COVID-19 Dummy"
-la var Dasing "Foreign ownership"
-la var lmu "Log of markups"
-la var lmui "Log of industry markups"
-la var lwpi "log of price index"
-la var lwpi2 "log of price index"
-la var Disic3 "ISIC-3-digits"
-la var Disic2 "ISIC-2-digits"
-la var Disic4 "ISIC-4-digits"
-la var mui "Industry markups"
-
-save tfpdd,replace
 
 log close

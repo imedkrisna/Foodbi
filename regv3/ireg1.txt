@@ -1,18 +1,17 @@
-		(1)	(2)
-VARIABLES	LABELS	OLS	Fixed Effects
-			
-wa_cr44d	Industry CR4	-3.373***	-2.162
-		(1.049)	(2.695)
-Dasingi	Dasingi	0.0222	0.0291*
-		(0.0146)	(0.0157)
-covid	COVID-19 Dummy	-0.184	-0.195
-		(0.313)	(0.288)
-Constant	Constant	5.603***	4.872***
-		(0.716)	(1.513)
-			
-Observations		144	144
-R-squared			0.092
-Number of Disic4		30	30
-Firm FE			YES
-Robust standard errors in parentheses			
-*** p<0.01, ** p<0.05, * p<0.1			
+		(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	LABELS	OLS	FE	GMM	OLS	FE	GMM
+							
+lhhi4	log HHI	-0.215***	-0.0632	-0.296***			
+		(0.0712)	(0.123)	(0.0322)			
+covid	COVID-19 Dummy	-0.0941	-0.0826	-0.0963	-0.0882	-0.0795	-0.0752
+		(0.0879)	(0.0909)	(0.0859)	(0.0890)	(0.0900)	(0.0868)
+lcr4	log CR4				-0.445***	-0.0327	-0.591***
+					(0.134)	(0.182)	(0.0599)
+Constant	Constant	0.720***	1.085***	0.576***	0.888***	1.211***	0.823***
+		(0.198)	(0.283)	(0.107)	(0.149)	(0.133)	(0.0790)
+							
+Observations		148	148	148	148	148	148
+R-squared			0.012			0.009	
+Number of Disic4		30	30		30	30	
+Robust standard errors in parentheses							
+*** p<0.01, ** p<0.05, * p<0.1							

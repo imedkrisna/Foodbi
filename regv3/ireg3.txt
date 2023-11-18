@@ -1,17 +1,15 @@
-		(1)	(2)
-VARIABLES	LABELS	OLS	OLS
-			
-mui	Industry markups	0.0313***	0.0387***
-		(0.0101)	(0.0135)
-covid	COVID-19 Dummy	0.0182	0.0211
-		(0.0293)	(0.0296)
-Dasingi	Dasingi	-0.00125	-0.00179
-		(0.000898)	(0.00107)
-Constant	Constant	0.254***	0.233***
-		(0.0411)	(0.0546)
-			
-Observations		148	148
-R-squared			0.136
-Number of Disic4		30	30
-Robust standard errors in parentheses			
-*** p<0.01, ** p<0.05, * p<0.1			
+		(1)	(2)	(3)
+VARIABLES	LABELS	OLS	FE	GMM
+				
+lmui	Log of industry markups	0.387***	0.425***	0.128
+		(0.0788)	(0.0884)	(0.0888)
+covid	COVID-19 Dummy	0.0506	0.0554	-0.0555
+		(0.0612)	(0.0629)	(0.0913)
+Constant	Constant	-1.675***	-1.720***	-1.256***
+		(0.138)	(0.118)	(0.136)
+				
+Observations		148	148	148
+R-squared			0.168	
+Number of Disic4		30	30	
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

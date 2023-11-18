@@ -1,0 +1,15 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS	OLS	FE	GMM
+				
+lmui3	lmui3	-0.0209*	-0.0190	-0.196***
+		(0.0122)	(0.0127)	(0.0502)
+covid	COVID-19 Dummy	0.0687***	0.0685***	0.0873
+		(0.0142)	(0.0141)	(0.0616)
+Constant	Constant	5.141***	5.138***	5.380***
+		(0.0795)	(0.0224)	(0.0889)
+				
+Observations		40	40	40
+R-squared			0.425	
+Number of Disic3		8	8	
+Robust standard errors in parentheses				
+*** p<0.01, ** p<0.05, * p<0.1				

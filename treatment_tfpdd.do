@@ -93,6 +93,7 @@ la var lcr3 "log CR4"
 la var lhhi4 "log HHI"
 la var lhhi3 "log HHI"
 la var lmui3 "log of industry markups"
+la var ltfpi3 "productivity"
 
 drop if Noobs==.
 

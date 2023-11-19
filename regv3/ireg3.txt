@@ -1,15 +1,17 @@
 		(1)	(2)	(3)
 VARIABLES	LABELS	OLS	FE	GMM
 				
-lmui	Log of industry markups	0.387***	0.425***	0.128
-		(0.0788)	(0.0884)	(0.0888)
-covid	COVID-19 Dummy	0.0506	0.0554	-0.0555
-		(0.0612)	(0.0629)	(0.0913)
-Constant	Constant	-1.675***	-1.720***	-1.256***
-		(0.138)	(0.118)	(0.136)
+lmui	Log of industry markups	0.485***	0.649***	0.204***
+		(0.0760)	(0.0750)	(0.0707)
+tfpi	tfpi	-0.207***	-0.344***	-0.142***
+		(0.0505)	(0.0640)	(0.0184)
+covid	COVID-19 Dummy	0.0291	0.0245	-0.130*
+		(0.0547)	(0.0541)	(0.0761)
+Constant	Constant	-0.315	0.465	-0.344***
+		(0.307)	(0.443)	(0.131)
 				
 Observations		148	148	148
-R-squared			0.168	
+R-squared			0.331	
 Number of Disic4		30	30	
 Robust standard errors in parentheses				
 *** p<0.01, ** p<0.05, * p<0.1				
